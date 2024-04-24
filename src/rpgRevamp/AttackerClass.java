@@ -597,7 +597,10 @@ public class AttackerClass {
 						fusion.startDefending();
 						damageTaken = fusion.takeDamage(damageTaken);
 						dodgeCost.addKi(damageTaken);
-						dodgeCost.addMomentum(damageTaken);
+						if (!Broly.isBrolyFullPowerUltimate())
+						{
+							dodgeCost.addMomentum(damageTaken);
+						}
 						fusion.endDefending();
 					}
 					else
@@ -715,7 +718,10 @@ public class AttackerClass {
 				String fusionTurn;
 				damageTaken = fusion.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+				{
+					dodgeCost.addMomentum(damageTaken);
+				}
 				do
 				{
 					JOptionPane.showMessageDialog(null, fusion + " used " + FusedPlayer.getSkill1());
@@ -808,7 +814,10 @@ public class AttackerClass {
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName1);
 				damageTaken = player2.takeDamageHumanTanking(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+				{
+					dodgeCost.addMomentum(damageTaken);
+				}
 				damageTaken = 0;
 			}
 			else
@@ -817,7 +826,10 @@ public class AttackerClass {
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + playerName1);
 				damageTaken = player2.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+				{
+					dodgeCost.addMomentum(damageTaken);
+				}
 				damageTaken = 0;
 			}
 		}

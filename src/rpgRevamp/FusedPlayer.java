@@ -624,7 +624,10 @@ public class FusedPlayer {
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + name);
 				damageTaken = player2.takeDamageHumanTanking(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+						{
+							dodgeCost.addMomentum(damageTaken);
+						}
 				damageTaken = 0;
 			}
 			else
@@ -633,7 +636,10 @@ public class FusedPlayer {
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + name);
 				damageTaken = player2.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+						{
+							dodgeCost.addMomentum(damageTaken);
+						}
 				damageTaken = 0;
 			}
 		}

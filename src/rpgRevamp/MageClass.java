@@ -400,7 +400,10 @@ public class MageClass {
 				System.out.println(fusion + " protected " + playerName3);
 				damageTaken = fusion.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+						{
+							dodgeCost.addMomentum(damageTaken);
+						}
 				damageTaken = dodgeCost.reduceBrolyHealth(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				FusedPlayer.addDamageDealt(damageTaken);
@@ -417,7 +420,10 @@ public class MageClass {
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName3);
 				damageTaken = player2.takeDamageHumanTanking(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+						{
+							dodgeCost.addMomentum(damageTaken);
+						}
 				damageTaken = 0;
 			}
 			else
@@ -426,7 +432,10 @@ public class MageClass {
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName3);
 				damageTaken = player2.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
-				dodgeCost.addMomentum(damageTaken);
+				if (!Broly.isBrolyFullPowerUltimate())
+						{
+							dodgeCost.addMomentum(damageTaken);
+						}
 				damageTaken = 0;
 			}
 		}

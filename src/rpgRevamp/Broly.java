@@ -306,7 +306,7 @@ public class Broly {
 	}
 	
 	public int getBrolyAction() {
-		return rng.nextInt(4) + 1;
+		return rng.nextInt(6) + 1;
 	}
 	
 	public int getBrolyActionFailure1() {
