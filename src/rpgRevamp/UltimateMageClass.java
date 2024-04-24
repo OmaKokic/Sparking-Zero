@@ -79,6 +79,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			super.reduceHyperChargeDurationUltimate();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turns");
@@ -102,6 +103,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			super.reduceHyperChargeDuration();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turn");
@@ -200,6 +202,7 @@ public class UltimateMageClass extends MageClass{
 		}
 		if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 		{
+			super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer3Ki(0);
 		}
 		super.addToKiGained(addedKi);
@@ -297,6 +300,7 @@ public class UltimateMageClass extends MageClass{
 		}
 		if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 		{
+			super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer3Ki(0);
 		}
 		super.addToKiGained(addedKi);

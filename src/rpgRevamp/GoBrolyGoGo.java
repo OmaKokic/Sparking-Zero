@@ -19094,7 +19094,7 @@ public class GoBrolyGoGo {
 		UltimateAttackerClass ultimate1 = new UltimateAttackerClass();
 		UltimateTankClass ultimate2 = new UltimateTankClass();
 		UltimateMageClass ultimate3 = new UltimateMageClass();
-		UltimateItemCrafter ultimate4 = new 
+		UltimateItemCrafter ultimate4 = new UltimateItemCrafter();
 		if (brolyAction == 4)
 		{
 			if (superSaiyan.getBrolyMomentum() < 100)
@@ -19164,6 +19164,14 @@ public class GoBrolyGoGo {
 				if (player1.getPlayer1Health() <= 0)
 				{
 				}
+				else if (player1.isUltimate())
+				{
+					damageDealt = ultimate1.takeDamage(brolyAttack);
+					superSaiyan.addKi(damageDealt);
+					ultimate1.addKi(damageDealt);
+					ultimate1.reduceMomentum(damageDealt);
+					superSaiyan.addMomentum(damageDealt);
+				}
 				else
 				{
 					damageDealt = player1.takeDamage(brolyAttack);
@@ -19175,6 +19183,13 @@ public class GoBrolyGoGo {
 				if (player2.getPlayer2Health() <= 0)
 				{
 				}
+				else if (player2.isUltimate())
+				{
+					damageDealt = ultimate2.takeDamage(brolyAttack);
+					superSaiyan.addKi(damageDealt);
+					ultimate2.addKi(damageDealt);
+					superSaiyan.addMomentum(damageDealt);
+				}
 				else
 				{
 					damageDealt = player2.takeDamage(brolyAttack);
@@ -19184,6 +19199,14 @@ public class GoBrolyGoGo {
 				}
 				if (player3.getPlayer3Health() <= 0)
 				{
+				}
+				else if (player3.isUltimate())
+				{
+					damageDealt = ultimate3.takeDamage(brolyAttack);
+					superSaiyan.addKi(damageDealt);
+					ultimate3.addKi(damageDealt);
+					ultimate3.reduceMomentum(damageDealt);
+					superSaiyan.addMomentum(damageDealt);
 				}
 				else
 				{
@@ -19195,6 +19218,14 @@ public class GoBrolyGoGo {
 				}
 				if (player4.getPlayer4Health() <= 0)
 				{
+				}
+				else if (player4.isUltimate())
+				{
+					damageDealt = ultimate1.takeDamage(brolyAttack);
+					superSaiyan.addKi(damageDealt);
+					ultimate1.addKi(damageDealt);
+					ultimate1.reduceMomentum(damageDealt);
+					superSaiyan.addMomentum(damageDealt);
 				}
 				else
 				{

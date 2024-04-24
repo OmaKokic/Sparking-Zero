@@ -82,6 +82,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			super.reduceHyperChargeDurationUltimate();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turns");
@@ -105,6 +106,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			super.reduceHyperChargeDuration();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turn");
@@ -201,6 +203,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 		{
+			super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer4Ki(0);
 		}
 	}
@@ -297,6 +300,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 		{
+			super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer4Ki(0);
 		}
 	}

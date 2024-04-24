@@ -80,6 +80,7 @@ public class UltimateTankClass extends TankClass{
 			if (super.getPlayer2ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer2Ki(0);
+				super.setPlayer2ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			super.reduceHyperChargeDurationUltimate();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turns");
@@ -103,6 +104,7 @@ public class UltimateTankClass extends TankClass{
 			if (super.getPlayer2ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer2Ki(0);
+				super.setPlayer2ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			super.reduceHyperChargeDuration();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turn");
@@ -200,6 +202,7 @@ public class UltimateTankClass extends TankClass{
 		if (super.getPlayer2ChargeNumber() == MAX_CHARGE_NUMBER)
 		{
 			super.setPlayer2Ki(0);
+			super.setPlayer2ChargeNumber(MAX_CHARGE_NUMBER);
 		}
 	}
 	
@@ -296,6 +299,7 @@ public class UltimateTankClass extends TankClass{
 		if (super.getPlayer2ChargeNumber() == MAX_CHARGE_NUMBER)
 		{
 			super.setPlayer2Ki(0);
+			super.setPlayer2ChargeNumber(MAX_CHARGE_NUMBER);
 		}
 	}
 	
