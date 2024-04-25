@@ -22155,7 +22155,7 @@ public class GoBrolyGoGo {
 		craft.increaseSenzuHealItemAmount();
 		fusion.deactivateMomentumSkill();
 	}
-	public static void brolyFullPowerSuperSaiyanTurn(Broly fullPower, AttackerClass player1, TankClass player2, MageClass player3, ItemCrafter player4) {''
+	public static void brolyFullPowerSuperSaiyanTurn(Broly fullPower, AttackerClass player1, TankClass player2, MageClass player3, ItemCrafter player4) {
 		int brolyAction;
 		int damageDealt = 0; 
 		boolean validChoice = false;
