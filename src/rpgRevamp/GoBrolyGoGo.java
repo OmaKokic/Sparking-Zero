@@ -19113,7 +19113,7 @@ public class GoBrolyGoGo {
 				player3.removeHumanShieldTarget();
 				player4.removeHumanShieldTarget();
 				superSaiyan.activateBlasterMeteorBarrier();
-				while (!(validChoice) || ((player2.isHumanShieldSkill()))) {
+				while (!(validChoice) && ((player2.isHumanShieldSkill()))) {
 					humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 							+ player1 + "\n" + player3 + "\n" + player4);
 					if (humanShieldTarget == null)

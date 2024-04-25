@@ -362,7 +362,7 @@ public class MageClass {
 	}
 	
 	public void useSharedGrowth() {
-		player3Ki = 100;
+		player3Ki = 0;
 		player3ChargeNumber = 3;
 		player3Momentum = 0;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + " used " + MOMENTUM_SKILL);
@@ -896,10 +896,18 @@ public class MageClass {
 	}
 	
 	public void addPlayerChargeNumber(int chargeNumberIncrease) {
+		int currentKi = player3ChargeNumber;
 		player3ChargeNumber += chargeNumberIncrease;
 		if (player3ChargeNumber > MAX_CHARGE_NUMBER)
 		{
 			player3ChargeNumber = MAX_CHARGE_NUMBER;
+			chargeNumberIncrease = MAX_CHARGE_NUMBER - currentKi;
+			kiGained += chargeNumberIncrease * 100;
+		}
+		else
+		{
+			chargeNumberIncrease -= currentKi;
+			kiGained += chargeNumberIncrease * 100;
 		}
 	}
 	

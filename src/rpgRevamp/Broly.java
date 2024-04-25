@@ -535,6 +535,7 @@ public class Broly {
 	}
 	
 	public int getBlasterMeteorDamage() {
+		bossMomentum = 0;
 		return rng.nextInt(2667) + BLASTER_METEOR_MIN_DAMAGE;
 	}
 
