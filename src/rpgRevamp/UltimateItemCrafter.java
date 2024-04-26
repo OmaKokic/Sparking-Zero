@@ -116,7 +116,11 @@ public class UltimateItemCrafter extends ItemCrafter{
 	
 	@Override
 	public void addKi(int addedKi) {
-		if (super.getHyperChargeDuration() > 0)
+		if (super.getPlayer4Health() < 1)
+		{
+			
+		}
+		else if (super.getHyperChargeDuration() > 0)
 		{
 			super.addKiUltimate(addedKi / 10);
 		}

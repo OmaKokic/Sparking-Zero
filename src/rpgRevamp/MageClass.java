@@ -84,7 +84,7 @@ public class MageClass {
 	}
 	
 	public void addKi(int addedKi) {
-		if (player3Health < 0)
+		if (player3Health <= 0)
 		{
 		}
 		else if (hyperChargeDuration > 0)

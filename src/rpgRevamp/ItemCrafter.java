@@ -90,7 +90,7 @@ public class ItemCrafter {
 	}
 	
 	public void addKi(int addedKi) {
-		if (player4Health < 0)
+		if (player4Health <= 0)
 		{
 		}
 		else if (hyperChargeDuration > 0)

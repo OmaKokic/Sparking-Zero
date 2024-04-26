@@ -495,7 +495,7 @@ public class AttackerClass {
 	}
 	
 	public void addKi(int addedKi) {
-		if (player1Health < 0)
+		if (player1Health <= 0)
 		{
 		}
 		else if (hyperChargeDuration > 0)

@@ -113,7 +113,11 @@ public class UltimateMageClass extends MageClass{
 	
 	@Override
 	public void addKi(int addedKi) {
-		if (super.getHyperChargeDuration() > 0)
+		if (super.getPlayer3Health() < 1)
+		{
+			
+		}
+		else if (super.getHyperChargeDuration() > 0)
 		{
 			addedKi /= 10;
 			super.addKiUltimate(addedKi);

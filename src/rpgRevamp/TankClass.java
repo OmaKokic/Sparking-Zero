@@ -85,7 +85,7 @@ public class TankClass {
 	}
 	
 	public void addKi(int addedKi) {
-		if (player2Health < 0)
+		if (player2Health <= 0)
 		{
 		}
 		else if (hyperChargeDuration > 0)

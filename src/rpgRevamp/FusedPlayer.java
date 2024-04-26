@@ -494,7 +494,7 @@ public class FusedPlayer {
 	}
 	
 	public void addKi(int addedKi) {
-		if (health < 0)
+		if (health <= 0)
 		{
 		}
 		else if (hyperChargeDuration > 0)

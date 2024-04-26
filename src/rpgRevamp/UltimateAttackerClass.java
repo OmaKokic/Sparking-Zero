@@ -330,7 +330,11 @@ public class UltimateAttackerClass extends AttackerClass{
 	
 	@Override
 	public void addKi(int addedKi) {
-		if (super.getHyperChargeDuration() > 0)
+		if (super.getPlayer1Health() < 1)
+		{
+			
+		}
+		else if (super.getHyperChargeDuration() > 0)
 		{
 			super.addKiUltimate(addedKi / 10);
 		}
