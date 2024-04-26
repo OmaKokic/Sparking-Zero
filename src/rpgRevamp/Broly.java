@@ -490,6 +490,10 @@ public class Broly {
 			else
 			{
 				bossMomentum += rng.nextInt(50) + 1;
+				if (bossMomentum > 100)
+				{
+					bossMomentum = 100;
+				}
 			}
 		}
 		else
@@ -625,7 +629,7 @@ public class Broly {
 				}
 			}
 		}
-		while (!(validChoice) || ((player2.isHumanShieldSkill())) || humanShieldUnusable); {
+		while (!(validChoice) || ((player2.isHumanShieldSkill())) || humanShieldUnusable) {
 			humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 					+ player1 + "\n" + player3 + "\n" + player4);
 			if (humanShieldTarget == null)
@@ -860,7 +864,7 @@ public class Broly {
 		{
 			if (FusedPlayer.isFused())
 			{
-				while (!(validChoice) && (!(humanShieldUnusable))); {
+				while (!(validChoice) && (!(humanShieldUnusable))) {
 					humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 							+ fusion + "\n" + playerOutsideOfFusion);
 					if (humanShieldTarget == null)
@@ -923,7 +927,7 @@ public class Broly {
 			}
 			else
 			{
-				while (!(validChoice) && humanShieldUnusable); {
+				while (!(validChoice) && humanShieldUnusable) {
 					humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 							+ player1 + "\n" + player3 + "\n" + player4);
 					if (humanShieldTarget == null)
@@ -975,7 +979,7 @@ public class Broly {
 		}
 		else if (FusedPlayer.isProtectionSkill())
 		{
-			while (!(validChoice) && (!(humanShieldUnusable))); {
+			while (!(validChoice) && (!(humanShieldUnusable))) {
 				humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 						+ playerOutsideOfFusion1 + "\n" + playerOutsideOfFusion2);
 				if (humanShieldTarget == null)
@@ -1192,5 +1196,9 @@ public class Broly {
 	
 	public static void deactivateBrolyFullPowerUltimate() {
 		brolyFullPowerUltimate = false;
+	}
+	
+	public static void resetMomentum() {
+		bossMomentum = 0;
 	}
 }

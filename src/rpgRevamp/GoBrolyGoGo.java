@@ -10440,6 +10440,7 @@ public class GoBrolyGoGo {
 					player4.addKi(damageDealt);
 					player4.reduceMomentum(damageDealt);
 				}
+				Broly.resetMomentum();
 			}
 		}
 		if (brolyAction == 3)
@@ -19227,6 +19228,7 @@ public class GoBrolyGoGo {
 					player4.addKi(damageDealt);
 					player4.reduceMomentum(damageDealt);
 				}
+				Broly.resetMomentum();
 			}
 			Broly.deactivateBrolySuperUltimate();
 		}
@@ -22308,6 +22310,7 @@ public class GoBrolyGoGo {
 						validChoice = true;
 					}
 				} while (!(validChoice));
+				Broly.resetMomentum();
 			}
 			else
 			{

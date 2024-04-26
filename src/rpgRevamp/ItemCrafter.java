@@ -1087,7 +1087,10 @@ public class ItemCrafter {
 	}
 	
 	public void reduceMomentum(int reducedMomentum) {
-		player4Momentum -= reducedMomentum / 200;
+		if (staticMomentumDuration < 1)
+		{
+			player4Momentum -= reducedMomentum / 200;
+		}
 		if (player4Momentum < 0)
 		{
 			player4Momentum = 0;

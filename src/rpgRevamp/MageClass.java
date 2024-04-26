@@ -765,7 +765,10 @@ public class MageClass {
 	}
 	
 	public void reduceMomentum(int reducedMomentum) {
-		player3Momentum -= reducedMomentum / 200;
+		if (staticMomentumDuration < 1)
+		{
+			player3Momentum -= reducedMomentum / 200;
+		}
 		if (player3Momentum < 0)
 		{
 			player3Momentum = 0;

@@ -1026,7 +1026,10 @@ public class FusedPlayer {
 	}
 	
 	public void reduceMomentum(int reducedMomentum) {
-		momentum -= reducedMomentum / 200;
+		if (staticMomentumDuration < 1)
+		{
+			momentum -= reducedMomentum / 200;
+		}
 		if (momentum < 0)
 		{
 			momentum = 0;

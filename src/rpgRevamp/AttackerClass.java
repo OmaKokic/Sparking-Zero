@@ -1167,7 +1167,10 @@ public class AttackerClass {
 	}
 	
 	public void reduceMomentum(int reducedMomentum) {
-		player1Momentum -= reducedMomentum / 200;
+		if (staticMomentumDuration < 1)
+		{
+			player1Momentum -= reducedMomentum / 200;
+		}
 		if (player1Momentum < 0)
 		{
 			player1Momentum = 0;
