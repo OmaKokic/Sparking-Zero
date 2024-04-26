@@ -35,11 +35,11 @@ public class Broly {
 		OMEGA_BLASTER_BARRIER_MAX_HEALTH_SUPER_SAIYAN = 3000 * challengeModeAttackUp;
 		GIGANTIC_CHARGE_SUPER_SAIYAN_MIN_DAMAGE = 1866 * challengeModeAttackUp;
 		BLASTER_METEOR_MAX_BARRIER_HEALTH = 5000 * challengeModeAttackUp;
-		BLASTER_METEOR_BARRIER_MIN = 2370 * challengeModeAttackUp; 
+		BLASTER_METEOR_BARRIER_MIN = 790 * challengeModeAttackUp; 
 		GIGANTIC_ROAR_MIN_DAMAGE = 6667 * challengeModeAttackUp;
 		BLASTER_CANNON_FULL_POWER_MIN_DAMAGE = 5000 * challengeModeAttackUp;
 		OMEGA_BLASTER_BARRIER_MAX_FULL_POWER = 5000 * challengeModeAttackUp;
-		OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE = 3333 * challengeModeAttackUp;
+		OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE = 1000 * challengeModeAttackUp;
 		GIGANTIC_CHARGE_FULL_POWER_MIN_DAMAGE = 2333 * challengeModeAttackUp;
 	}
 
@@ -613,7 +613,7 @@ public class Broly {
 		int brolyAttack = 0;
 		String humanShieldTarget = "null";
 		boolean humanShieldUnusable = false;
-		brolyAttack = rng.nextInt(1185) + BLASTER_METEOR_BARRIER_MIN;
+		brolyAttack = rng.nextInt(210) + BLASTER_METEOR_BARRIER_MIN;
 		blasterMeteorBarrierHealth -= 1000;
 		brolyUltimate = true;
 		player1.removeHumanShieldTarget();
@@ -686,7 +686,6 @@ public class Broly {
 			addKi(damageDealt);
 			player1.addKi(damageDealt);
 			player1.reduceMomentum(damageDealt);
-			addMomentum(damageDealt);
 		}
 		if (player2.getPlayer2Health() <= 0)
 		{
@@ -696,7 +695,6 @@ public class Broly {
 			damageDealt = player2.takeDamage(brolyAttack);
 			addKi(damageDealt);
 			player2.addKi(damageDealt);
-			addMomentum(damageDealt);
 		}
 		if (player3.getPlayer3Health() <= 0)
 		{
@@ -707,7 +705,6 @@ public class Broly {
 			addKi(damageDealt);
 			player3.addKi(damageDealt);
 			player3.reduceMomentum(damageDealt);
-			addMomentum(damageDealt);
 		}
 		if (player4.getPlayer4Health() <= 0)
 		{
@@ -718,7 +715,6 @@ public class Broly {
 			addKi(damageDealt);
 			player4.addKi(damageDealt);
 			player4.reduceMomentum(damageDealt);
-			addMomentum(damageDealt);
 		}
 	}
 	
@@ -796,7 +792,7 @@ public class Broly {
 		int brolyAttack = 0;
 		String humanShieldTarget = "null";
 		boolean humanShieldUnusable = false;
-		brolyAttack = rng.nextInt(1667) + OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE;
+		brolyAttack = rng.nextInt(250) + OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE;
 		omegaBlasterHealth -= 1000;
 		brolySuper = true;
 		player1.removeHumanShieldTarget();
@@ -1086,7 +1082,6 @@ public class Broly {
 			addKi(damageDealt);
 			player1.addKi(damageDealt);
 			player1.reduceMomentum(damageDealt);
-			addMomentum(damageDealt);
 		}
 		if (player2.getPlayer2Health() <= 0)
 		{
@@ -1096,7 +1091,6 @@ public class Broly {
 			damageDealt = player2.takeDamage(brolyAttack);
 			addKi(damageDealt);
 			player2.addKi(damageDealt);
-			addMomentum(damageDealt);
 		}
 		if (player3.getPlayer3Health() <= 0)
 		{
@@ -1107,7 +1101,6 @@ public class Broly {
 			addKi(damageDealt);
 			player3.addKi(damageDealt);
 			player3.reduceMomentum(damageDealt);
-			addMomentum(damageDealt);
 		}
 		if (player4.getPlayer4Health() <= 0)
 		{
@@ -1118,7 +1111,6 @@ public class Broly {
 			addKi(damageDealt);
 			player4.addKi(damageDealt);
 			player4.reduceMomentum(damageDealt);
-			addMomentum(damageDealt);
 		}
 		if (FusedPlayer.isFused())
 		{
@@ -1128,7 +1120,6 @@ public class Broly {
 				addKi(damageDealt);
 				fusion.addKi(damageDealt);
 				fusion.reduceMomentum(damageDealt);
-				addMomentum(damageDealt);
 			}
 		}
 	}
