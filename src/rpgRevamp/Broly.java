@@ -629,7 +629,7 @@ public class Broly {
 				}
 			}
 		}
-		while (!(validChoice) || ((player2.isHumanShieldSkill())) || humanShieldUnusable) {
+		while (!(validChoice) && ((player2.isHumanShieldSkill())) && humanShieldUnusable) {
 			humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 					+ player1 + "\n" + player3 + "\n" + player4);
 			if (humanShieldTarget == null)
