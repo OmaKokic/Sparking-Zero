@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class AttackerClass {
 
 	private static String playerName1;//This is player 1's name
-	private static int player1Health = 4000;
+	private static int player1Health = 5000;
 	private static int player1Ki = 0;
 	private static int player1Momentum = 0;
 	private static int player1ChargeNumber = 0;
@@ -21,7 +21,7 @@ public class AttackerClass {
 	ItemCrafter itemCrafterHighSpirit = new ItemCrafter();
 	MageClass mageHighSpirit = new MageClass();
 	TankClass tankHighSpirit = new TankClass();
-	private final int MAX_HEALTH = 4000;
+	private final int MAX_HEALTH = 5000;
 	private static int attackUpDuration = 0;
 	private static int defenseUpDuration = 0;
 	private final int ATTACK_UP = 2;
@@ -570,8 +570,8 @@ public class AttackerClass {
 		return playerDamage;
 	}
 	
-	public void sharedGrowthAttackUpDuration() {
-		attackUpDuration = 2;
+	public void sharedGrowthHyperChargeDuration() {
+		hyperChargeDuration = 2;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + " powered up");
 		System.out.println(ultimateTag + playerName1 + " powered up");
 	}
@@ -590,6 +590,7 @@ public class AttackerClass {
 			{
 				String fusionTurn, 
 					playerConfirmation;
+				fusion.addMomentum(damageTaken);
 				if (FusedPlayer.getKi() > dodgeCost.getBrolyKi())
 				{
 					if (FusedPlayer.getChargeNumber() < dodgeCost.getBrolyChargeNumber())
@@ -718,6 +719,7 @@ public class AttackerClass {
 				String fusionTurn;
 				damageTaken = fusion.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
+				fusion.addMomentum(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
 				{
 					dodgeCost.addMomentum(damageTaken);
@@ -812,6 +814,7 @@ public class AttackerClass {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName1);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName1);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamageHumanTanking(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -824,6 +827,7 @@ public class AttackerClass {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + playerName1);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + playerName1);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -840,6 +844,8 @@ public class AttackerClass {
 		}
 		else if (player2.getUltimateGenkiShieldDuration() > 0)
 		{
+			JOptionPane.showMessageDialog(null, "Ultimate Genki Shield blocked the attack");
+			System.out.println("Ultimate Genki Shield blocked the attack");
 		}
 		else if (Broly.isBrolyFullPowerUltimate())
 		{
@@ -1296,8 +1302,8 @@ public class AttackerClass {
 		return ultimateTag;
 	}
 	
-	public void contagiousGrowthAttackUpDuration() {
-		attackUpDuration = 4;
+	public void contagiousGrowthHyperChargeDuration() {
+		hyperChargeDuration = 4;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + " powered up");
 		System.out.println(ultimateTag + playerName1 + " powered up");
 	}
@@ -1345,5 +1351,46 @@ public class AttackerClass {
 		player1ChargeNumber -= 2;
 	}
 	
-	
+	public void addKiDragonBalls() {
+		player1Ki += 50;
+		if (player1Ki > 299)
+		{
+			player1ChargeNumber = 3;
+			player1Ki = 0;
+		}
+		else if (player1Ki > 199)
+		{
+			if (player1ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player1Ki = 0;
+			}
+			else if (player1ChargeNumber == 2)
+			{
+				player1ChargeNumber++;
+				player1Ki = 100;
+			}
+			else
+			{
+				player1ChargeNumber += 2;
+				player1Ki -= 200;
+			}
+		}
+		else if (player1Ki > 99)
+		{
+			if (player1ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player1Ki = 0;
+			}
+			else 
+			{
+				player1ChargeNumber++;
+				player1Ki -= 100;
+			}
+		}
+		if (player1ChargeNumber == MAX_CHARGE_NUMBER)
+		{
+			player1Ki = 0;
+		}
+		Items.addPoints(50);
+	}
 }

@@ -35,11 +35,11 @@ public class Broly {
 		OMEGA_BLASTER_BARRIER_MAX_HEALTH_SUPER_SAIYAN = 3000 * challengeModeAttackUp;
 		GIGANTIC_CHARGE_SUPER_SAIYAN_MIN_DAMAGE = 1866 * challengeModeAttackUp;
 		BLASTER_METEOR_MAX_BARRIER_HEALTH = 5000 * challengeModeAttackUp;
-		BLASTER_METEOR_BARRIER_MIN = 790 * challengeModeAttackUp; 
+		BLASTER_METEOR_BARRIER_MIN = 133 * challengeModeAttackUp; 
 		GIGANTIC_ROAR_MIN_DAMAGE = 6667 * challengeModeAttackUp;
 		BLASTER_CANNON_FULL_POWER_MIN_DAMAGE = 5000 * challengeModeAttackUp;
 		OMEGA_BLASTER_BARRIER_MAX_FULL_POWER = 5000 * challengeModeAttackUp;
-		OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE = 1000 * challengeModeAttackUp;
+		OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE = 266 * challengeModeAttackUp;
 		GIGANTIC_CHARGE_FULL_POWER_MIN_DAMAGE = 2333 * challengeModeAttackUp;
 	}
 
@@ -613,7 +613,7 @@ public class Broly {
 		int brolyAttack = 0;
 		String humanShieldTarget = "null";
 		boolean humanShieldUnusable = false;
-		brolyAttack = rng.nextInt(210) + BLASTER_METEOR_BARRIER_MIN;
+		brolyAttack = rng.nextInt(67) + BLASTER_METEOR_BARRIER_MIN;
 		blasterMeteorBarrierHealth -= 1000;
 		brolyUltimate = true;
 		player1.removeHumanShieldTarget();
@@ -792,7 +792,7 @@ public class Broly {
 		int brolyAttack = 0;
 		String humanShieldTarget = "null";
 		boolean humanShieldUnusable = false;
-		brolyAttack = rng.nextInt(250) + OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE;
+		brolyAttack = rng.nextInt(134) + OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE;
 		omegaBlasterHealth -= 1000;
 		brolySuper = true;
 		player1.removeHumanShieldTarget();

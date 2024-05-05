@@ -30,7 +30,7 @@ public class ItemCrafter {
 	private static int hyperChargeProgress = 0;
 	private static int staticMomentumProgress = 0;
 	private Items craft = new Items();
-	private final int MED_KIT_MIN_HEAL = 2000;
+	private final int MED_KIT_MIN_HEAL = 1000;
 	private int medKitHeal = 0;
 	private int increasedProgress = 0;
 	private final int DEFEND_REDUCTION = 2;
@@ -362,8 +362,8 @@ public class ItemCrafter {
 		return MOMENTUM_SKILL;
 	}
 	
-	public void sharedGrowthAttackUpDuration() {
-		attackUpDuration = 2;
+	public void sharedGrowthHyperChargeDuration() {
+		hyperChargeDuration = 2;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + " powered up");
 		System.out.println(ultimateTag + playerName4 + " powered up");
 	}
@@ -584,7 +584,6 @@ public class ItemCrafter {
 	public void useCrafterIntuition() {
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + " used " + MOMENTUM_SKILL); 
 		System.out.println(ultimateTag + playerName4 + " used " + MOMENTUM_SKILL);
-		player4Ki -= SKILLCOST;
 		player4Momentum = 0;
 	}
 	
@@ -596,12 +595,14 @@ public class ItemCrafter {
 		TankClass player2 = new TankClass();
 		FusedPlayer fusion = new FusedPlayer();
 		AttackerClass player1 = new AttackerClass();
+		UltimateTankClass ultimatePlayer2 = new UltimateTankClass();
 		if (humanShieldTarget)
 		{
 			if (FusedPlayer.getFusionType() == fusion.getTankMage())
 			{
 				String fusionTurn, 
 					playerConfirmation;
+				fusion.addMomentum(damageTaken);
 				if (FusedPlayer.getKi() > dodgeCost.getBrolyKi())
 				{
 					if (FusedPlayer.getChargeNumber() < dodgeCost.getBrolyChargeNumber())
@@ -724,6 +725,7 @@ public class ItemCrafter {
 			{
 				JOptionPane.showMessageDialog(null, fusion + " protected " + playerName4);
 				System.out.println(fusion + " protected " + playerName4);
+				fusion.addMomentum(damageTaken);
 				damageTaken = fusion.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -743,6 +745,7 @@ public class ItemCrafter {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName4);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName4);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamageHumanTanking(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -755,6 +758,7 @@ public class ItemCrafter {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName4);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName4);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -768,6 +772,11 @@ public class ItemCrafter {
 		{
 			JOptionPane.showMessageDialog(null, "Genki Shield blocked the attack");
 			System.out.println("Genki Shield blocked the attack");
+		}
+		else if (ultimatePlayer2.getUltimateGenkiShieldDuration() > 0)
+		{
+			JOptionPane.showMessageDialog(null, "Ultimate Genki Shield blocked the attack");
+			System.out.println("Ultimate Genki Shield blocked the attack");
 		}
 		else if (Broly.isBrolyFullPowerUltimate())
 		{
@@ -833,6 +842,9 @@ public class ItemCrafter {
 		{
 		}
 		else if (player2.isGenkiShieldDuration())
+		{
+		}
+		else if (ultimatePlayer2.getUltimateGenkiShieldDuration() > 0)
 		{
 		}
 		else if (canDodge && Broly.isBrolyFullPowerUltimate())
@@ -976,6 +988,9 @@ public class ItemCrafter {
 		else if (player2.isGenkiShieldDuration())
 		{
 		}
+		else if (ultimatePlayer2.getUltimateGenkiShieldDuration() > 0)
+		{
+		}
 		else if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
 		{
 			if (Broly.isBrolyFullPowerUltimate())
@@ -1058,6 +1073,9 @@ public class ItemCrafter {
 		{
 		}
 		else if (player2.isGenkiShieldDuration())
+		{
+		}
+		else if (ultimatePlayer2.getUltimateGenkiShieldDuration() > 0)
 		{
 		}
 		else if (!((dodge.equalsIgnoreCase("yes"))))
@@ -1240,8 +1258,8 @@ public class ItemCrafter {
 		hyperChargeDuration--;
 	}
 	
-	public void contagiousGrowthAttackUpDuration() {
-		attackUpDuration = 4;
+	public void contagiousGrowthHyperChargeDuration() {
+		hyperChargeDuration = 4;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + " powered up");
 		System.out.println(ultimateTag + playerName4 + " powered up");
 	}
@@ -1341,5 +1359,48 @@ public class ItemCrafter {
 	
 	public static void reduceStaticMomentumProgress(int decreasedProgress) {
 		staticMomentumProgress -= decreasedProgress;
+	}
+	
+	public void addKiDragonBalls() {
+		player4Ki += 50;
+		if (player4Ki > 299)
+		{
+			player4ChargeNumber = 3;
+			player4Ki = 0;
+		}
+		else if (player4Ki > 199)
+		{
+			if (player4ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player4Ki = 0;
+			}
+			else if (player4ChargeNumber == 2)
+			{
+				player4ChargeNumber++;
+				player4Ki = 100;
+			}
+			else
+			{
+				player4ChargeNumber += 2;
+				player4Ki -= 200;
+			}
+		}
+		else if (player4Ki > 99)
+		{
+			if (player4ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player4Ki = 0;
+			}
+			else 
+			{
+				player4ChargeNumber++;
+				player4Ki -= 100;
+			}
+		}
+		if (player4ChargeNumber == MAX_CHARGE_NUMBER)
+		{
+			player4Ki = 0;
+		}
+		Items.addPoints(50);
 	}
 }

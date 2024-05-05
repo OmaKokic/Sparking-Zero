@@ -365,6 +365,7 @@ public class MageClass {
 		player3Ki = 0;
 		player3ChargeNumber = 3;
 		player3Momentum = 0;
+		kiGained += 300;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + " used " + MOMENTUM_SKILL);
 		System.out.println(ultimateTag + playerName3 + " used " + MOMENTUM_SKILL);
 	}
@@ -398,6 +399,7 @@ public class MageClass {
 			{
 				JOptionPane.showMessageDialog(null, fusion + " protected " + playerName3);
 				System.out.println(fusion + " protected " + playerName3);
+				fusion.addMomentum(damageTaken);
 				damageTaken = fusion.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -418,6 +420,7 @@ public class MageClass {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName3);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName3);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamageHumanTanking(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -430,6 +433,7 @@ public class MageClass {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName3);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + ultimateTag + playerName3);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -446,6 +450,8 @@ public class MageClass {
 		}
 		else if (player2.getUltimateGenkiShieldDuration() > 0)
 		{
+			JOptionPane.showMessageDialog(null, "Ultimate Genki Shield blocked the attack");
+			System.out.println("Ultimate Genki Shield blocked the attack");
 		}
 		else if (Broly.isBrolyFullPowerUltimate())
 		{
@@ -511,6 +517,9 @@ public class MageClass {
 		{
 		}
 		else if (player2.isGenkiShieldDuration())
+		{
+		}
+		else if (player2.getUltimateGenkiShieldDuration() > 0)
 		{
 		}
 		else if (canDodge && Broly.isBrolyFullPowerUltimate())
@@ -654,6 +663,9 @@ public class MageClass {
 		else if (player2.isGenkiShieldDuration())
 		{
 		}
+		else if (player2.getUltimateGenkiShieldDuration() > 0)
+		{
+		}
 		else if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
 		{
 			if (Broly.isBrolyFullPowerUltimate())
@@ -736,6 +748,9 @@ public class MageClass {
 		{
 		}
 		else if (player2.isGenkiShieldDuration())
+		{
+		}
+		else if (player2.getUltimateGenkiShieldDuration() > 0)
 		{
 		}
 		else if (!((dodge.equalsIgnoreCase("yes"))))
@@ -958,5 +973,49 @@ public class MageClass {
 	
 	public void addKiUltimateHighSpirit(int addedKi) {
 		player3Ki += addedKi / 100;
+	}
+	
+	public void addKiDragonBalls() {
+		player3Ki += 50;
+		kiGained += 50;
+		if (player3Ki > 299)
+		{
+			player3ChargeNumber = 3;
+			player3Ki = 0;
+		}
+		else if (player3Ki > 199)
+		{
+			if (player3ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player3Ki = 0;
+			}
+			else if (player3ChargeNumber == 2)
+			{
+				player3ChargeNumber++;
+				player3Ki = 100;
+			}
+			else
+			{
+				player3ChargeNumber += 2;
+				player3Ki -= 200;
+			}
+		}
+		else if (player3Ki > 99)
+		{
+			if (player3ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player3Ki = 0;
+			}
+			else 
+			{
+				player3ChargeNumber++;
+				player3Ki -= 100;
+			}
+		}
+		if (player3ChargeNumber == MAX_CHARGE_NUMBER)
+		{
+			player3Ki = 0;
+		}
+		Items.addPoints(50);
 	}
 }

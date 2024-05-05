@@ -600,8 +600,8 @@ public class FusedPlayer {
 		Items.addPoints(addedMomentum);
 	}
 	
-	public void sharedGrowthAttackUpDuration() {
-		attackUpDuration = 2;
+	public void sharedGrowthHyperChargeDuration() {
+		hyperChargeDuration = 2;
 		JOptionPane.showMessageDialog(null, name + " powered up");
 		System.out.println(name + " powered up");
 	}
@@ -622,6 +622,7 @@ public class FusedPlayer {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + name);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + name);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamageHumanTanking(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -634,6 +635,7 @@ public class FusedPlayer {
 			{
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " protected " + name);
 				System.out.println(TankClass.getUltimateTag() + player2 + " protected " + name);
+				player2.addMomentum(damageTaken);
 				damageTaken = player2.takeDamage(damageTaken);
 				dodgeCost.addKi(damageTaken);
 				if (!Broly.isBrolyFullPowerUltimate())
@@ -650,6 +652,8 @@ public class FusedPlayer {
 		}
 		else if (player2.getUltimateGenkiShieldDuration() > 0)
 		{
+			JOptionPane.showMessageDialog(null, "Ultimate Genki Shield blocked the attack");
+			System.out.println("Ultimate Genki Shield blocked the attack");
 		}
 		else if (Broly.isBrolyFullPowerUltimate())
 		{
@@ -1995,8 +1999,8 @@ public class FusedPlayer {
 		}
 	}
 	
-	public void contagiousGrowthAttackUpDuration() {
-		attackUpDuration = 4;
+	public void contagiousGrowthHyperChargeDuration() {
+		hyperChargeDuration = 4;
 		JOptionPane.showMessageDialog(null, name + " powered up");
 		System.out.println(name + " powered up");
 	}
@@ -2077,5 +2081,92 @@ public class FusedPlayer {
 	
 	public static void setPotaraFusion() {
 		potaraFusion = true;
+	}
+	
+	public void addKiDragonBalls() {
+		ki += 50;
+		kiGained += 50;
+		if (ki > 699)
+		{
+			chargeNumber = 7;
+			ki = 0;
+		}
+		else if (ki > 599)
+		{
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
+			else
+			{
+				chargeNumber++;
+				ki -= 600;
+			}
+		}
+		else if (ki > 499)
+		{
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
+			else
+			{
+				chargeNumber++;
+				ki -= 500;
+			}
+		}
+		else if (ki > 399)
+		{
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
+			else
+			{
+				chargeNumber++;
+				ki -= 400;
+			}
+		}
+		else if (ki > 299)
+		{
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
+			else
+			{
+				chargeNumber++;
+				ki -= 300;
+			}
+		}
+		else if (ki > 199)
+		{
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
+			else
+			{
+				chargeNumber++;
+				ki -= 200;
+			}
+		}
+		else if (ki > 99)
+		{
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
+			else
+			{
+				chargeNumber++;
+				ki -= 100;
+			}
+		}
+		if (chargeNumber == MAX_CHARGE_NUMBER)
+		{
+			ki = 0;
+		}
+		Items.addPoints(50);
 	}
 }

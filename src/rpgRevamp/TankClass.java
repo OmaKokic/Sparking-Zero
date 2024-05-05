@@ -295,7 +295,7 @@ public class TankClass {
 	}
 	
 	public void addMomentum(int addedMomentum) {
-		player2Momentum += addedMomentum / 500;
+		player2Momentum += addedMomentum / 100;
 		if (player2Momentum > 100)
 		{
 			player2Momentum = 100;
@@ -417,99 +417,94 @@ public class TankClass {
 		return GENKI_SHIELD_HEAL;
 	}
 	
-	public void sharedGrowthAttackUpDuration() {
-		attackUpDuration = 2;
+	public void sharedGrowthHyperChargeDuration() {
+		hyperChargeDuration = 2;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " powered up");
 		System.out.println(ultimateTag + playerName2 + " powered up");
 	}
 	
 	public int takeDamage(int damageTaken) {
-		Broly dodgeCost = new Broly();
-		String dodge = "no";
+		Broly deflectCost = new Broly();
+		String deflect = "no";
 		boolean validAnswer = false;
-		boolean canDodge = false;
-		if (humanShieldSkill)
-		{
-			canDodge = false;
-			dodge = "no";
-		}
-		else if (Broly.isBrolyFullPowerUltimate())
+		boolean canDeflect = false;
+		if (Broly.isBrolyFullPowerUltimate())
 		{
 			if (player2ChargeNumber < 5)
 			{
-				canDodge = false;
-				dodge = "no";
+				canDeflect = false;
+				deflect = "no";
 			}
 			else
 			{
-				canDodge = true;
+				canDeflect = true;
 			}
 		}
 		else if (Broly.isBrolySuperUltimate())
 		{
 			if (player2ChargeNumber < 4)
 			{
-				canDodge = false;
-				dodge = "no";
+				canDeflect = false;
+				deflect = "no";
 			}
 			else
 			{
-				canDodge = true;
+				canDeflect = true;
 			}
 		}
-		else if (dodgeCost.isBrolyUltimate())
+		else if (deflectCost.isBrolyUltimate())
 		{
 			if (player2ChargeNumber < 3)
 			{
-				canDodge = false;
-				dodge = "no";
+				canDeflect = false;
+				deflect = "no";
 			}
 			else
 			{
-				canDodge = true;
+				canDeflect = true;
 			}
 		}	
-		else if (dodgeCost.isBrolySuper())
+		else if (deflectCost.isBrolySuper())
 		{
 			if (player2ChargeNumber < 2)
 			{
-				canDodge = false;
-				dodge = "no";
+				canDeflect = false;
+				deflect = "no";
 			}
 			else
 			{
-				canDodge = true;
+				canDeflect = true;
 			}
 		}
 		else
 		{
 			if (player2ChargeNumber < 1)
 			{
-				canDodge = false;
-				dodge = "no";
+				canDeflect = false;
+				deflect = "no";
 			}
 			else
 			{
-				canDodge = true;
+				canDeflect = true;
 			}
 		}
-		if (canDodge && Broly.isBrolyFullPowerUltimate())
+		if (canDeflect && Broly.isBrolyFullPowerUltimate())
 		{
 			do
 				{
-					dodge = JOptionPane.showInputDialog("Do you want to dodge\n" + 
+					deflect = JOptionPane.showInputDialog("Do you want to deflect\n" + 
 							ultimateTag + playerName2 + " Ki: " + player2ChargeNumber + " (" + 
 							player2Ki + ")\nCost"
 						+ " 500 ki\n\nYes  No");
-					if (dodge == null)
+					if (deflect == null)
 					{
-						dodge = "null";
+						deflect = "null";
 					}
-					if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
+					if (deflect.equalsIgnoreCase("yes") || deflect.equalsIgnoreCase("y"))
 					{
 						validAnswer = true;
 					}
-					else if (dodge.equalsIgnoreCase("no") || dodge.equalsIgnoreCase("n"))
+					else if (deflect.equalsIgnoreCase("no") || deflect.equalsIgnoreCase("n"))
 					{
 						validAnswer = true;
 					}
@@ -520,23 +515,23 @@ public class TankClass {
 					}
 				} while (!((validAnswer)));
 		}
-		else if (canDodge && Broly.isBrolySuperUltimate())
+		else if (canDeflect && Broly.isBrolySuperUltimate())
 		{
 			do
 				{
-					dodge = JOptionPane.showInputDialog("Do you want to dodge\n" + 
+					deflect = JOptionPane.showInputDialog("Do you want to deflect\n" + 
 							ultimateTag + playerName2 + " Ki: " + player2ChargeNumber + " (" + 
 							player2Ki + ")\nCost"
 						+ " 400 ki\n\nYes  No");
-					if (dodge == null)
+					if (deflect == null)
 					{
-						dodge = "null";
+						deflect = "null";
 					}
-					if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
+					if (deflect.equalsIgnoreCase("yes") || deflect.equalsIgnoreCase("y"))
 					{
 						validAnswer = true;
 					}
-					else if (dodge.equalsIgnoreCase("no") || dodge.equalsIgnoreCase("n"))
+					else if (deflect.equalsIgnoreCase("no") || deflect.equalsIgnoreCase("n"))
 					{
 						validAnswer = true;
 					}
@@ -547,23 +542,23 @@ public class TankClass {
 					}
 				} while (!((validAnswer)));
 		}
-		else if (canDodge && dodgeCost.isBrolyUltimate())
+		else if (canDeflect && deflectCost.isBrolyUltimate())
 		{
 			do
 				{
-					dodge = JOptionPane.showInputDialog("Do you want to dodge\n" + 
+					deflect = JOptionPane.showInputDialog("Do you want to deflect\n" + 
 							ultimateTag + playerName2 + " Ki: " + player2ChargeNumber + " (" + 
 							player2Ki + ")\nCost"
 						+ " 300 ki\n\nYes  No");
-					if (dodge == null)
+					if (deflect == null)
 					{
-						dodge = "null";
+						deflect = "null";
 					}
-					if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
+					if (deflect.equalsIgnoreCase("yes") || deflect.equalsIgnoreCase("y"))
 					{
 						validAnswer = true;
 					}
-					else if (dodge.equalsIgnoreCase("no") || dodge.equalsIgnoreCase("n"))
+					else if (deflect.equalsIgnoreCase("no") || deflect.equalsIgnoreCase("n"))
 					{
 						validAnswer = true;
 					}
@@ -574,23 +569,23 @@ public class TankClass {
 					}
 				} while (!((validAnswer)));
 		}
-		else if (canDodge && dodgeCost.isBrolySuper())
+		else if (canDeflect && deflectCost.isBrolySuper())
 		{
 			do
 			{
-				dodge = JOptionPane.showInputDialog("Do you want to dodge\n" + 
+				deflect = JOptionPane.showInputDialog("Do you want to deflect\n" + 
 						ultimateTag + playerName2 + " Ki: " + player2ChargeNumber + " (" + 
 						player2Ki + ")\nCost"
 					+ " 200 ki\n\nYes  No");
-				if (dodge == null)
+				if (deflect == null)
 				{
-					dodge = "null";
+					deflect = "null";
 				}
-				if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
+				if (deflect.equalsIgnoreCase("yes") || deflect.equalsIgnoreCase("y"))
 				{
 					validAnswer = true;
 				}
-				else if (dodge.equalsIgnoreCase("no") || dodge.equalsIgnoreCase("n"))
+				else if (deflect.equalsIgnoreCase("no") || deflect.equalsIgnoreCase("n"))
 				{
 					validAnswer = true;
 				}
@@ -601,23 +596,23 @@ public class TankClass {
 				}
 			} while (!((validAnswer)));
 		}
-		else if (canDodge)
+		else if (canDeflect)
 		{
 			do
 			{
-				dodge = JOptionPane.showInputDialog("Do you want to dodge\n" + 
+				deflect = JOptionPane.showInputDialog("Do you want to deflect\n" + 
 						ultimateTag + playerName2 + " Ki: " + player2ChargeNumber + " (" + 
 						player2Ki + ")\nCost"
 					+ " 100 ki\n\nYes  No");
-				if (dodge == null)
+				if (deflect == null)
 				{
-					dodge = "null";
+					deflect = "null";
 				}
-				if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
+				if (deflect.equalsIgnoreCase("yes") || deflect.equalsIgnoreCase("y"))
 				{
 					validAnswer = true;
 				}
-				else if (dodge.equalsIgnoreCase("no") || dodge.equalsIgnoreCase("n"))
+				else if (deflect.equalsIgnoreCase("no") || deflect.equalsIgnoreCase("n"))
 				{
 					validAnswer = true;
 				}
@@ -628,13 +623,13 @@ public class TankClass {
 				}
 			} while (!((validAnswer)));
 		}
-		if (dodge.equalsIgnoreCase("yes") || dodge.equalsIgnoreCase("y"))
+		if (deflect.equalsIgnoreCase("yes") || deflect.equalsIgnoreCase("y"))
 		{
 			if (Broly.isBrolyFullPowerUltimate())
 			{
 				damageTaken = 0;
-				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " dodged"); 
-				System.out.println(ultimateTag + playerName2 + " dodged");
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " deflected"); 
+				System.out.println(ultimateTag + playerName2 + " deflected");
 				player2ChargeNumber -= 5;
 				if (player2ChargeNumber < 0)
 				{
@@ -644,30 +639,30 @@ public class TankClass {
 			else if (Broly.isBrolySuperUltimate())
 			{
 				damageTaken = 0;
-				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " dodged"); 
-				System.out.println(ultimateTag + playerName2 + " dodged");
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " deflected"); 
+				System.out.println(ultimateTag + playerName2 + " deflected");
 				player2ChargeNumber -= 4;
 				if (player2ChargeNumber < 0)
 				{
 					player2ChargeNumber = 0;
 				}
 			}
-			else if (dodgeCost.isBrolyUltimate())
+			else if (deflectCost.isBrolyUltimate())
 			{
 				damageTaken = 0;
-				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " dodged"); 
-				System.out.println(ultimateTag + playerName2 + " dodged");
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " deflected"); 
+				System.out.println(ultimateTag + playerName2 + " deflected");
 				player2ChargeNumber -= 3;
 				if (player2ChargeNumber < 0)
 				{
 					player2ChargeNumber = 0;
 				}
 			}
-			else if (dodgeCost.isBrolySuper())
+			else if (deflectCost.isBrolySuper())
 			{
 				damageTaken = 0;
-				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " dodged"); 
-				System.out.println(ultimateTag + playerName2 + " dodged");
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " deflected"); 
+				System.out.println(ultimateTag + playerName2 + " deflected");
 				player2ChargeNumber -= 2;
 				if (player2ChargeNumber < 0)
 				{
@@ -677,8 +672,8 @@ public class TankClass {
 			else
 			{
 				damageTaken = 0;
-				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " dodged"); 
-				System.out.println(ultimateTag + playerName2 + " dodged");
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " deflected"); 
+				System.out.println(ultimateTag + playerName2 + " deflected");
 				player2ChargeNumber -= 1;
 				if (player2ChargeNumber < 0)
 				{
@@ -706,7 +701,7 @@ public class TankClass {
 		{
 			damageTaken = 0;
 		}
-		if (!((dodge.equalsIgnoreCase("yes"))))
+		if (!((deflect.equalsIgnoreCase("yes"))))
 		{
 			player2Health -= damageTaken;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " took " + 
@@ -875,8 +870,8 @@ public class TankClass {
 		return ultimateTag;
 	}
 	
-	public void contagiousGrowthAttackUpDuration() {
-		attackUpDuration = 4;
+	public void contagiousGrowthHyperChargeDuration() {
+		hyperChargeDuration = 4;
 		JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + " powered up");
 		System.out.println(ultimateTag + playerName2 + " powered up");
 	}
@@ -948,5 +943,48 @@ public class TankClass {
 	
 	public void addKiUltimateHighSpirit(int addedKi) {
 		player2Ki += addedKi / 100;
+	}
+	
+	public void addKiDragonBalls() {
+		player2Ki += 50;
+		if (player2Ki > 299)
+		{
+			player2ChargeNumber = 3;
+			player2Ki = 0;
+		}
+		else if (player2Ki > 199)
+		{
+			if (player2ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player2Ki = 0;
+			}
+			else if (player2ChargeNumber == 2)
+			{
+				player2ChargeNumber++;
+				player2Ki = 100;
+			}
+			else
+			{
+				player2ChargeNumber += 2;
+				player2Ki -= 200;
+			}
+		}
+		else if (player2Ki > 99)
+		{
+			if (player2ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player2Ki = 0;
+			}
+			else 
+			{
+				player2ChargeNumber++;
+				player2Ki -= 100;
+			}
+		}
+		if (player2ChargeNumber == MAX_CHARGE_NUMBER)
+		{
+			player2Ki = 0;
+		}
+		Items.addPoints(50);
 	}
 }

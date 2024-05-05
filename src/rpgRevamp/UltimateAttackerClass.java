@@ -9,7 +9,7 @@ public class UltimateAttackerClass extends AttackerClass{
 	private final String SKILL2 = "Max Spirit";
 	private final int PLAYERMINATTACK = 5000;
 	private final int LIMIT_BREAKING_STRIKE_MIN_DAMAGE = 7500;
-	private final int MAX_HEALTH = 8000;
+	private final int MAX_HEALTH = 10000;
 	private final String MOMENTUM_SKILL = "Max Spirit Strike";
 	private final int MAX_SPIRIT_STRIKE_KI_GAIN = 200;
 	private final int MAX_SPIRIT_STRIKE_MIN_DAMAGE = 10000;

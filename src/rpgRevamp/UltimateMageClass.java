@@ -316,8 +316,8 @@ public class UltimateMageClass extends MageClass{
 	}
 	
 	public void useContagiousGrowth() {
-		super.setPlayer3Ki(100);
-		super.setPlayer3ChargeNumber(7);
+		super.setPlayer3Ki(0);
+		super.setPlayer3ChargeNumber(5);
 		super.setPlayer3Momentum(0);
 		JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + " used " + MOMENTUM_SKILL);
 		System.out.println(super.getUltimateTag() + super.toString() + " used " + MOMENTUM_SKILL);

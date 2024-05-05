@@ -15,36 +15,36 @@ public class GoBrolyGoGo {
 		String selectedDifficulty = "1";
 		String modeSelect = "";
 		boolean validChoice = false;
-		
 		player1Name = JOptionPane.showInputDialog("What's player 1's name?");//This asks the user to pick a name for player 1
 		if (player1Name == null)
 		{
-			player1Name = "player1";
+			player1Name = "Lora";
 		}
 		p1.setName1(player1Name);//This sets the name for player 1
 		player2Name = JOptionPane.showInputDialog("What's player 2's name?");//This asks the user to pick a name for player 2
 		if (player2Name == null)
 		{
-			player2Name = "player2";
+			player2Name = "Bayo";
 		}
 		p2.setName2(player2Name);//This sets the name for player 2
 		player3Name = JOptionPane.showInputDialog("What's player 3's name?");//This asks the user to pick a name for player 39
 		if (player3Name == null)
 		{
-			player3Name = "player3";
+			player3Name = "2B";
 		}
 		p3.setName3(player3Name);//This sets the name for player 3
 		player4Name = JOptionPane.showInputDialog("What's player 4's name?");//This asks the user to pick a name for player 4
 		if (player4Name == null)
 		{
-			player4Name = "player4";
+			player4Name = "Eve";
 		}
 		p4.setName4(player4Name);//This sets the name for player 4
 		do {
 			modeSelect = JOptionPane.showInputDialog("What mode do you want to play?\n\nStandard\nChallenge Mode");
 			if (modeSelect == null)
 			{
-				modeSelect = "";
+				modeSelect = "Standard";
+				validChoice = true;
 			}
 			else if (modeSelect.equalsIgnoreCase("Standard"))
 			{
@@ -217,7 +217,14 @@ public class GoBrolyGoGo {
 		FusedPlayer fusion = new FusedPlayer();
 		do
 		{
-			if (Broly.getBlasterMeteorBarrierHealth() > 0)
+			if (Broly.getBlasterMeteorBarrierHealth() > 0 && Broly.getOmegaBlasterHealth() > 0)
+			{
+				JOptionPane.showMessageDialog(null, boss + "\nBarrier: " + (Broly.getBlasterMeteorBarrierHealth() + Broly.getOmegaBlasterHealth()) + " Hp: " + boss.getBrolyHealth() + "/" + boss.getBROLY_MAX_HEALTH() + "\nKi: " 
+						+ boss.getBrolyChargeNumber() + " ("+ boss.getBrolyKi() + ")\nMomentum: " + boss.getBrolyMomentum());
+				System.out.println(boss + "\nBarrier: " + Broly.getBlasterMeteorBarrierHealth() + " Hp: " + boss.getBrolyHealth() + "/" + boss.getBROLY_MAX_HEALTH() + "\nKi: " 
+						+ boss.getBrolyChargeNumber() + " ("+ boss.getBrolyKi() + ")\nMomentum: " + boss.getBrolyMomentum());
+			}
+			else if (Broly.getBlasterMeteorBarrierHealth() > 0)
 			{
 				JOptionPane.showMessageDialog(null, boss + "\nBarrier: " + Broly.getBlasterMeteorBarrierHealth() + " Hp: " + boss.getBrolyHealth() + "/" + boss.getBROLY_MAX_HEALTH() + "\nKi: " 
 						+ boss.getBrolyChargeNumber() + " ("+ boss.getBrolyKi() + ")\nMomentum: " + boss.getBrolyMomentum());
@@ -984,7 +991,7 @@ public class GoBrolyGoGo {
 		}
 		if (chosenItem.equalsIgnoreCase(useItem.getITEM1()))
 		{
-			if (useItem.getSmallHealAmount() <= 0)
+			if (useItem.getSmallHealItemAmount() <= 0)
 			{
 				chosenItem = "null";
 				JOptionPane.showMessageDialog(null, "There are no more " + useItem.getITEM1());
@@ -992,7 +999,7 @@ public class GoBrolyGoGo {
 		}
 		else if (chosenItem.equalsIgnoreCase(useItem.getITEM2()))
 		{
-			if (useItem.getLargeHealAmount() <= 0)
+			if (useItem.getLargeHealItemAmount() <= 0)
 			{
 				chosenItem = "null";
 				JOptionPane.showMessageDialog(null, "There are no more " + useItem.getITEM2());
@@ -1408,7 +1415,7 @@ public class GoBrolyGoGo {
 					if (mageClass.isUltimate() && mageClass.getPlayer3Momentum() >= 100)
 					{
 						playerConfirmation = JOptionPane.showInputDialog(mageClass.getMOMENTUM_SKILL()
-								+ " - Gives you max ki and grants all allies attack up for the next"
+								+ " - Gives you max ki and grants all allies increased ki gain for the next"
 								+ " three turn\nAre you sure?\n"
 								+ "Yes  No");
 						if (playerConfirmation == null)
@@ -1419,7 +1426,7 @@ public class GoBrolyGoGo {
 					else if (mageClass.getPlayer3Momentum() >= 100)
 					{
 						playerConfirmation = JOptionPane.showInputDialog(mageClass.getMOMENTUM_SKILL()
-								+ " - Gives you max ki and grants all allies attack up for the next"
+								+ " - Gives you max ki and grants all allies increase ki gain for the next"
 								+ " turn\nAre you sure?\n"
 								+ "Yes  No");
 						if (playerConfirmation == null)
@@ -1490,7 +1497,7 @@ public class GoBrolyGoGo {
 		if (mageS.isUltimate())
 		{
 			mageSkill = JOptionPane.showInputDialog("Skills\n" + ultimateMageS.getSkill1() + " - Build up Ki if Broly has more. If Broly has less, grant an"
-					+ " ally increased power - 100 Ki\n" + mageS.getSkill2() + " - Build a"
+					+ " ally defense up - 100 Ki\n" + mageS.getSkill2() + " - Build a"
 					+ " ally's momentum based on two times Ki gained (" + mageS.getKiGained() / 20 + ") - 500 Ki");
 			if (mageSkill == null)
 			{
@@ -1500,7 +1507,7 @@ public class GoBrolyGoGo {
 		else
 		{
 			mageSkill = JOptionPane.showInputDialog("Skills\n" + mageS.getSkill1() + " - Build up Ki if Broly has more. If Broly has less, grant an"
-				+ " ally increased power - 50 Ki\n" + mageS.getSkill2() + " - Build a"
+				+ " ally defense up - 50 Ki\n" + mageS.getSkill2() + " - Build a"
 				+ " ally's momentum based on Ki gained (" + mageS.getKiGained() / 20 + ") - 300 Ki");
 			if (mageSkill == null)
 			{
@@ -3222,6 +3229,7 @@ public class GoBrolyGoGo {
 				JOptionPane.showMessageDialog(null, AttackerClass.getUltimateTag() + player1 + " is searching for the Dragon Balls");
 				System.out.println(AttackerClass.getUltimateTag() + player1 + " is searching for the Dragon Balls");
 				usedItem.findDragonBall();
+				player1.addKiDragonBalls();
 			}
 		}
 		else if (attackerTurn.equalsIgnoreCase("Fuse"))
@@ -3940,25 +3948,21 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 			else if (tankTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 		}
@@ -4134,7 +4138,6 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player2.toString()))
@@ -4145,19 +4148,16 @@ public class GoBrolyGoGo {
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			}
@@ -4337,7 +4337,6 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
@@ -4350,21 +4349,18 @@ public class GoBrolyGoGo {
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
@@ -4450,19 +4446,16 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.revive();
-				player2.addMomentum(50000);
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.revive();
-				player2.addMomentum(50000);
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.revive();
-				player2.addMomentum(50000);
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			}
@@ -5333,6 +5326,7 @@ public class GoBrolyGoGo {
 				JOptionPane.showMessageDialog(null, TankClass.getUltimateTag() + player2 + " is searching for the Dragon Balls");
 				System.out.println(TankClass.getUltimateTag() + player2 + " is searching for the Dragon Balls");
 				usedItem.findDragonBall();
+				player2.addKiDragonBalls();
 			}
 		}
 		else if (tankTurn.equalsIgnoreCase("Fuse"))
@@ -6051,39 +6045,23 @@ public class GoBrolyGoGo {
 					} while (!((playerConfirmation.equalsIgnoreCase("yes"))) && (!(playerConfirmation.equalsIgnoreCase("y"))));
 					if (mageTurn.equalsIgnoreCase(player1.toString()))
 					{
-						player1.setAttackUpDuration();
+						player1.setDefenseUpDuration();
 						player3.addMomentum(1000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
 					}
 					else if (mageTurn.equalsIgnoreCase(player2.toString()))
 					{
-						player2.setAttackUpDuration();
+						player2.setDefenseUpDuration();
 						player3.addMomentum(1000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + TankClass.getUltimateTag() + player2 + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + TankClass.getUltimateTag() + player2 + " increased power");
 					}
 					else if (mageTurn.equalsIgnoreCase(player4.toString()))
 					{
-						player4.setAttackUpDuration();
+						player4.setDefenseUpDuration();
 						player3.addMomentum(1000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
 					}
 					else if (mageTurn.equalsIgnoreCase(fusion.toString()))
 					{
-						fusion.setAttackUpDuration();
+						fusion.setDefenseUpDuration();
 						player3.addMomentum(1000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + fusion + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + fusion + " increased power");
 					}
 				}
 			}
@@ -6245,39 +6223,23 @@ public class GoBrolyGoGo {
 				} while (!((playerConfirmation.equalsIgnoreCase("yes"))) && (!(playerConfirmation.equalsIgnoreCase("y"))));
 				if (mageTurn.equalsIgnoreCase(player1.toString()))
 				{
-					player1.setAttackUpDuration();
+					player1.setDefenseUpDuration();
 					player3.addMomentum(1000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
 				}
 				else if (mageTurn.equalsIgnoreCase(player2.toString()))
 				{
-					player2.setAttackUpDuration();
+					player2.setDefenseUpDuration();
 					player3.addMomentum(1000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + TankClass.getUltimateTag() + player2 + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + TankClass.getUltimateTag() + player2 + " increased power");
 				}
 				else if (mageTurn.equalsIgnoreCase(player4.toString()))
 				{
-					player4.setAttackUpDuration();
+					player4.setDefenseUpDuration();
 					player3.addMomentum(1000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
 				}
 				else if (mageTurn.equalsIgnoreCase(fusion.toString()))
 				{
-					fusion.setAttackUpDuration();
+					fusion.setDefenseUpDuration();
 					player3.addMomentum(1000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + fusion + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + fusion + " increased power");
 				}
 			}
 		}
@@ -7780,26 +7742,26 @@ public class GoBrolyGoGo {
 			if (FusedPlayer.isFused())
 			{
 				player3.useSharedGrowth();
-				fusion.sharedGrowthAttackUpDuration();
+				fusion.sharedGrowthHyperChargeDuration();
 				if (playerOutsideOfFusion.equalsIgnoreCase(player1.toString()))
 				{
 					if (player1.getPlayer1Health() > 0)
 					{
-						player1.sharedGrowthAttackUpDuration();
+						player1.sharedGrowthHyperChargeDuration();
 					}
 				}
 				else if (playerOutsideOfFusion.equalsIgnoreCase(player2.toString()))
 				{
 					if (player2.getPlayer2Health() > 0)
 					{
-						player2.sharedGrowthAttackUpDuration();
+						player2.sharedGrowthHyperChargeDuration();
 					}
 				}
 				else if (playerOutsideOfFusion.equalsIgnoreCase(player4.toString()))
 				{
 					if (player4.getPlayer4Health() > 0)
 					{
-						player4.sharedGrowthAttackUpDuration();
+						player4.sharedGrowthHyperChargeDuration();
 					}
 				}
 			}
@@ -7808,15 +7770,15 @@ public class GoBrolyGoGo {
 				player3.useSharedGrowth();
 				if (player1.getPlayer1Health() > 0)
 				{
-					player1.sharedGrowthAttackUpDuration();
+					player1.sharedGrowthHyperChargeDuration();
 				}
 				if (player2.getPlayer2Health() > 0)
 				{
-					player2.sharedGrowthAttackUpDuration();
+					player2.sharedGrowthHyperChargeDuration();
 				}
 				if (player4.getPlayer4Health() > 0)
 				{
-					player4.sharedGrowthAttackUpDuration();
+					player4.sharedGrowthHyperChargeDuration();
 				}
 			}
 		}
@@ -7833,6 +7795,7 @@ public class GoBrolyGoGo {
 				JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + " is searching for the Dragon Balls");
 				System.out.println(MageClass.getUltimateTag() + player3 + " is searching for the Dragon Balls");
 				usedItem.findDragonBall();
+				player3.addKiDragonBalls();
 			}
 		}
 		else if (mageTurn.equalsIgnoreCase("Fuse"))
@@ -9806,6 +9769,7 @@ public class GoBrolyGoGo {
 				JOptionPane.showMessageDialog(null, ItemCrafter.getUltimateTag() + player4 + " is searching for the Dragon Balls");
 				System.out.println(ItemCrafter.getUltimateTag() + player4 + " is searching for the Dragon Balls");
 				usedItem.findDragonBall();
+				player4.addKiDragonBalls();
 			}
 		}
 		else if (itemCrafterTurn.equalsIgnoreCase("Fuse"))
@@ -12736,25 +12700,21 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 			else if (tankTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.increaseHealth(player2.getDamageTaken());
-				player2.addMomentum(player2.getDamageTaken());
 				player2.resetDamageTaken();
 			}
 		}
@@ -12930,7 +12890,6 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player2.toString()))
@@ -12941,19 +12900,16 @@ public class GoBrolyGoGo {
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.increaseHealth(usedItem.getSmallHealAmount());
-				player2.addMomentum(usedItem.getSmallHealAmount());
 				usedItem.decreaseSmallHealItemAmount();
 			}
 			}
@@ -13133,7 +13089,6 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
@@ -13146,21 +13101,18 @@ public class GoBrolyGoGo {
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.increaseHealth(usedItem.getLargeHealAmount());
-				player2.addMomentum(usedItem.getLargeHealAmount());
 				usedItem.decreaseLargeHealItemAmount();
 				usedItem.increaseSmallHealItemAmount();
 			}
@@ -13246,19 +13198,16 @@ public class GoBrolyGoGo {
 			if (tankTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.revive();
-				player2.addMomentum(50000);
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player3.toString()))
 			{
 				player3.revive();
-				player2.addMomentum(50000);
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			else if (tankTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.revive();
-				player2.addMomentum(50000);
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			}
@@ -14832,39 +14781,23 @@ public class GoBrolyGoGo {
 					} while (!((playerConfirmation.equalsIgnoreCase("yes"))) && (!(playerConfirmation.equalsIgnoreCase("y"))));
 					if (mageTurn.equalsIgnoreCase(player1.toString()))
 					{
-						player1.setAttackUpDuration();
+						player1.setDefenseUpDuration();
 						player3.addMomentum(2000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
 					}
 					else if (mageTurn.equalsIgnoreCase(player2.toString()))
 					{
-						player2.setAttackUpDuration();
+						player2.setDefenseUpDuration();
 						player3.addMomentum(2000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + TankClass.getUltimateTag() + player2 + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + TankClass.getUltimateTag() + player2 + " increased power");
 					}
 					else if (mageTurn.equalsIgnoreCase(player4.toString()))
 					{
-						player4.setAttackUpDuration();
+						player4.setDefenseUpDuration();
 						player3.addMomentum(2000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
 					}
 					else if (mageTurn.equalsIgnoreCase(fusion.toString()))
 					{
-						fusion.setAttackUpDuration();
+						fusion.setDefenseUpDuration();
 						player3.addMomentum(2000);
-						JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-								" has given " + ItemCrafter.getUltimateTag() + fusion + " increased power");
-						System.out.println(MageClass.getUltimateTag() + player3 + 
-								" has given " + ItemCrafter.getUltimateTag() + fusion + " increased power");
 					}
 				}
 			}
@@ -15026,39 +14959,23 @@ public class GoBrolyGoGo {
 				} while (!((playerConfirmation.equalsIgnoreCase("yes"))) && (!(playerConfirmation.equalsIgnoreCase("y"))));
 				if (mageTurn.equalsIgnoreCase(player1.toString()))
 				{
-					player1.setAttackUpDuration();
+					player1.setDefenseUpDuration();
 					player3.addMomentum(2000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + AttackerClass.getUltimateTag() + player1 + " increased power");
 				}
 				else if (mageTurn.equalsIgnoreCase(player2.toString()))
 				{
-					player2.setAttackUpDuration();
+					player2.setDefenseUpDuration();
 					player3.addMomentum(2000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + TankClass.getUltimateTag() + player2 + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + TankClass.getUltimateTag() + player2 + " increased power");
 				}
 				else if (mageTurn.equalsIgnoreCase(player4.toString()))
 				{
-					player4.setAttackUpDuration();
+					player4.setDefenseUpDuration();
 					player3.addMomentum(2000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + ItemCrafter.getUltimateTag() + player4 + " increased power");
 				}
 				else if (mageTurn.equalsIgnoreCase(fusion.toString()))
 				{
-					fusion.setAttackUpDuration();
+					fusion.setDefenseUpDuration();
 					player3.addMomentum(2000);
-					JOptionPane.showMessageDialog(null, MageClass.getUltimateTag() + player3 + 
-							" has given " + fusion + " increased power");
-					System.out.println(MageClass.getUltimateTag() + player3 + 
-							" has given " + fusion + " increased power");
 				}
 			}
 		}
@@ -16560,27 +16477,27 @@ public class GoBrolyGoGo {
 		{
 			if (FusedPlayer.isFused())
 			{
-				player3.useSharedGrowth();
-				fusion.contagiousGrowthAttackUpDuration();
+				player3.useContagiousGrowth();
+				fusion.contagiousGrowthHyperChargeDuration();
 				if (playerOutsideOfFusion.equalsIgnoreCase(player1.toString()))
 				{
 					if (player1.getPlayer1Health() > 0)
 					{
-						player1.contagiousGrowthAttackUpDuration();
+						player1.contagiousGrowthHyperChargeDuration();
 					}
 				}
 				else if (playerOutsideOfFusion.equalsIgnoreCase(player2.toString()))
 				{
 					if (player2.getPlayer2Health() > 0)
 					{
-						player2.contagiousGrowthAttackUpDuration();
+						player2.contagiousGrowthHyperChargeDuration();
 					}
 				}
 				else if (playerOutsideOfFusion.equalsIgnoreCase(player4.toString()))
 				{
 					if (player4.getPlayer4Health() > 0)
 					{
-						player4.contagiousGrowthAttackUpDuration();
+						player4.contagiousGrowthHyperChargeDuration();
 					}
 				}
 			}
@@ -16589,15 +16506,15 @@ public class GoBrolyGoGo {
 				player3.useContagiousGrowth();
 				if (player1.getPlayer1Health() > 0)
 				{
-					player1.contagiousGrowthAttackUpDuration();
+					player1.contagiousGrowthHyperChargeDuration();
 				}
 				if (player2.getPlayer2Health() > 0)
 				{
-					player2.contagiousGrowthAttackUpDuration();
+					player2.contagiousGrowthHyperChargeDuration();
 				}
 				if (player4.getPlayer4Health() > 0)
 				{
-					player4.contagiousGrowthAttackUpDuration();
+					player4.contagiousGrowthHyperChargeDuration();
 				}
 			}
 		}
@@ -19499,6 +19416,7 @@ public class GoBrolyGoGo {
 				{
 					if (player2Target1 && onePlayer.isOnePlayer())
 					{
+						validChoice = true;
 					}
 					else if (player2Target1)
 					{
@@ -19527,7 +19445,7 @@ public class GoBrolyGoGo {
 						else if (target1 != 1 && target2 != 1)
 						{
 							validChoice = false;
-							JOptionPane.showMessageDialog(null, "This player is not being attacked");
+							JOptionPane.showMessageDialog(null, player1 + " is not being attacked");
 						}
 						else
 						{
@@ -19541,10 +19459,10 @@ public class GoBrolyGoGo {
 							validChoice = false;
 							JOptionPane.showMessageDialog(null, "This player is dead");
 						}
-						else if (target != 3 && target2 != 3)
+						else if (target1 != 3 && target2 != 3)
 						{
 							validChoice = false;
-							JOptionPane.showMessageDialog(null, "This player is not being attacked");
+							JOptionPane.showMessageDialog(null, player3 + " is not being attacked");
 						}
 						else
 						{
@@ -19557,10 +19475,10 @@ public class GoBrolyGoGo {
 							validChoice = false;
 							JOptionPane.showMessageDialog(null, "This player is dead");
 						}
-						else if (target != 4 && target2 != 4)
+						else if (target1 != 4 && target2 != 4)
 						{
 							validChoice = false;
-							JOptionPane.showMessageDialog(null, "This player is not being attacked");
+							JOptionPane.showMessageDialog(null, player4 + " is not being attacked");
 						}
 						else
 						{
@@ -21405,6 +21323,7 @@ public class GoBrolyGoGo {
 				JOptionPane.showMessageDialog(null, AttackerClass.getUltimateTag() + player1 + " is searching for the Dragon Balls");
 				System.out.println(AttackerClass.getUltimateTag() + player1 + " is searching for the Dragon Balls");
 				usedItem.findDragonBall();
+				fusion.addKiDragonBalls();
 			}
 		}
 	}
@@ -22687,7 +22606,7 @@ public class GoBrolyGoGo {
 							validChoice = false;
 							JOptionPane.showMessageDialog(null, "This player is dead");
 						}
-						else if (target != 3 && target2 != 3)
+						else if (target1 != 3 && target2 != 3)
 						{
 							validChoice = false;
 							JOptionPane.showMessageDialog(null, "This player is not being attacked");
@@ -22703,7 +22622,7 @@ public class GoBrolyGoGo {
 							validChoice = false;
 							JOptionPane.showMessageDialog(null, "This player is dead");
 						}
-						else if (target != 4 && target2 != 4)
+						else if (target1 != 4 && target2 != 4)
 						{
 							validChoice = false;
 							JOptionPane.showMessageDialog(null, "This player is not being attacked");
@@ -22714,7 +22633,7 @@ public class GoBrolyGoGo {
 							player4.setHumanShieldTarget();
 						}
 					else if (humanShieldTarget.equalsIgnoreCase(fusion.toString()))
-						if (target != 5 && target2 != 5)
+						if (target1 != 5 && target2 != 5)
 						{
 							validChoice = false;
 							JOptionPane.showMessageDialog(null, "This player is not being attacked");
