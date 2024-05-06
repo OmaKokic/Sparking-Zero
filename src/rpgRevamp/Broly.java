@@ -356,7 +356,7 @@ public class Broly {
 	}
 	
 	public void addMomentum(int addedMomentum) {
-		bossMomentum += addedMomentum / 100;
+		bossMomentum += addedMomentum / 200;
 		if (bossMomentum > 100)
 		{
 			bossMomentum = 100;
@@ -629,7 +629,7 @@ public class Broly {
 				}
 			}
 		}
-		while (!(validChoice) && ((player2.isHumanShieldSkill())) && humanShieldUnusable) {
+		while (!(validChoice) && ((player2.isHumanShieldSkill())) && (!(humanShieldUnusable))) {
 			humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 					+ player1 + "\n" + player3 + "\n" + player4);
 			if (humanShieldTarget == null)
@@ -715,6 +715,12 @@ public class Broly {
 			addKi(damageDealt);
 			player4.addKi(damageDealt);
 			player4.reduceMomentum(damageDealt);
+		}
+		if (player2.isHumanShieldSkill())
+		{
+			player1.setHumanShieldTarget();
+			player3.setHumanShieldTarget();
+			player4.setHumanShieldTarget();
 		}
 	}
 	
