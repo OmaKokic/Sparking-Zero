@@ -10321,7 +10321,6 @@ public class GoBrolyGoGo {
 				player1.removeHumanShieldTarget();
 				player3.removeHumanShieldTarget();
 				player4.removeHumanShieldTarget();
-				
 				while (!(validChoice) && ((player2.isHumanShieldSkill()))) {
 					humanShieldTarget = JOptionPane.showInputDialog("Who do you want to protect?\n" 
 							+ player1 + "\n" + player3 + "\n" + player4);
@@ -10379,6 +10378,7 @@ public class GoBrolyGoGo {
 					rage.addKi(damageDealt);
 					player1.addKi(damageDealt);
 					player1.reduceMomentum(damageDealt);
+					brolyAttack = rage.getPlanetCrusherDamage();
 				}
 				if (player2.getPlayer2Health() <= 0)
 				{
@@ -10388,6 +10388,7 @@ public class GoBrolyGoGo {
 					damageDealt = player2.takeDamage(brolyAttack);
 					rage.addKi(damageDealt);
 					player2.addKi(damageDealt);
+					brolyAttack = rage.getPlanetCrusherDamage();
 				}
 				if (player3.getPlayer3Health() <= 0)
 				{
@@ -10398,6 +10399,7 @@ public class GoBrolyGoGo {
 					rage.addKi(damageDealt);
 					player3.addKi(damageDealt);
 					player3.reduceMomentum(damageDealt);
+					brolyAttack = rage.getPlanetCrusherDamage();
 				}
 				if (player4.getPlayer4Health() <= 0)
 				{
@@ -10410,6 +10412,7 @@ public class GoBrolyGoGo {
 					player4.reduceMomentum(damageDealt);
 				}
 				Broly.resetMomentum();
+				rage.deactivateUltimate();
 			}
 		}
 		if (brolyAction == 3)
@@ -19090,6 +19093,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					ultimate1.addKi(damageDealt);
 					ultimate1.reduceMomentum(damageDealt);
+					brolyAttack = superSaiyan.getBlasterMeteorDamage();
 				}
 				else
 				{
@@ -19097,6 +19101,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					player1.addKi(damageDealt);
 					player1.reduceMomentum(damageDealt);
+					brolyAttack = superSaiyan.getBlasterMeteorDamage();
 				}
 				if (player2.getPlayer2Health() <= 0)
 				{
@@ -19106,12 +19111,14 @@ public class GoBrolyGoGo {
 					damageDealt = ultimate2.takeDamage(brolyAttack);
 					superSaiyan.addKi(damageDealt);
 					ultimate2.addKi(damageDealt);
+					brolyAttack = superSaiyan.getBlasterMeteorDamage();
 				}
 				else
 				{
 					damageDealt = player2.takeDamage(brolyAttack);
 					superSaiyan.addKi(damageDealt);
 					player2.addKi(damageDealt);
+					brolyAttack = superSaiyan.getBlasterMeteorDamage();
 				}
 				if (player3.getPlayer3Health() <= 0)
 				{
@@ -19122,6 +19129,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					ultimate3.addKi(damageDealt);
 					ultimate3.reduceMomentum(damageDealt);
+					brolyAttack = superSaiyan.getBlasterMeteorDamage();
 				}
 				else
 				{
@@ -19129,6 +19137,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					player3.addKi(damageDealt);
 					player3.reduceMomentum(damageDealt);
+					brolyAttack = superSaiyan.getBlasterMeteorDamage();
 				}
 				if (player4.getPlayer4Health() <= 0)
 				{
@@ -19503,6 +19512,7 @@ public class GoBrolyGoGo {
 					ultimate1.addKi(damageDealt);
 					ultimate1.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 				else 
 				{
@@ -19511,6 +19521,7 @@ public class GoBrolyGoGo {
 					player1.addKi(damageDealt);
 					player1.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 			}
 			else if (target1 == 2)
@@ -19521,6 +19532,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					ultimate2.addKi(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 				else 
 				{
@@ -19528,6 +19540,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					player2.addKi(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 			}
 			else if (target1 == 3)
@@ -19539,6 +19552,7 @@ public class GoBrolyGoGo {
 					ultimate3.addKi(damageDealt);
 					ultimate3.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 				else 
 				{
@@ -19547,6 +19561,7 @@ public class GoBrolyGoGo {
 					player3.addKi(damageDealt);
 					player3.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 			}
 			else
@@ -19558,6 +19573,7 @@ public class GoBrolyGoGo {
 					ultimate4.addKi(damageDealt);
 					ultimate4.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 				else 
 				{
@@ -19566,6 +19582,7 @@ public class GoBrolyGoGo {
 					player4.addKi(damageDealt);
 					player4.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 			}
 			if (target2 == 1)
@@ -19577,6 +19594,7 @@ public class GoBrolyGoGo {
 					ultimate1.addKi(damageDealt);
 					ultimate1.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 				else 
 				{
@@ -19585,6 +19603,7 @@ public class GoBrolyGoGo {
 					player1.addKi(damageDealt);
 					player1.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 			}
 			else if (target2 == 2)
@@ -19595,6 +19614,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					ultimate2.addKi(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 				else 
 				{
@@ -19602,6 +19622,7 @@ public class GoBrolyGoGo {
 					superSaiyan.addKi(damageDealt);
 					player2.addKi(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 			}
 			else if (target2 == 3)
@@ -19613,6 +19634,7 @@ public class GoBrolyGoGo {
 					ultimate3.addKi(damageDealt);
 					ultimate3.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 				else 
 				{
@@ -19621,6 +19643,7 @@ public class GoBrolyGoGo {
 					player3.addKi(damageDealt);
 					player3.reduceMomentum(damageDealt);
 					superSaiyan.addMomentum(damageDealt);
+					brolyAttack = superSaiyan.getGiganticChargeSuperSaiyanDamage();
 				}
 			}
 			else if (target2 == 4)
@@ -21807,6 +21830,7 @@ public class GoBrolyGoGo {
 	public static void elixirOfRestoration(FusedPlayer fusion) {
 		TankClass player2 = new TankClass();
 		MageClass player3 = new MageClass();
+		FusedPlayer.reduceKi();
 		fusion.increaseHealth(FusedPlayer.getCraftingProgress());
 		FusedPlayer.resetCraftingProgress();
 		player2.setHyperChargeDuration();
@@ -21885,6 +21909,7 @@ public class GoBrolyGoGo {
 		int heal;
 		AttackerClass player1 = new AttackerClass();
 		MageClass player3 = new MageClass();
+		FusedPlayer.reduceKi();
 		heal = FusedPlayer.getCraftingProgress();
 		fusion.increaseHealth(heal);
 		do 
@@ -21948,6 +21973,7 @@ public class GoBrolyGoGo {
 		fusionTurn;
 		AttackerClass player1 = new AttackerClass();
 		TankClass player2 = new TankClass();
+		fusion.useMedcine();
 		fusion.increaseHealth(FusedPlayer.getCraftingProgress());
 		do 
 		{
@@ -22663,6 +22689,7 @@ public class GoBrolyGoGo {
 					ultimate1.addKi(damageDealt);
 					ultimate1.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22671,6 +22698,7 @@ public class GoBrolyGoGo {
 					player1.addKi(damageDealt);
 					player1.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target1 == 2)
@@ -22681,6 +22709,7 @@ public class GoBrolyGoGo {
 					fullPower.addKi(damageDealt);
 					ultimate2.addKi(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22688,6 +22717,7 @@ public class GoBrolyGoGo {
 					fullPower.addKi(damageDealt);
 					player2.addKi(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target1 == 3)
@@ -22699,6 +22729,7 @@ public class GoBrolyGoGo {
 					ultimate3.addKi(damageDealt);
 					ultimate3.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22707,6 +22738,7 @@ public class GoBrolyGoGo {
 					player3.addKi(damageDealt);
 					player3.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target1 == 4)
@@ -22718,6 +22750,7 @@ public class GoBrolyGoGo {
 					ultimate4.addKi(damageDealt);
 					ultimate4.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22726,6 +22759,7 @@ public class GoBrolyGoGo {
 					player4.addKi(damageDealt);
 					player4.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target1 == 5)
@@ -22735,6 +22769,7 @@ public class GoBrolyGoGo {
 				fusion.addKi(damageDealt);
 				fusion.reduceMomentum(damageDealt);
 				fullPower.addMomentum(damageDealt);
+				brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 			}
 			if (target2 == 1)
 			{
@@ -22745,6 +22780,7 @@ public class GoBrolyGoGo {
 					ultimate1.addKi(damageDealt);
 					ultimate1.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22753,6 +22789,7 @@ public class GoBrolyGoGo {
 					player1.addKi(damageDealt);
 					player1.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target2 == 2)
@@ -22763,6 +22800,7 @@ public class GoBrolyGoGo {
 					fullPower.addKi(damageDealt);
 					ultimate2.addKi(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22770,6 +22808,7 @@ public class GoBrolyGoGo {
 					fullPower.addKi(damageDealt);
 					player2.addKi(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target2 == 3)
@@ -22781,6 +22820,7 @@ public class GoBrolyGoGo {
 					ultimate3.addKi(damageDealt);
 					ultimate3.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22789,6 +22829,7 @@ public class GoBrolyGoGo {
 					player3.addKi(damageDealt);
 					player3.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target2 == 4)
@@ -22800,6 +22841,7 @@ public class GoBrolyGoGo {
 					ultimate4.addKi(damageDealt);
 					ultimate4.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 				else
 				{
@@ -22808,6 +22850,7 @@ public class GoBrolyGoGo {
 					player4.addKi(damageDealt);
 					player4.reduceMomentum(damageDealt);
 					fullPower.addMomentum(damageDealt);
+					brolyAttack = fullPower.getGiganticChargeFullPowerDamage();
 				}
 			}
 			else if (target2 == 5)

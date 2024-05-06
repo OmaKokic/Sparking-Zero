@@ -86,8 +86,6 @@ public class FusedPlayer {
 	private static int damageTaken;
 	private static int damageDealt;
 	private static int kiGained;
-	private final int MED_KIT_MIN_HEAL = 2000;
-	private int medKitHeal = 0;
 	private final int HIGH_SPIRIT_GENKI_SHIELD_HEAL = 6000;
 	private final int HIGH_SPIRIT_GENKI_SHIELD_KI = 150;
 	private final int CORDINATED_ATTACK_MIN_DAMAGE = 10714;
@@ -1389,7 +1387,7 @@ public class FusedPlayer {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 1;
+		increasedProgress = rng.nextInt(100) + 50;
 		attackUpProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (attackUpProgress >= 100)
@@ -1469,7 +1467,7 @@ public class FusedPlayer {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 1;
+		increasedProgress = rng.nextInt(100) + 50;
 		hyperChargeProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (hyperChargeProgress >= 100)
@@ -1509,7 +1507,7 @@ public class FusedPlayer {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 1;
+		increasedProgress = rng.nextInt(100) + 50;
 		staticMomentumProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
@@ -1594,6 +1592,7 @@ public class FusedPlayer {
 				}
 			}
 		}
+		increasedProgress += 50;
 		attackUpProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (attackUpProgress >= 100)
@@ -1670,6 +1669,7 @@ public class FusedPlayer {
 				}
 			}
 		}
+		increasedProgress += 50;
 		hyperChargeProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (hyperChargeProgress >= 100)
@@ -1708,6 +1708,7 @@ public class FusedPlayer {
 				}
 			}
 		}
+		increasedProgress += 50;
 		staticMomentumProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
@@ -1809,25 +1810,6 @@ public class FusedPlayer {
 	
 	public static void resetKiGained() {
 		kiGained = 0;
-	}
-	
-	public int useElixir() {
-		chargeNumber--;
-		ki -= 50;
-		if (ki < 0)
-		{
-			if (chargeNumber == 0)
-			{
-				ki = 0;
-			}
-			else 
-			{
-				chargeNumber--;
-				ki += 100;
-			}
-		}
-		medKitHeal = rng.nextInt(MED_KIT_MIN_HEAL) + MED_KIT_MIN_HEAL;
-		return medKitHeal;
 	}
 	
 	public static void resetMomentum() {
@@ -2085,10 +2067,8 @@ public class FusedPlayer {
 	public static void reduceKiEnergyAssist() {
 		chargeNumber -= 7;
 	}
-	public int useMedcine() {
+	public void useMedcine() {
 		chargeNumber -= 7;
-		medKitHeal = rng.nextInt(MED_KIT_MIN_HEAL) + MED_KIT_MIN_HEAL;
-		return medKitHeal;
 	}
 	
 	public static void setPotaraFusion() {

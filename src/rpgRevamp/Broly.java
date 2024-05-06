@@ -27,20 +27,20 @@ public class Broly {
 		brolyHealth30Percent = 30000 * challengeModeAttackUp;
 		brolyHealth20Percent = 20000 * challengeModeAttackUp;
 		brolyHealth10Percent = 10000 * challengeModeAttackUp;
-		PLANET_CRUSHER_MIN_DAMAGE = 4000 * challengeModeAttackUp;
-		ENRAGED_SHOUT_MIN_DAMAGE = 3000 * challengeModeAttackUp;
-		GIGANTIC_CHARGE_RAGE_MIN_DAMAGE = 1400 * challengeModeAttackUp;
-		BLASTER_METEOR_MIN_DAMAGE = 5333 * challengeModeAttackUp;
-		BLASTER_CANNON_MIN_DAMAGE = 4000 * challengeModeAttackUp;
+		PLANET_CRUSHER_MIN_DAMAGE = 3333 * challengeModeAttackUp;
+		ENRAGED_SHOUT_MIN_DAMAGE = 2500 * challengeModeAttackUp;
+		GIGANTIC_CHARGE_RAGE_MIN_DAMAGE = 1166 * challengeModeAttackUp;
+		BLASTER_METEOR_MIN_DAMAGE = 4666 * challengeModeAttackUp;
+		BLASTER_CANNON_MIN_DAMAGE = 3500 * challengeModeAttackUp;
 		OMEGA_BLASTER_BARRIER_MAX_HEALTH_SUPER_SAIYAN = 3000 * challengeModeAttackUp;
-		GIGANTIC_CHARGE_SUPER_SAIYAN_MIN_DAMAGE = 1866 * challengeModeAttackUp;
+		GIGANTIC_CHARGE_SUPER_SAIYAN_MIN_DAMAGE = 1633 * challengeModeAttackUp;
 		BLASTER_METEOR_MAX_BARRIER_HEALTH = 5000 * challengeModeAttackUp;
 		BLASTER_METEOR_BARRIER_MIN = 133 * challengeModeAttackUp; 
-		GIGANTIC_ROAR_MIN_DAMAGE = 6667 * challengeModeAttackUp;
-		BLASTER_CANNON_FULL_POWER_MIN_DAMAGE = 5000 * challengeModeAttackUp;
+		GIGANTIC_ROAR_MIN_DAMAGE = 6000 * challengeModeAttackUp;
+		BLASTER_CANNON_FULL_POWER_MIN_DAMAGE = 4500 * challengeModeAttackUp;
 		OMEGA_BLASTER_BARRIER_MAX_FULL_POWER = 5000 * challengeModeAttackUp;
 		OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE = 266 * challengeModeAttackUp;
-		GIGANTIC_CHARGE_FULL_POWER_MIN_DAMAGE = 2333 * challengeModeAttackUp;
+		GIGANTIC_CHARGE_FULL_POWER_MIN_DAMAGE = 2100 * challengeModeAttackUp;
 	}
 
 	
@@ -323,7 +323,7 @@ public class Broly {
 	
 	public int getPlanetCrusherDamage() {
 		bossMomentum = 0;
-		brolyAttack = rng.nextInt(2000) + PLANET_CRUSHER_MIN_DAMAGE;
+		brolyAttack = rng.nextInt(1667) + PLANET_CRUSHER_MIN_DAMAGE;
 		return brolyAttack;
 	}
 	
@@ -461,7 +461,7 @@ public class Broly {
 	
 	public int getEnragedShoutDamage() {
 		bossChargeNumber--;
-		brolyAttack = rng.nextInt(1500) + ENRAGED_SHOUT_MIN_DAMAGE;
+		brolyAttack = rng.nextInt(1250) + ENRAGED_SHOUT_MIN_DAMAGE;
 		return brolyAttack;
 	}
 	
@@ -511,7 +511,7 @@ public class Broly {
 	}
 	
 	public int getGiganticChargeRage() {
-		brolyAttack = rng.nextInt(700) + GIGANTIC_CHARGE_RAGE_MIN_DAMAGE;
+		brolyAttack = rng.nextInt(584) + GIGANTIC_CHARGE_RAGE_MIN_DAMAGE;
 		return brolyAttack;
 	}
 
@@ -540,7 +540,7 @@ public class Broly {
 	
 	public int getBlasterMeteorDamage() {
 		bossMomentum = 0;
-		return rng.nextInt(2667) + BLASTER_METEOR_MIN_DAMAGE;
+		return rng.nextInt(2334) + BLASTER_METEOR_MIN_DAMAGE;
 	}
 
 	/**
@@ -563,7 +563,7 @@ public class Broly {
 	
 	public int getBlasterCannonDamage() {
 		bossChargeNumber -= 2;
-		return rng.nextInt(2000) + BLASTER_CANNON_MIN_DAMAGE;
+		return rng.nextInt(1750) + BLASTER_CANNON_MIN_DAMAGE;
 	}
 
 	/**
@@ -586,7 +586,7 @@ public class Broly {
 	}
 	
 	public int getGiganticChargeSuperSaiyanDamage() {
-		return rng.nextInt(933) + GIGANTIC_CHARGE_SUPER_SAIYAN_MIN_DAMAGE;
+		return rng.nextInt(817) + GIGANTIC_CHARGE_SUPER_SAIYAN_MIN_DAMAGE;
 	}
 
 	/**
@@ -615,7 +615,6 @@ public class Broly {
 		boolean humanShieldUnusable = false;
 		brolyAttack = rng.nextInt(67) + BLASTER_METEOR_BARRIER_MIN;
 		blasterMeteorBarrierHealth -= 1000;
-		brolyUltimate = true;
 		player1.removeHumanShieldTarget();
 		player3.removeHumanShieldTarget();
 		player4.removeHumanShieldTarget();
@@ -686,6 +685,7 @@ public class Broly {
 			addKi(damageDealt);
 			player1.addKi(damageDealt);
 			player1.reduceMomentum(damageDealt);
+			brolyAttack = rng.nextInt(67) + BLASTER_METEOR_BARRIER_MIN;
 		}
 		if (player2.getPlayer2Health() <= 0)
 		{
@@ -767,7 +767,7 @@ public class Broly {
 	
 	public int getGiganticRoarDamage() {
 		bossMomentum = 0;
-		return rng.nextInt(3333) + GIGANTIC_ROAR_MIN_DAMAGE;
+		return rng.nextInt(3000) + GIGANTIC_ROAR_MIN_DAMAGE;
 	}
 
 	/**
@@ -779,7 +779,7 @@ public class Broly {
 	
 	public int getBlasterCannonFullPowerDamage() {
 		bossChargeNumber -= 3;
-		return rng.nextInt(2500) + BLASTER_CANNON_FULL_POWER_MIN_DAMAGE;
+		return rng.nextInt(2250) + BLASTER_CANNON_FULL_POWER_MIN_DAMAGE;
 	}
 	
 	public void activateOmegaBlasterFullPower() {
@@ -800,7 +800,6 @@ public class Broly {
 		boolean humanShieldUnusable = false;
 		brolyAttack = rng.nextInt(134) + OMEGA_BLASTER_FULL_POWER_MIN_DAMAGE;
 		omegaBlasterHealth -= 1000;
-		brolySuper = true;
 		player1.removeHumanShieldTarget();
 		player3.removeHumanShieldTarget();
 		player4.removeHumanShieldTarget();
@@ -1145,7 +1144,7 @@ public class Broly {
 	}
 	
 	public int getGiganticChargeFullPowerDamage() {
-		return rng.nextInt(834) + GIGANTIC_CHARGE_FULL_POWER_MIN_DAMAGE;
+		return rng.nextInt(1050) + GIGANTIC_CHARGE_FULL_POWER_MIN_DAMAGE;
 	}
 	
 	public void difficultySelect(int selectedDifficulty) {

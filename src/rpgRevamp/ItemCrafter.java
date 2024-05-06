@@ -421,7 +421,7 @@ public class ItemCrafter {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 1;
+		increasedProgress = rng.nextInt(100) + 50;
 		attackUpProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (attackUpProgress >= 100)
@@ -495,7 +495,7 @@ public class ItemCrafter {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 1;
+		increasedProgress = rng.nextInt(100) + 50;
 		hyperChargeProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (hyperChargeProgress >= 100)
@@ -532,7 +532,7 @@ public class ItemCrafter {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 1;
+		increasedProgress = rng.nextInt(100) + 50;
 		staticMomentumProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
