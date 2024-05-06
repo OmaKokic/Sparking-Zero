@@ -96,6 +96,7 @@ public class FusedPlayer {
 	private static boolean protectionSkill;
 	private static boolean potaraFusion = false;
 	private static int potaraBuff = 1;
+	private static int craftingProgress = 0;
 	
 	public static void setName(String name1, String name2) {
 		name = name1.substring(0, name1.length() - 1) + name2.substring(name2.length() - 2, name2.length());
@@ -1022,6 +1023,7 @@ public class FusedPlayer {
 			damageTaken = 0;
 			damageDealt = 0;
 			kiGained = 0;
+			craftingProgress = 0;
 			potaraFusion = false;
 			potaraBuff = 1;
 		}
@@ -1349,6 +1351,7 @@ public class FusedPlayer {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		largeHealProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (largeHealProgress >= 100)
 		{
 			craft.increaseLargeHealItemAmount();
@@ -1388,6 +1391,7 @@ public class FusedPlayer {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		attackUpProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (attackUpProgress >= 100)
 		{
 			craft.increaseAttackUpAmount();
@@ -1427,6 +1431,7 @@ public class FusedPlayer {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		defenseUpProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (defenseUpProgress >= 100)
 		{
 			craft.increaseDefenseUpAmount();
@@ -1466,6 +1471,7 @@ public class FusedPlayer {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		hyperChargeProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (hyperChargeProgress >= 100)
 		{
 			craft.increaseHyperChargeAmount();
@@ -1505,6 +1511,7 @@ public class FusedPlayer {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		staticMomentumProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
 		{
 			craft.increaseStaticMomentumAmount();
@@ -1550,6 +1557,7 @@ public class FusedPlayer {
 			}
 		}
 		largeHealProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (largeHealProgress >= 100)
 		{
 			craft.increaseLargeHealItemAmount();
@@ -1587,6 +1595,7 @@ public class FusedPlayer {
 			}
 		}
 		attackUpProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (attackUpProgress >= 100)
 		{
 			craft.increaseAttackUpAmount();
@@ -1624,6 +1633,7 @@ public class FusedPlayer {
 			}
 		}
 		defenseUpProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (defenseUpProgress >= 100)
 		{
 			craft.increaseDefenseUpAmount();
@@ -1661,6 +1671,7 @@ public class FusedPlayer {
 			}
 		}
 		hyperChargeProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (hyperChargeProgress >= 100)
 		{
 			craft.increaseHyperChargeAmount();
@@ -1698,6 +1709,7 @@ public class FusedPlayer {
 			}
 		}
 		staticMomentumProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
 		{
 			craft.increaseStaticMomentumAmount();
@@ -2168,5 +2180,13 @@ public class FusedPlayer {
 			ki = 0;
 		}
 		Items.addPoints(50);
+	}
+
+	public static int getCraftingProgress() {
+		return craftingProgress;
+	}
+	
+	public static void resetCraftingProgress() {
+		craftingProgress = 0;
 	}
 }

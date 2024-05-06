@@ -30,8 +30,6 @@ public class ItemCrafter {
 	private static int hyperChargeProgress = 0;
 	private static int staticMomentumProgress = 0;
 	private Items craft = new Items();
-	private final int MED_KIT_MIN_HEAL = 1000;
-	private int medKitHeal = 0;
 	private int increasedProgress = 0;
 	private final int DEFEND_REDUCTION = 2;
 	private static boolean humanShieldTarget = false;
@@ -40,6 +38,7 @@ public class ItemCrafter {
 	private static String ultimateTag = "";
 	private static boolean craftersIntuition = false;
 	private static int heldHealth = 0;
+	private static int craftingProgress = 0;
 	
 	/**
 	 * This method sets player 4's name
@@ -387,6 +386,7 @@ public class ItemCrafter {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		largeHealProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (largeHealProgress >= 100)
 		{
 			craft.increaseLargeHealItemAmount();
@@ -423,6 +423,7 @@ public class ItemCrafter {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		attackUpProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (attackUpProgress >= 100)
 		{
 			craft.increaseAttackUpAmount();
@@ -459,6 +460,7 @@ public class ItemCrafter {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		defenseUpProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (defenseUpProgress >= 100)
 		{
 			craft.increaseDefenseUpAmount();
@@ -495,6 +497,7 @@ public class ItemCrafter {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		hyperChargeProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (hyperChargeProgress >= 100)
 		{
 			craft.increaseHyperChargeAmount();
@@ -531,6 +534,7 @@ public class ItemCrafter {
 		}
 		increasedProgress = rng.nextInt(100) + 1;
 		staticMomentumProgress += increasedProgress;
+		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
 		{
 			craft.increaseStaticMomentumAmount();
@@ -561,24 +565,6 @@ public class ItemCrafter {
 	}
 	public int getStaticMomentumProgress() {
 		return staticMomentumProgress;
-	}
-	
-	public int useMedKit() {
-		player4Ki -= SKILLCOST;
-		if (player4Ki < 0)
-		{
-			if (player4ChargeNumber == 0)
-			{
-				player4Ki = 0;
-			}
-			else 
-			{
-				player4ChargeNumber--;
-				player4Ki += 100;
-			}
-		}
-		medKitHeal = rng.nextInt(MED_KIT_MIN_HEAL) + MED_KIT_MIN_HEAL;
-		return medKitHeal;
 	}
 	
 	public void useCrafterIntuition() {
@@ -1402,5 +1388,21 @@ public class ItemCrafter {
 			player4Ki = 0;
 		}
 		Items.addPoints(50);
+	}
+	
+	public static int getCraftingProgress() {
+		return craftingProgress;
+	}
+	
+	public static void resetCraftingProgress() {
+		craftingProgress = 0;
+	}
+	
+	public static void addCraftingProgress(int addedProgress) {
+		craftingProgress += addedProgress;
+	}
+	
+	public static int getCraftingProgressUltimate() {
+		return craftingProgress * 2;
 	}
 }

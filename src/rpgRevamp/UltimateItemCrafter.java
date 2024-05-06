@@ -14,8 +14,6 @@ public class UltimateItemCrafter extends ItemCrafter{
 	private final int MAX_CHARGE_NUMBER = 5;
 	private int playerDamage;
 	private Random rng = new Random();
-	private final int MED_KIT_MIN_HEAL = 4000;
-	private int medKitHeal = 0;
 	private int increasedProgress = 0;
 	private Items craft = new Items();
 	private final int SKILLCOST = 100;
@@ -316,6 +314,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addLargeHealProgress(increasedProgress);
+		super.addCraftingProgress(increasedProgress);
 		if (super.getLargeHealProgress() >= 200)
 		{
 			craft.increaseLargeHealItemAmount();
@@ -349,6 +348,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addAttackUpProgress(increasedProgress);
+		super.addCraftingProgress(increasedProgress);
 		if (super.getLargeHealProgress() >= 200)
 		{
 			craft.increaseAttackUpAmount();
@@ -381,6 +381,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addDefenseUpProgress(increasedProgress);
+		super.addCraftingProgress(increasedProgress);
 		if (super.getLargeHealProgress() >= 200)
 		{
 			craft.increaseDefenseUpAmount();
@@ -413,6 +414,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addHyperChargeProgress(increasedProgress);
+		super.addCraftingProgress(increasedProgress);
 		if (super.getLargeHealProgress() >= 200)
 		{
 			craft.increaseHyperChargeAmount();
@@ -445,6 +447,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addStaticMomentumProgress(increasedProgress);
+		super.addCraftingProgress(increasedProgress);
 		if (super.getLargeHealProgress() >= 200)
 		{
 			craft.increaseStaticMomentumAmount();
@@ -470,12 +473,6 @@ public class UltimateItemCrafter extends ItemCrafter{
 		return increasedProgress;
 	}
 	
-	public int useSpecializedHealing() {
-		super.reducePlayerKi(SKILLCOST);
-		medKitHeal = rng.nextInt(4000) + MED_KIT_MIN_HEAL;
-		return medKitHeal;
-	}
-	
 	public void useKnowledgeOfTheUniverse() {
 		JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + " used " + MOMENTUM_SKILL); 
 		System.out.println(super.getUltimateTag() + super.toString() + " used " + MOMENTUM_SKILL);
@@ -488,6 +485,5 @@ public class UltimateItemCrafter extends ItemCrafter{
 	public int getSKILLCOST() {
 		return SKILLCOST;
 	}
-	
 	
 }

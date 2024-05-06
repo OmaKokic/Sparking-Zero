@@ -40,7 +40,7 @@ public class GoBrolyGoGo {
 		}
 		p4.setName4(player4Name);//This sets the name for player 4
 		do {
-			modeSelect = JOptionPane.showInputDialog("What mode do you want to play?\n\nStandard\nChallenge Mode");
+			modeSelect = JOptionPane.showInputDialog("What mode do you want to play?\n\nStandard\nChallenge Mode\nCustom");
 			if (modeSelect == null)
 			{
 				modeSelect = "Standard";
@@ -54,12 +54,20 @@ public class GoBrolyGoGo {
 			{
 				validChoice = true;
 			}
+			else if (modeSelect.equalsIgnoreCase("Custom"))
+			{
+				validChoice = true;
+			}
 			else
 			{
 				validChoice = false;
 			}
 		}while (!validChoice);
 		if (modeSelect.equalsIgnoreCase("Challenge Mode"))
+		{
+			selectedDifficulty = "2";
+		}
+		if (modeSelect.equalsIgnoreCase("Custom"))
 		{
 			String playerConfirmation;
 			do {
@@ -1764,7 +1772,7 @@ public class GoBrolyGoGo {
 		if (itemCrafterS.isUltimate())
 		{
 			itemCrafterSkill = JOptionPane.showInputDialog("Skills\n" + ultimateItemCrafterS.getSkill1() + " - Craft an item - 100 Ki\n" + 
-					ultimateItemCrafterS.getSkill2() + " - Heal yourself - 100 Ki");
+					ultimateItemCrafterS.getSkill2() + " - Heal yourself based on crafting progress (" + ItemCrafter.getCraftingProgress() + ")- 100 Ki");
 			if (itemCrafterSkill == null)
 			{
 				itemCrafterSkill = "null";
@@ -1773,7 +1781,7 @@ public class GoBrolyGoGo {
 		else
 		{
 			itemCrafterSkill = JOptionPane.showInputDialog("Skills\n" + itemCrafterS.getSkill1() + " - Craft an item - 50 Ki\n" + 
-					itemCrafterS.getSkill2() + " - Heal yourself - 50 Ki");
+					itemCrafterS.getSkill2() + " - Heal yourself based on crafting progress (" + ItemCrafter.getCraftingProgress() + ") - 50 Ki");
 			if (itemCrafterSkill == null)
 			{
 				itemCrafterSkill = "null";
@@ -6397,25 +6405,21 @@ public class GoBrolyGoGo {
 			if (mageTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.addMomentumFromMage(player3.getKiGained());
-				player3.addMomentum(player3.getKiGained());
 				player3.resetKiGained();
 			}
 			else if (mageTurn.equalsIgnoreCase(player2.toString()))
 			{
 				player2.addMomentumFromMage(player3.getKiGained());
-				player3.addMomentum(player3.getKiGained());
 				player3.resetKiGained();
 			}
 			else if (mageTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.addMomentumFromMage(player3.getKiGained());
-				player3.addMomentum(player3.getKiGained());
 				player3.resetKiGained();
 			}
 			else if (mageTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.addMomentumFromMage(player3.getKiGained());
-				player3.addMomentum(player3.getKiGained());
 				player3.resetKiGained();
 			}
 		}
@@ -8436,7 +8440,8 @@ public class GoBrolyGoGo {
 		}
 		else if (itemCrafterTurn.equalsIgnoreCase(player4.getSkill2()))
 		{
-			player4.increaseHealth(player4.useMedKit());
+			player4.increaseHealth(ItemCrafter.getCraftingProgress());
+			ItemCrafter.resetCraftingProgress();
 		}
 		else if (itemCrafterTurn.equalsIgnoreCase(usedItem.getITEM1()))
 		{
@@ -15133,25 +15138,21 @@ public class GoBrolyGoGo {
 			if (mageTurn.equalsIgnoreCase(player1.toString()))
 			{
 				player1.addMomentumFromMage(player3.getKiGained() * 2);
-				player3.addMomentum(player3.getKiGained() * 2);
 				player3.resetKiGainedUltimate();
 			}
 			else if (mageTurn.equalsIgnoreCase(player2.toString()))
 			{
 				player2.addMomentumFromMage(player3.getKiGained() * 2);
-				player3.addMomentum(player3.getKiGained() * 2);
 				player3.resetKiGainedUltimate();
 			}
 			else if (mageTurn.equalsIgnoreCase(player4.toString()))
 			{
 				player4.addMomentumFromMage(player3.getKiGained() * 2);
-				player3.addMomentum(player3.getKiGained() * 2);
 				player3.resetKiGainedUltimate();
 			}
 			else if (mageTurn.equalsIgnoreCase(fusion.toString()))
 			{
 				fusion.addMomentumFromMage(player3.getKiGained() * 2);
-				player3.addMomentum(player3.getKiGained() * 2);
 				player3.resetKiGainedUltimate();
 			}
 		}
@@ -17156,7 +17157,8 @@ public class GoBrolyGoGo {
 		}
 		else if (itemCrafterTurn.equalsIgnoreCase(player4.getSkill2()))
 		{
-			player4.increaseHealth(player4.useSpecializedHealing());
+			player4.increaseHealth(ItemCrafter.getCraftingProgress());
+			ItemCrafter.resetCraftingProgress();
 		}
 		else if (itemCrafterTurn.equalsIgnoreCase(usedItem.getITEM1()))
 		{
@@ -21805,7 +21807,8 @@ public class GoBrolyGoGo {
 	public static void elixirOfRestoration(FusedPlayer fusion) {
 		TankClass player2 = new TankClass();
 		MageClass player3 = new MageClass();
-		fusion.increaseHealth(fusion.useElixir());
+		fusion.increaseHealth(FusedPlayer.getCraftingProgress());
+		FusedPlayer.resetCraftingProgress();
 		player2.setHyperChargeDuration();
 		player3.setHyperChargeDuration();
 	}
@@ -21882,7 +21885,7 @@ public class GoBrolyGoGo {
 		int heal;
 		AttackerClass player1 = new AttackerClass();
 		MageClass player3 = new MageClass();
-		heal = fusion.useElixir();
+		heal = FusedPlayer.getCraftingProgress();
 		fusion.increaseHealth(heal);
 		do 
 		{
@@ -21938,13 +21941,14 @@ public class GoBrolyGoGo {
 		{
 			player3.increaseHealth(heal);
 		}
+		FusedPlayer.resetCraftingProgress();
 	}
 	public static void medicine(FusedPlayer fusion) {
 		String playerConfirmation,
 		fusionTurn;
 		AttackerClass player1 = new AttackerClass();
 		TankClass player2 = new TankClass();
-		fusion.increaseHealth(fusion.useMedcine());
+		fusion.increaseHealth(FusedPlayer.getCraftingProgress());
 		do 
 		{
 			fusionTurn = JOptionPane.showInputDialog("Who do you want to buff?\n" + AttackerClass.getUltimateTag() + player1 + "\n" +
