@@ -157,7 +157,7 @@ public class Broly {
 	public int reduceBrolyHealth(int playerAttack) {
 		if (blasterMeteorBarrierHealth > 0)
 		{
-			blasterMeteorBarrierHealth -= playerAttack / 10 / challengeModeDefenseUp;
+			blasterMeteorBarrierHealth -= playerAttack * 0.8 / challengeModeDefenseUp;
 			if (blasterMeteorBarrierHealth <= 0)
 			{
 				JOptionPane.showMessageDialog(null, "Broly's barrier was destroyed");
@@ -173,7 +173,7 @@ public class Broly {
 		}
 		else if (omegaBlasterHealth > 0)
 		{
-			omegaBlasterHealth -= playerAttack / 10 / challengeModeDefenseUp;
+			omegaBlasterHealth -= playerAttack * 0.8 / challengeModeDefenseUp;
 			if (omegaBlasterHealth <= 0)
 			{
 				JOptionPane.showMessageDialog(null, "Broly's barrier was destroyed");
