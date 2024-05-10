@@ -216,8 +216,8 @@ public class ItemCrafter {
 		else
 		{
 			defenseUpDuration--;
-			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s defense up has ended");
-			System.out.println(ultimateTag + playerName1 + "'s defense up has ended");
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s defense up has ended");
+			System.out.println(ultimateTag + playerName4 + "'s defense up has ended");
 		}
 	}
 	public int getSKILLCOST() {
@@ -251,9 +251,24 @@ public class ItemCrafter {
 			{
 				player4Ki = 0;
 			}
-			hyperChargeDuration--;
-			JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
-			System.out.println(ultimateTag + playerName4 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+			if (hyperChargeDuration > 2)
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+				System.out.println(ultimateTag + playerName4 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+			}
+			else if (hyperChargeDuration == 2)
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+				System.out.println(ultimateTag + playerName4 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+			}
+			else 
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s hyper charge has ended");
+				System.out.println(ultimateTag + playerName4 + "'s hyper charge has ended");
+			}
 		}
 		else if (hyperChargeDuration == 1)
 		{
@@ -284,7 +299,7 @@ public class ItemCrafter {
 	}
 	
 	public void reduceStaticMomentumDuration() {
-		if (staticMomentumDuration > 1)
+		if (staticMomentumDuration > 2)
 		{
 			staticMomentumDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s static momentum"
@@ -292,13 +307,19 @@ public class ItemCrafter {
 			System.out.println(ultimateTag + playerName4 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turns");
 		}
-		else if (staticMomentumDuration == 1)
+		else if (staticMomentumDuration == 2)
 		{
 			staticMomentumDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turn");
 			System.out.println(ultimateTag + playerName4 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turn");
+		}
+		else 
+		{
+			staticMomentumDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s static momentum has ended");
+			System.out.println(ultimateTag + playerName4 + "'s static momentum has ended");
 		}
 	}
 	

@@ -447,9 +447,24 @@ public class AttackerClass {
 			{
 				player1Ki = 0;
 			}
-			hyperChargeDuration--;
-			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
-			System.out.println(ultimateTag + playerName1 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+			if (hyperChargeDuration > 2)
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+				System.out.println(ultimateTag + playerName1 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+			}
+			else if (hyperChargeDuration == 2)
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+				System.out.println(ultimateTag + playerName1 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+			}
+			else 
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s hyper charge has ended");
+				System.out.println(ultimateTag + playerName1 + "'s hyper charge has ended");
+			}
 		}
 		else if (hyperChargeDuration == 1)
 		{
@@ -484,7 +499,7 @@ public class AttackerClass {
 	}
 	
 	public void reduceStaticMomentumDuration() {
-		if (staticMomentumDuration > 1)
+		if (staticMomentumDuration > 2)
 		{
 			staticMomentumDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s static momentum"
@@ -492,13 +507,19 @@ public class AttackerClass {
 			System.out.println(ultimateTag + playerName1 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turns");
 		}
-		else if (staticMomentumDuration == 1)
+		else if (staticMomentumDuration == 2)
 		{
 			staticMomentumDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turn");
 			System.out.println(ultimateTag + playerName1 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turn");
+		}
+		else 
+		{
+			staticMomentumDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s static momentum has ended");
+			System.out.println(ultimateTag + playerName1 + "'s static momentum has ended");
 		}
 	}
 	

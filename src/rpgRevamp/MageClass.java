@@ -195,7 +195,7 @@ public class MageClass {
 	}
 	
 	public void reduceDefenseUpDuration() {
-		if (defenseUpDuration > 1)
+		if (defenseUpDuration > 2)
 		{
 			defenseUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s defense up will last for " 
@@ -203,13 +203,19 @@ public class MageClass {
 			System.out.println(ultimateTag + playerName3 + "'s defense up will last for " 
 					+ defenseUpDuration + " turns");
 		}
-		else if (defenseUpDuration == 1)
+		else if (defenseUpDuration == 2)
 		{
 			defenseUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s defense up will last for " 
 					+ defenseUpDuration + " turn");
 			System.out.println(ultimateTag + playerName3 + "'s defense up will last for " 
 					+ defenseUpDuration + " turn");
+		}
+		else
+		{
+			defenseUpDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s defense up has ended");
+			System.out.println(ultimateTag + playerName3 + "'s defense up has ended");
 		}
 	}
 
@@ -249,9 +255,24 @@ public class MageClass {
 			{
 				player3Ki = 0;
 			}
-			hyperChargeDuration--;
-			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
-			System.out.println(ultimateTag + playerName3 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+			if (hyperChargeDuration > 2)
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+				System.out.println(ultimateTag + playerName3 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
+			}
+			else if (hyperChargeDuration == 2)
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+				System.out.println(ultimateTag + playerName3 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+			}
+			else 
+			{
+				hyperChargeDuration--;
+				JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s hyper charge has ended");
+				System.out.println(ultimateTag + playerName3 + "'s hyper charge has ended");
+			}
 		}
 		else if (hyperChargeDuration == 1)
 		{
@@ -268,7 +289,7 @@ public class MageClass {
 	}
 	
 	public void reduceStaticMomentumDuration() {
-		if (staticMomentumDuration > 1)
+		if (staticMomentumDuration > 2)
 		{
 			staticMomentumDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s static momentum"
@@ -276,13 +297,19 @@ public class MageClass {
 			System.out.println(ultimateTag + playerName3 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turns");
 		}
-		else if (staticMomentumDuration == 1)
+		else if (staticMomentumDuration == 2)
 		{
 			staticMomentumDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turn");
 			System.out.println(ultimateTag + playerName3 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turn");
+		}
+		else 
+		{
+			staticMomentumDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s static momentum has ended");
+			System.out.println(ultimateTag + playerName3 + "'s static momentum has ended");
 		}
 	}
 	public void startDefending() {
