@@ -163,7 +163,7 @@ public class MageClass {
 	}
 	
 	public void reduceAttackUpDuration() {
-		if (attackUpDuration > 1)
+		if (attackUpDuration > 2)
 		{
 			attackUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s attack up will last for " 
@@ -171,13 +171,19 @@ public class MageClass {
 			System.out.println(ultimateTag + playerName3 + "'s attack up will last for " 
 					+ attackUpDuration + " more turns");
 		}
-		else if (attackUpDuration == 1)
+		else if (attackUpDuration == 2)
 		{
 			attackUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s attack up will last for " 
 					+ attackUpDuration + " more turn");
 			System.out.println(ultimateTag + playerName3 + "'s attack up will last for " 
 					+ attackUpDuration + " more turn");
+		}
+		else
+		{
+			attackUpDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s attack up has ended");
+			System.out.println(ultimateTag + playerName3 + "'s attack up has ended");
 		}
 	}
 	

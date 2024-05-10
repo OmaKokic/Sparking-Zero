@@ -365,7 +365,7 @@ public class AttackerClass {
 	}
 	
 	public void reduceAttackUpDuration() {
-		if (attackUpDuration > 1)
+		if (attackUpDuration > 2)
 		{
 			attackUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s attack up will last for " 
@@ -373,13 +373,19 @@ public class AttackerClass {
 			System.out.println(ultimateTag + playerName1 + "'s attack up will last for " 
 			+ attackUpDuration + " more turns");
 		}
-		else if (attackUpDuration == 1)
+		else if (attackUpDuration == 2)
 		{
 			attackUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s attack up will last for " 
 					+ attackUpDuration + " more turn");
 			System.out.println(ultimateTag + playerName1 + "'s attack up will last for " 
 					+ attackUpDuration + " more turn");
+		}
+		else
+		{
+			attackUpDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s attack up has ended");
+			System.out.println(ultimateTag + playerName1 + "'s attack up has ended");
 		}
 	}
 	public void setDefenseUpDuration() {
@@ -390,7 +396,7 @@ public class AttackerClass {
 	}
 	
 	public void reduceDefenseUpDuration() {
-		if (defenseUpDuration > 1)
+		if (defenseUpDuration > 2)
 		{
 			defenseUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s defense up will last for " 
@@ -398,13 +404,19 @@ public class AttackerClass {
 			System.out.println(ultimateTag + playerName1 + "'s defense up will last for " 
 					+ defenseUpDuration + " turns");
 		}
-		else if (defenseUpDuration == 1)
+		else if (defenseUpDuration == 2)
 		{
 			defenseUpDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s defense up will last for " 
 					+ defenseUpDuration + " turn");
 			System.out.println(ultimateTag + playerName1 + "'s defense up will last for " 
 					+ defenseUpDuration + " turn");
+		}
+		else
+		{
+			defenseUpDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s defense up has ended");
+			System.out.println(ultimateTag + playerName1 + "'s defense up has ended");
 		}
 	}
 	

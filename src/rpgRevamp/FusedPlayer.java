@@ -359,7 +359,7 @@ public class FusedPlayer {
 	}
 	
 	public void reduceAttackUpDuration() {
-		if (attackUpDuration > 1)
+		if (attackUpDuration > 2)
 		{
 			attackUpDuration--;
 			JOptionPane.showMessageDialog(null, name + "'s attack up will last for " 
@@ -367,13 +367,19 @@ public class FusedPlayer {
 			System.out.println(name + "'s attack up will last for " 
 			+ attackUpDuration + " more turns");
 		}
-		else if (attackUpDuration == 1)
+		else if (attackUpDuration == 2)
 		{
 			attackUpDuration--;
 			JOptionPane.showMessageDialog(null, name + "'s attack up will last for " 
 					+ attackUpDuration + " more turn");
 			System.out.println(name + "'s attack up will last for " 
 					+ attackUpDuration + " more turn");
+		}
+		else
+		{
+			attackUpDuration--;
+			JOptionPane.showMessageDialog(null, name + "'s attack up has ended");
+			System.out.println(name + "'s attack up has ended");
 		}
 	}
 	
@@ -385,7 +391,7 @@ public class FusedPlayer {
 	}
 	
 	public void reduceDefenseUpDuration() {
-		if (defenseUpDuration > 1)
+		if (defenseUpDuration > 2)
 		{
 			defenseUpDuration--;
 			JOptionPane.showMessageDialog(null, name + "'s defense up will last for " 
@@ -393,13 +399,19 @@ public class FusedPlayer {
 			System.out.println(name + "'s defense up will last for " 
 					+ defenseUpDuration + " turns");
 		}
-		else if (defenseUpDuration == 1)
+		else if (defenseUpDuration == 2)
 		{
 			defenseUpDuration--;
 			JOptionPane.showMessageDialog(null, name + "'s defense up will last for " 
 					+ defenseUpDuration + " turn");
 			System.out.println(name + "'s defense up will last for " 
 					+ defenseUpDuration + " turn");
+		}
+		else
+		{
+			defenseUpDuration--;
+			JOptionPane.showMessageDialog(null, name + "'s defense up has ended");
+			System.out.println(name + "'s defense up has ended");
 		}
 	}
 	
