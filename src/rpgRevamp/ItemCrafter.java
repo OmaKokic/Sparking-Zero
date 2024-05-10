@@ -807,11 +807,13 @@ public class ItemCrafter {
 		{
 			JOptionPane.showMessageDialog(null, "Genki Shield blocked the attack");
 			System.out.println("Genki Shield blocked the attack");
+			damageTaken = 0;
 		}
 		else if (ultimatePlayer2.getUltimateGenkiShieldDuration() > 0)
 		{
 			JOptionPane.showMessageDialog(null, "Ultimate Genki Shield blocked the attack");
 			System.out.println("Ultimate Genki Shield blocked the attack");
+			damageTaken = 0;
 		}
 		else if (Broly.isBrolyFullPowerUltimate())
 		{
