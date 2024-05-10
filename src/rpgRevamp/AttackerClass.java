@@ -549,7 +549,7 @@ public class AttackerClass {
 		}
 		else if (hyperChargeDuration > 0)
 		{
-			player1Ki += addedKi / 10;
+			player1Ki += addedKi / 50;
 		}
 		else
 		{
@@ -1219,6 +1219,7 @@ public class AttackerClass {
 			hyperChargeDuration = 0;
 			staticMomentumDuration = 0;
 			player1Health = 0;
+			damageDealt = 0;
 		}
 		return damageTaken;
 	}

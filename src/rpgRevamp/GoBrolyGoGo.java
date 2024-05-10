@@ -9755,9 +9755,9 @@ public class GoBrolyGoGo {
 			player4.craftHyperCharge();
 			player4.craftStaticMomentum();
 			JOptionPane.showMessageDialog(null, ItemCrafter.getUltimateTag() + player4 + " crafted "
-					+ "a senzu");
+					+ "a " + usedItem.getITEM3());
 			System.out.println(ItemCrafter.getUltimateTag() + player4 + " crafted "
-					+ "a senzu");
+					+ "a " + usedItem.getITEM3());
 			usedItem.increaseSenzuHealItemAmount();
 			player4.endCraftersIntuition();
 		}
@@ -18475,9 +18475,9 @@ public class GoBrolyGoGo {
 			player4.craftHyperCharge();
 			player4.craftStaticMomentum();
 			JOptionPane.showMessageDialog(null, ItemCrafter.getUltimateTag() + player4 + " crafted "
-					+ "a senzu");
+					+ "a " + usedItem.getITEM3());
 			System.out.println(ItemCrafter.getUltimateTag() + player4 + " crafted "
-					+ "a senzu");
+					+ "a " + usedItem.getITEM3());
 			usedItem.increaseSenzuHealItemAmount();
 			player4.endCraftersIntuition();
 		}

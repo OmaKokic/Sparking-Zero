@@ -94,7 +94,7 @@ public class ItemCrafter {
 		}
 		else if (hyperChargeDuration > 0)
 		{
-			player4Ki += addedKi;
+			player4Ki += addedKi / 5;
 		}
 		else
 		{
@@ -487,7 +487,7 @@ public class ItemCrafter {
 			System.out.println(craft.getITEM4() + 
 					" is now at " + attackUpProgress + "% completion");
 		}
-		return increasedProgress;
+		return increasedProgress - 50;
 	}
 	
 	public int craftDefenseUp() {
@@ -561,7 +561,7 @@ public class ItemCrafter {
 			System.out.println(craft.getITEM6() + 
 					" is now at " + hyperChargeProgress + "% completion");
 		}
-		return increasedProgress;
+		return increasedProgress - 50;
 	}
 	
 	public int craftStaticMomentum() {
@@ -581,7 +581,7 @@ public class ItemCrafter {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 50;
+		increasedProgress = rng.nextInt(100);
 		staticMomentumProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
@@ -1137,6 +1137,7 @@ public class ItemCrafter {
 			hyperChargeDuration = 0;
 			staticMomentumDuration = 0;
 			player4Health = 0;
+			craftingProgress = 0;
 		}
 		return damageTaken;
 	}

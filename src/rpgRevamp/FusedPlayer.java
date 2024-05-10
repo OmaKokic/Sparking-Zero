@@ -547,8 +547,8 @@ public class FusedPlayer {
 		}
 		else if (hyperChargeDuration > 0)
 		{
-			ki += addedKi / 10;
-			kiGained += addedKi / 10;
+			ki += addedKi / 50;
+			kiGained += addedKi / 50;
 		}
 		else
 		{
@@ -1455,7 +1455,7 @@ public class FusedPlayer {
 			System.out.println(craft.getITEM4() + 
 					" is now at " + attackUpProgress + "% completion");
 		}
-		return increasedProgress;
+		return increasedProgress - 50;
 	}
 	
 	public int craftDefenseUp() {
@@ -1535,7 +1535,7 @@ public class FusedPlayer {
 			System.out.println(craft.getITEM6() + 
 					" is now at " + hyperChargeProgress + "% completion");
 		}
-		return increasedProgress;
+		return increasedProgress - 50;
 	}
 	
 	public int craftStaticMomentum() {
@@ -1558,7 +1558,7 @@ public class FusedPlayer {
 				}
 			}
 		}
-		increasedProgress = rng.nextInt(100) + 50;
+		increasedProgress = rng.nextInt(100);
 		staticMomentumProgress += increasedProgress;
 		craftingProgress += increasedProgress * 10;
 		if (staticMomentumProgress >= 100)
@@ -1860,7 +1860,7 @@ public class FusedPlayer {
 	}
 	
 	public static void resetKiGained() {
-		kiGained = 0;
+		 kiGained = 0;
 	}
 	
 	public static void resetMomentum() {
@@ -2128,7 +2128,6 @@ public class FusedPlayer {
 	
 	public void addKiDragonBalls() {
 		ki += 50;
-		kiGained += 50;
 		if (ki > 699)
 		{
 			chargeNumber = 7;

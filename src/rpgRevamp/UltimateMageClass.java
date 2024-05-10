@@ -63,7 +63,6 @@ public class UltimateMageClass extends MageClass{
 		if (super.getHyperChargeDuration() > 2)
 		{
 			super.addKiUltimate(15);;
-			super.addToKiGained(15);
 			while (super.getPlayer3Ki() > 99)
 			{
 				if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
@@ -148,7 +147,7 @@ public class UltimateMageClass extends MageClass{
 		}
 		else
 		{
-			addedKi /= 100;
+			addedKi /= 20;
 			super.addKiUltimate(addedKi);
 		}
 		if (super.getPlayer3Ki() > 699)
@@ -331,7 +330,6 @@ public class UltimateMageClass extends MageClass{
 			super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer3Ki(0);
 		}
-		super.addToKiGained(addedKi);
 	}
 	
 	@Override

@@ -360,7 +360,7 @@ public class UltimateAttackerClass extends AttackerClass{
 		}
 		else if (super.getHyperChargeDuration() > 0)
 		{
-			super.addKiUltimate(addedKi / 10);
+			super.addKiUltimate(addedKi / 50);
 		}
 		else
 		{

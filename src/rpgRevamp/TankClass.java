@@ -90,7 +90,7 @@ public class TankClass {
 		}
 		else if (hyperChargeDuration > 0)
 		{
-			player2Ki += addedKi;
+			player2Ki += addedKi / 5;
 		}
 		else
 		{

@@ -144,11 +144,11 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		else if (super.getHyperChargeDuration() > 0)
 		{
-			super.addKiUltimate(addedKi / 10);
+			super.addKiUltimate(addedKi / 5);
 		}
 		else
 		{
-			super.addKiUltimate(addedKi / 100);
+			super.addKiUltimate(addedKi / 10);
 		}
 		if (super.getPlayer4Ki() > 699)
 		{

@@ -393,7 +393,6 @@ public class MageClass {
 		{
 			player3Ki = 0;
 		}
-		MageClass.kiGained += addedKi;
 	}
 	
 	public int getPlayerAttack() {
@@ -843,6 +842,7 @@ public class MageClass {
 			hyperChargeDuration = 0;
 			staticMomentumDuration = 0;
 			player3Health = 0;
+			kiGained = 0;
 		}
 		return damageTaken;
 	}
@@ -1047,7 +1047,6 @@ public class MageClass {
 	
 	public void addKiDragonBalls() {
 		player3Ki += 50;
-		kiGained += 50;
 		if (player3Ki > 299)
 		{
 			player3ChargeNumber = 3;
