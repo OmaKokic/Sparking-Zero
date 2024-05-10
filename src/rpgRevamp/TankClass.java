@@ -230,12 +230,12 @@ public class TankClass {
 	}
 	
 	public void reduceHyperChargeDuration() {
-		if (hyperChargeDuration > 1)
+		if (hyperChargeDuration > 2)
 		{
 			player2Ki += 15;
-			if (player2Ki > 100)
+			if (player2Ki > 99)
 			{
-				if (player2ChargeNumber >= MAX_CHARGE_NUMBER)
+				if (player2ChargeNumber == MAX_CHARGE_NUMBER)
 				{
 					player2Ki = 0;
 				}
@@ -245,37 +245,22 @@ public class TankClass {
 					player2Ki -= 100;
 				}
 			}
-			if (player2ChargeNumber >= MAX_CHARGE_NUMBER)
+			if (player2ChargeNumber == MAX_CHARGE_NUMBER)
 			{
 				player2Ki = 0;
 			}
-			if (hyperChargeDuration > 2)
-			{
 				hyperChargeDuration--;
 				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
 				System.out.println(ultimateTag + playerName2 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
-			}
-			else if (hyperChargeDuration == 2)
-			{
-				hyperChargeDuration--;
-				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
-				System.out.println(ultimateTag + playerName2 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
-			}
-			else 
-			{
-				hyperChargeDuration--;
-				JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + "'s hyper charge has ended");
-				System.out.println(ultimateTag + playerName2 + "'s hyper charge has ended");
-			}
 		}
-		else if (hyperChargeDuration == 1)
+		else if (hyperChargeDuration == 2)
 		{
 			player2Ki += 15;
 			if (player2Ki > 100)
 			{
-				if (player2ChargeNumber >= MAX_CHARGE_NUMBER)
+				if (player2ChargeNumber == MAX_CHARGE_NUMBER)
 				{
-					player2Ki = 100;
+					player2Ki = 0;
 				}
 				else 
 				{
@@ -283,9 +268,36 @@ public class TankClass {
 					player2Ki -= 100;
 				}
 			}
+			if (player2ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player2Ki = 0;
+			}
 			hyperChargeDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
 			System.out.println(ultimateTag + playerName2 + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+		}
+		else
+		{
+			player2Ki += 15;
+			if (player2Ki > 99)
+			{
+				if (player2ChargeNumber == MAX_CHARGE_NUMBER)
+				{
+					player2Ki = 0;
+				}
+				else 
+				{
+					player2ChargeNumber++;
+					player2Ki -= 100;
+				}
+			}
+			if (player2ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player2Ki = 0;
+			}
+			hyperChargeDuration--;
+			JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + "'s hyper charge has ended");
+			System.out.println(ultimateTag + playerName2 + "'s hyper charge has ended");
 		}
 	}
 	

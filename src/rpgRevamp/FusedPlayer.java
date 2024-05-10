@@ -423,7 +423,7 @@ public class FusedPlayer {
 	}
 	
 	public void reduceHyperChargeDuration() {
-		if (hyperChargeDuration > 1)
+		if (hyperChargeDuration > 2)
 		{
 			ki += 15;
 			if (ki > 99)
@@ -442,33 +442,18 @@ public class FusedPlayer {
 			{
 				ki = 0;
 			}
-			if (hyperChargeDuration > 2)
-			{
 				hyperChargeDuration--;
 				JOptionPane.showMessageDialog(null, name + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
 				System.out.println(name + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
-			}
-			else if (hyperChargeDuration == 2)
-			{
-				hyperChargeDuration--;
-				JOptionPane.showMessageDialog(null, name + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
-				System.out.println(name + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
-			}
-			else 
-			{
-				hyperChargeDuration--;
-				JOptionPane.showMessageDialog(null, name + "'s hyper charge has ended");
-				System.out.println(name + "'s hyper charge has ended");
-			}
 		}
-		else if (hyperChargeDuration == 1)
+		else if (hyperChargeDuration == 2)
 		{
 			ki += 15;
 			if (ki > 100)
 			{
 				if (chargeNumber == MAX_CHARGE_NUMBER)
 				{
-					ki = 100;
+					ki = 0;
 				}
 				else 
 				{
@@ -476,9 +461,36 @@ public class FusedPlayer {
 					ki -= 100;
 				}
 			}
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
 			hyperChargeDuration--;
 			JOptionPane.showMessageDialog(null, name + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
 			System.out.println(name + "'s hyper charge will last for " + hyperChargeDuration + " more turn");
+		}
+		else
+		{
+			ki += 15;
+			if (ki > 99)
+			{
+				if (chargeNumber == MAX_CHARGE_NUMBER)
+				{
+					ki = 0;
+				}
+				else 
+				{
+					chargeNumber++;
+					ki -= 100;
+				}
+			}
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
+			}
+			hyperChargeDuration--;
+			JOptionPane.showMessageDialog(null, name + "'s hyper charge has ended");
+			System.out.println(name + "'s hyper charge has ended");
 		}
 	}
 
