@@ -2225,4 +2225,8 @@ public class FusedPlayer {
 	public static void resetCraftingProgress() {
 		craftingProgress = 0;
 	}
+	
+	public static void addTenMomentum() {
+		momentum += 10;
+	}
 }

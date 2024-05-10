@@ -445,6 +445,11 @@ public class MageClass {
 				player3Ki += 100;
 			}
 		}
+		player3Momentum += 10;
+		if (player3Momentum > 100)
+		{
+			player3Momentum = 100;
+		}
 	}
 	
 	public int takeDamage(int damageTaken) {
@@ -1087,5 +1092,13 @@ public class MageClass {
 			player3Health = MAX_HEALTH;
 		}
 		Items.addPoints(50);
+	}
+	
+	public static void addMomentumUltimate(int addedMomentum) {
+		player3Momentum += addedMomentum;
+	}
+	
+	public void addPlayerChargeNumber() {
+		player3ChargeNumber++;
 	}
 }

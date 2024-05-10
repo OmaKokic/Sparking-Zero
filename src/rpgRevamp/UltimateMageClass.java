@@ -60,7 +60,7 @@ public class UltimateMageClass extends MageClass{
 	
 	@Override
 	public void reduceHyperChargeDuration() {
-		if (super.getHyperChargeDuration() > 1)
+		if (super.getHyperChargeDuration() > 2)
 		{
 			super.addKiUltimate(15);;
 			super.addToKiGained(15);
@@ -85,7 +85,7 @@ public class UltimateMageClass extends MageClass{
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turns");
 			System.out.println(super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turns");
 		}
-		else if (super.getHyperChargeDuration() == 1)
+		else if (super.getHyperChargeDuration() == 2)
 		{
 			super.addKiUltimate(15);
 			while (super.getPlayer3Ki() > 99)
@@ -108,6 +108,30 @@ public class UltimateMageClass extends MageClass{
 			super.reduceHyperChargeDuration();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turn");
 			System.out.println(super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turn");
+		}
+		else
+		{
+			super.addKiUltimate(15);
+			while (super.getPlayer3Ki() > 99)
+			{
+				if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
+				{
+					super.setPlayer3Ki(0);
+				}
+				else 
+				{
+					super.addPlayerChargeNumber();
+					super.reducePlayerKi(100);
+				}
+			}
+			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
+			{
+				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
+			}
+			super.reduceHyperChargeDuration();
+			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge has ended");
+			System.out.println(super.getUltimateTag() + super.toString() + "'s hyper charge has ended");
 		}
 	}
 	
@@ -353,6 +377,7 @@ public class UltimateMageClass extends MageClass{
 				super.addKiUltimate(100);
 			}
 		}
+		super.addMomentumUltimate(10);
 	}
 	
 }

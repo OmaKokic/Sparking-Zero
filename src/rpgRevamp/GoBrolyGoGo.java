@@ -21369,6 +21369,7 @@ public class GoBrolyGoGo {
 		JOptionPane.showMessageDialog(null, fusion + " used " + FusedPlayer.getSkill1());
 		System.out.println(fusion + " used " + FusedPlayer.getSkill1());
 		FusedPlayer.reduceKiEnergySteal();
+		FusedPlayer.addTenMomentum();
 		if (FusedPlayer.getKi() > boss.getBrolyKi())
 		{
 			if (FusedPlayer.getChargeNumber() < boss.getBrolyChargeNumber())
@@ -21589,6 +21590,7 @@ public class GoBrolyGoGo {
 		}
 	}
 	public static void kiShield() {
+		FusedPlayer.addTenMomentum();
 		AttackerClass player1 = new AttackerClass();
 		ItemCrafter player4 = new ItemCrafter();
 		FusedPlayer.reduceKiEnergySteal();
@@ -21608,6 +21610,7 @@ public class GoBrolyGoGo {
 		AttackerClass player1 = new AttackerClass();
 		TankClass player2 = new TankClass();
 		FusedPlayer.reduceKi();
+		FusedPlayer.addTenMomentum();
 		if (FusedPlayer.getKi() > boss.getBrolyKi())
 		{
 			if (FusedPlayer.getChargeNumber() < boss.getBrolyChargeNumber())

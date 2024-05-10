@@ -62,7 +62,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 	
 	@Override
 	public void reduceHyperChargeDuration() {
-		if (super.getHyperChargeDuration() > 1)
+		if (super.getHyperChargeDuration() > 2)
 		{
 			super.addKiUltimate(15);
 			while (super.getPlayer4Ki() > 99)
@@ -86,7 +86,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turns");
 			System.out.println(super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turns");
 		}
-		else if (super.getHyperChargeDuration() == 1)
+		else if (super.getHyperChargeDuration() == 2)
 		{
 			super.addKiUltimate(15);
 			while (super.getPlayer4Ki() > 99)
@@ -109,6 +109,30 @@ public class UltimateItemCrafter extends ItemCrafter{
 			super.reduceHyperChargeDuration();
 			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turn");
 			System.out.println(super.getUltimateTag() + super.toString() + "'s hyper charge will last for " + super.getHyperChargeDuration() + " more turn");
+		}
+		else
+		{
+			super.addKiUltimate(15);
+			while (super.getPlayer4Ki() > 99)
+			{
+				if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
+				{
+					super.setPlayer4Ki(0);
+				}
+				else 
+				{
+					super.addPlayerChargeNumber();
+					super.reducePlayerKi(100);
+				}
+			}
+			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
+			{
+				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
+			}
+			super.reduceHyperChargeDuration();
+			JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + "'s hyper charge has ended");
+			System.out.println(super.getUltimateTag() + super.toString() + "'s hyper charge has ended");
 		}
 	}
 	
