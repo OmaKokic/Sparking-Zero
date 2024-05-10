@@ -225,13 +225,17 @@ public class TankClass {
 			{
 				if (player2ChargeNumber >= MAX_CHARGE_NUMBER)
 				{
-					player2Ki = 100;
+					player2Ki = 0;
 				}
 				else 
 				{
 					player2ChargeNumber++;
 					player2Ki -= 100;
 				}
+			}
+			if (player2ChargeNumber >= MAX_CHARGE_NUMBER)
+			{
+				player2Ki = 0;
 			}
 			hyperChargeDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName2 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
@@ -274,6 +278,10 @@ public class TankClass {
 			System.out.println(ultimateTag + playerName2 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turns");
 			player2Momentum += 10;
+			if (player2Momentum > 100)
+			{
+				player2Momentum = 100;
+			}
 		}
 		else if (staticMomentumDuration == 1)
 		{
@@ -283,6 +291,10 @@ public class TankClass {
 			System.out.println(ultimateTag + playerName2 + "'s static momentum"
 					+ " will last for " + staticMomentumDuration + " more turn");
 			player2Momentum += 10;
+			if (player2Momentum > 100)
+			{
+				player2Momentum = 100;
+			}
 		}
 	}
 	
@@ -761,6 +773,8 @@ public class TankClass {
 		player2Health = newHealth.getMAX_HEALTH();
 		ultimate = true;
 		ultimateTag = "Ultimate ";
+		JOptionPane.showMessageDialog(null, playerName2 + " has awakened their potential");
+		System.out.println(playerName2 + " has awakened their potential");
 	}
 
 	public boolean isUltimate() {
@@ -984,6 +998,11 @@ public class TankClass {
 		if (player2ChargeNumber == MAX_CHARGE_NUMBER)
 		{
 			player2Ki = 0;
+		}
+		player2Health += 500;
+		if (player2Health > MAX_HEALTH)
+		{
+			player2Health = MAX_HEALTH;
 		}
 		Items.addPoints(50);
 	}

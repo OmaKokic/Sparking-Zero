@@ -223,17 +223,21 @@ public class ItemCrafter {
 		if (hyperChargeDuration > 1)
 		{
 			player4Ki += 15;
-			if (player4Ki > 100)
+			if (player4Ki > 99)
 			{
 				if (player4ChargeNumber >= MAX_CHARGE_NUMBER)
 				{
-					player4Ki = 100;
+					player4Ki = 0;
 				}
 				else 
 				{
 					player4ChargeNumber++;
 					player4Ki -= 100;
 				}
+			}
+			if (player4ChargeNumber >= MAX_CHARGE_NUMBER)
+			{
+				player4Ki = 0;
 			}
 			hyperChargeDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName4 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
@@ -1136,6 +1140,8 @@ public class ItemCrafter {
 		player4Health = newHealth.getMAX_HEALTH();
 		ultimate = true;
 		ultimateTag = "Ultimate ";
+		JOptionPane.showMessageDialog(null, playerName4 + " has awakened their potential");
+		System.out.println(playerName4 + " has awakened their potential");
 	}
 
 	public boolean isUltimate() {
@@ -1386,6 +1392,11 @@ public class ItemCrafter {
 		if (player4ChargeNumber == MAX_CHARGE_NUMBER)
 		{
 			player4Ki = 0;
+		}
+		player4Health += 500;
+		if (player4Health > MAX_HEALTH)
+		{
+			player4Health = MAX_HEALTH;
 		}
 		Items.addPoints(50);
 	}

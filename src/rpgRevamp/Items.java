@@ -175,7 +175,8 @@ public class Items {
 		do
 		{
 			JOptionPane.showMessageDialog(null, "Shenron: State your wish.");
-			chosenPlayer = JOptionPane.showInputDialog("Who do you want to power up?");
+			chosenPlayer = JOptionPane.showInputDialog("Who do you want to power up?\n" + player1 + "\n" + player2 + "\n"
+					+ player3 + "\n" + player4);
 			if (chosenPlayer == null)
 			{
 				chosenPlayer = "null";

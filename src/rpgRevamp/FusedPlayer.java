@@ -414,17 +414,21 @@ public class FusedPlayer {
 		if (hyperChargeDuration > 1)
 		{
 			ki += 15;
-			if (ki > 100)
+			if (ki > 99)
 			{
 				if (chargeNumber == MAX_CHARGE_NUMBER)
 				{
-					ki = 100;
+					ki = 0;
 				}
 				else 
 				{
 					chargeNumber++;
 					ki -= 100;
 				}
+			}
+			if (chargeNumber == MAX_CHARGE_NUMBER)
+			{
+				ki = 0;
 			}
 			hyperChargeDuration--;
 			JOptionPane.showMessageDialog(null, name + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
@@ -2158,6 +2162,11 @@ public class FusedPlayer {
 		if (chargeNumber == MAX_CHARGE_NUMBER)
 		{
 			ki = 0;
+		}
+		health += 500;
+		if (health > maxHealth)
+		{
+			health = maxHealth;
 		}
 		Items.addPoints(50);
 	}

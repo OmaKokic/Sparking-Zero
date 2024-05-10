@@ -419,17 +419,21 @@ public class AttackerClass {
 		if (hyperChargeDuration > 1)
 		{
 			player1Ki += 15;
-			if (player1Ki > 100)
+			if (player1Ki > 99)
 			{
 				if (player1ChargeNumber == MAX_CHARGE_NUMBER)
 				{
-					player1Ki = 100;
+					player1Ki = 0;
 				}
 				else 
 				{
 					player1ChargeNumber++;
 					player1Ki -= 100;
 				}
+			}
+			if (player1ChargeNumber == MAX_CHARGE_NUMBER)
+			{
+				player1Ki = 0;
 			}
 			hyperChargeDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName1 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
@@ -1220,6 +1224,8 @@ public class AttackerClass {
 		player1Health = newHealth.getMAX_HEALTH();
 		ultimate = true;
 		ultimateTag = "Ultimate ";
+		JOptionPane.showMessageDialog(null, playerName1 + " has awakened their potential");
+		System.out.println(playerName1 + " has awakened their potential");
 	}
 
 	public boolean isUltimate() {
@@ -1390,6 +1396,11 @@ public class AttackerClass {
 		if (player1ChargeNumber == MAX_CHARGE_NUMBER)
 		{
 			player1Ki = 0;
+		}
+		player1Health += 500;
+		if (player1Health > MAX_HEALTH)
+		{
+			player1Health = MAX_HEALTH;
 		}
 		Items.addPoints(50);
 	}

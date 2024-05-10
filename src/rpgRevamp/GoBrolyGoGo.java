@@ -932,7 +932,7 @@ public class GoBrolyGoGo {
 						 + " - Increases attack for next three turns (" + useItem.getAttackUpAmount() + ") left\n" + useItem.getITEM5() + " - Increases"
 				 		 + " defense for three turns (" + useItem.getDefenseUpAmount() + ") left\n" + useItem.getITEM6() + " - Increases Ki gain for three turns (" 
 				         + useItem.getHyperChargeAmount() + ") left\n" + useItem.getITEM7() + " - Prevents momentum"
-				 		 + " from decreasing (" + useItem.getStaticMomentumAmount() + ") left\nFind " + useItem.getITEM8() + " - Make a wish to power up a character (" + useItem.getDragonBallAmount()
+				 		 + " from decreasing (" + useItem.getStaticMomentumAmount() + ") left\n" + useItem.getITEM8() + " - Make a wish to power up a character (" + useItem.getDragonBallAmount()
 				 		 + ") found\n" + useItem.getITEM9() + " - Fuse with the Potara Earrings");
 				if (chosenItem == null)
 				{
@@ -962,7 +962,7 @@ public class GoBrolyGoGo {
 					 + " - Increases attack for next three turns (" + useItem.getAttackUpAmount() + ") left\n" + useItem.getITEM5() + " - Increases"
 			 		 + " defense for three turns (" + useItem.getDefenseUpAmount() + ") left\n" + useItem.getITEM6() + " - Increases Ki gain for three turns (" 
 			         + useItem.getHyperChargeAmount() + ") left\n" + useItem.getITEM7() + " - Prevents momentum"
-			 		 + " from decreasing (" + useItem.getStaticMomentumAmount() + ") left\nUse " + useItem.getITEM8() + " - Make a wish to power up a character");
+			 		 + " from decreasing (" + useItem.getStaticMomentumAmount() + ") left\n" + useItem.getITEM8() + " - Make a wish to power up a character");
 			if (chosenItem == null)
 			{
 				chosenItem = "null";
@@ -990,7 +990,7 @@ public class GoBrolyGoGo {
 					 + " - Increases attack for next three turns (" + useItem.getAttackUpAmount() + ") left\n" + useItem.getITEM5() + " - Increases"
 			 		 + " defense for three turns (" + useItem.getDefenseUpAmount() + ") left\n" + useItem.getITEM6() + " - Increases Ki gain for three turns (" 
 			         + useItem.getHyperChargeAmount() + ") left\n" + useItem.getITEM7() + " - Prevents momentum"
-			 		 + " from decreasing (" + useItem.getStaticMomentumAmount() + ") left\nFind " + useItem.getITEM8() + " - Make a wish to power up a character (" + useItem.getDragonBallAmount()
+			 		 + " from decreasing (" + useItem.getStaticMomentumAmount() + ") left\n" + useItem.getITEM8() + " - Make a wish to power up a character (" + useItem.getDragonBallAmount()
 			 		  + ") found");
 			if (chosenItem == null)
 			{

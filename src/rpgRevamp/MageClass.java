@@ -231,13 +231,17 @@ public class MageClass {
 			{
 				if (player3ChargeNumber >= MAX_CHARGE_NUMBER)
 				{
-					player3Ki = 100;
+					player3Ki = 0;
 				}
 				else 
 				{
 					player3ChargeNumber++;
 					player3Ki -= 100;
 				}
+			}
+			if (player3ChargeNumber >= MAX_CHARGE_NUMBER)
+			{
+				player3Ki = 0;
 			}
 			hyperChargeDuration--;
 			JOptionPane.showMessageDialog(null, ultimateTag + playerName3 + "'s hyper charge will last for " + hyperChargeDuration + " more turns");
@@ -827,6 +831,8 @@ public class MageClass {
 		player3Health = newHealth.getMAX_HEALTH();
 		ultimate = true;
 		ultimateTag = "Ultimate ";
+		JOptionPane.showMessageDialog(null, playerName3 + " has awakened their potential");
+		System.out.println(playerName3 + " has awakened their potential");
 	}
 
 	public boolean isUltimate() {
@@ -1015,6 +1021,11 @@ public class MageClass {
 		if (player3ChargeNumber == MAX_CHARGE_NUMBER)
 		{
 			player3Ki = 0;
+		}
+		player3Health += 500;
+		if (player3Health > MAX_HEALTH)
+		{
+			player3Health = MAX_HEALTH;
 		}
 		Items.addPoints(50);
 	}
