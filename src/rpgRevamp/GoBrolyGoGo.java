@@ -636,9 +636,25 @@ public class GoBrolyGoGo {
 		Broly phase = new Broly();
 		PlayerStatus onePlayer = new PlayerStatus(); 
 		do {
-			if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
+			if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused() && attacker.isUltimate())
+			{
+				p1Action = JOptionPane.showInputDialog("What will " + AttackerClass.getUltimateTag() + attacker + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateAttacker.getMOMENTUM_SKILL() + "\nFuse");
+				if (p1Action == null)
+				{
+					p1Action = "";
+				}
+			}
+			else if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
 			{
 				p1Action = JOptionPane.showInputDialog("What will " + AttackerClass.getUltimateTag() + attacker + " do?\n\nAttack\nSkill\nItems\nDefend\n" + attacker.getMOMENTUM_SKILL() + "\nFuse");
+				if (p1Action == null)
+				{
+					p1Action = "";
+				}
+			}
+			else if (attacker.isUltimate())
+			{
+				p1Action = JOptionPane.showInputDialog("What will " + AttackerClass.getUltimateTag() + attacker + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateAttacker.getMOMENTUM_SKILL());
 				if (p1Action == null)
 				{
 					p1Action = "";
@@ -719,6 +735,30 @@ public class GoBrolyGoGo {
 			}
 			else if (p1Action.equalsIgnoreCase(attacker.getMOMENTUM_SKILL()))
 			{
+				if (attacker.getPlayer1Momentum() >= 100 && !attacker.isUltimate())
+				{
+					playerConfirmation = JOptionPane.showInputDialog(attacker.getMOMENTUM_SKILL()
+							+ " - Grant all allies " + attacker.getHIGH_SPIRIT_STRIKE_KI_GAIN() 
+							+ " ki and deals high damage\nAre you sure?\n"
+							+ "Yes  No");
+					if (playerConfirmation == null)
+					{
+						playerConfirmation = "";
+					}
+				}
+				else if (attacker.isUltimate())
+				{
+					JOptionPane.showMessageDialog(null, "Error");
+					playerConfirmation = "no";
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "You need full momentum to use it");
+					playerConfirmation = "no";
+				}
+			}
+			else if (p1Action.equalsIgnoreCase(ultimateAttacker.getMOMENTUM_SKILL()))
+			{
 				if (attacker.isUltimate() && attacker.getPlayer1Momentum() >= 100)
 				{
 					playerConfirmation = JOptionPane.showInputDialog(ultimateAttacker.getMOMENTUM_SKILL()
@@ -730,16 +770,10 @@ public class GoBrolyGoGo {
 						playerConfirmation = "";
 					}
 				}
-				else if (attacker.getPlayer1Momentum() >= 100)
+				else if (!attacker.isUltimate())
 				{
-					playerConfirmation = JOptionPane.showInputDialog(attacker.getMOMENTUM_SKILL()
-							+ " - Grant all allies " + attacker.getHIGH_SPIRIT_STRIKE_KI_GAIN() 
-							+ " ki and deals high damage\nAre you sure?\n"
-							+ "Yes  No");
-					if (playerConfirmation == null)
-					{
-						playerConfirmation = "";
-					}
+					JOptionPane.showMessageDialog(null, "Error");
+					playerConfirmation = "no";
 				}
 				else
 				{
@@ -1101,9 +1135,25 @@ public class GoBrolyGoGo {
 		Broly phase = new Broly();
 		PlayerStatus onePlayer = new PlayerStatus(); 
 		do {
-			if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
+			if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused() && tankClass.isUltimate())
+			{
+				p2Action = JOptionPane.showInputDialog("What will " + TankClass.getUltimateTag() + tankClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateTank.getMOMENTUM_SKILL() + "\nFuse");
+				if (p2Action == null)
+				{
+					p2Action = "null";
+				}
+			}
+			else if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
 			{
 				p2Action = JOptionPane.showInputDialog("What will " + TankClass.getUltimateTag() + tankClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + tankClass.getMOMENTUM_SKILL() + "\nFuse");
+				if (p2Action == null)
+				{
+					p2Action = "null";
+				}
+			}
+			else if (tankClass.isUltimate())
+			{
+				p2Action = JOptionPane.showInputDialog("What will " + TankClass.getUltimateTag() + tankClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateTank.getMOMENTUM_SKILL());
 				if (p2Action == null)
 				{
 					p2Action = "null";
@@ -1184,6 +1234,30 @@ public class GoBrolyGoGo {
 			}
 			else if (p2Action.equalsIgnoreCase(tankClass.getMOMENTUM_SKILL()))
 			{
+				if (tankClass.getPlayer2Momentum() >= 100 && !tankClass.isUltimate())
+				{
+					playerConfirmation = JOptionPane.showInputDialog(tankClass.getMOMENTUM_SKILL()
+							+ " - Protect all allies from incoming attack and heals all allies"
+							+ "\nAre you sure?\n"
+							+ "Yes  No");
+					if (playerConfirmation == null)
+					{
+						playerConfirmation = "null";
+					}
+				}
+				else if (tankClass.isUltimate())
+				{
+					JOptionPane.showMessageDialog(null, "Error");
+					playerConfirmation = "no";
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "You need full momentum to use it");
+					playerConfirmation = "no";
+				}
+			}
+			else if (p2Action.equalsIgnoreCase(ultimateTank.getMOMENTUM_SKILL()))
+			{
 				if (tankClass.isUltimate() && tankClass.getPlayer2Momentum() >= 100)
 				{
 					playerConfirmation = JOptionPane.showInputDialog(ultimateTank.getMOMENTUM_SKILL()
@@ -1195,16 +1269,10 @@ public class GoBrolyGoGo {
 						playerConfirmation = "null";
 					}
 				}
-				else if (tankClass.getPlayer2Momentum() >= 100)
+				else if (!tankClass.isUltimate())
 				{
-					playerConfirmation = JOptionPane.showInputDialog(tankClass.getMOMENTUM_SKILL()
-							+ " - Protect all allies from incoming attack and heals all allies"
-							+ "\nAre you sure?\n"
-							+ "Yes  No");
-					if (playerConfirmation == null)
-					{
-						playerConfirmation = "null";
-					}
+					JOptionPane.showMessageDialog(null, "Error");
+					playerConfirmation = "no";
 				}
 				else
 				{
@@ -1337,9 +1405,25 @@ public class GoBrolyGoGo {
 		Broly phase = new Broly();
 		PlayerStatus onePlayer = new PlayerStatus(); 
 			do {
-				if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
+				if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused() && mageClass.isUltimate())
+				{
+					p3Action = JOptionPane.showInputDialog("What will " + MageClass.getUltimateTag() + mageClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateMage.getMOMENTUM_SKILL() + "\nFuse");
+					if (p3Action == null)
+					{
+						p3Action = "null";
+					}
+				}
+				else if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
 				{
 					p3Action = JOptionPane.showInputDialog("What will " + MageClass.getUltimateTag() + mageClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + mageClass.getMOMENTUM_SKILL() + "\nFuse");
+					if (p3Action == null)
+					{
+						p3Action = "null";
+					}
+				}
+				else if (mageClass.isUltimate())
+				{
+					p3Action = JOptionPane.showInputDialog("What will " + MageClass.getUltimateTag() + mageClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateMage.getMOMENTUM_SKILL());
 					if (p3Action == null)
 					{
 						p3Action = "null";
@@ -1420,18 +1504,7 @@ public class GoBrolyGoGo {
 				}
 				else if (p3Action.equalsIgnoreCase(mageClass.getMOMENTUM_SKILL()))
 				{
-					if (mageClass.isUltimate() && mageClass.getPlayer3Momentum() >= 100)
-					{
-						playerConfirmation = JOptionPane.showInputDialog(mageClass.getMOMENTUM_SKILL()
-								+ " - Gives you max ki and grants all allies increased ki gain for the next"
-								+ " three turn\nAre you sure?\n"
-								+ "Yes  No");
-						if (playerConfirmation == null)
-						{
-							playerConfirmation = "null";
-						}
-					}
-					else if (mageClass.getPlayer3Momentum() >= 100)
+					if (mageClass.getPlayer3Momentum() >= 100 && !mageClass.isUltimate())
 					{
 						playerConfirmation = JOptionPane.showInputDialog(mageClass.getMOMENTUM_SKILL()
 								+ " - Gives you max ki and grants all allies increase ki gain for the next"
@@ -1441,6 +1514,35 @@ public class GoBrolyGoGo {
 						{
 							playerConfirmation = "null";
 						}
+					}
+					else if (mageClass.isUltimate())
+					{
+						JOptionPane.showMessageDialog(null, "Error");
+						playerConfirmation = "no";
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "You need full momentum to use it");
+						playerConfirmation = "no";
+					}
+				}
+				else if (p3Action.equalsIgnoreCase(ultimateMage.getMOMENTUM_SKILL()))
+				{
+					if (mageClass.isUltimate() && mageClass.getPlayer3Momentum() >= 100)
+					{
+						playerConfirmation = JOptionPane.showInputDialog(ultimateMage.getMOMENTUM_SKILL()
+								+ " - Gives you max ki and grants all allies increased ki gain for the next"
+								+ " three turn\nAre you sure?\n"
+								+ "Yes  No");
+						if (playerConfirmation == null)
+						{
+							playerConfirmation = "null";
+						}
+					}
+					else if (!mageClass.isUltimate())
+					{
+						JOptionPane.showMessageDialog(null, "Error");
+						playerConfirmation = "no";
 					}
 					else
 					{
@@ -1608,9 +1710,25 @@ public class GoBrolyGoGo {
 		Broly phase = new Broly();
 		PlayerStatus onePlayer = new PlayerStatus(); 
 			do {
-				if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
+				if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused() && itemClass.isUltimate())
+				{
+					p4Action = JOptionPane.showInputDialog("What will " + ItemCrafter.getUltimateTag() + itemClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateItemCrafter.getMOMENTUM_SKILL() + "\nFuse");
+					if (p4Action == null)
+					{
+						p4Action = "null";
+					}
+				}
+				else if (phase.toString().equalsIgnoreCase(phase.getPHASE_3_BOSS_NAME()) && !FusedPlayer.isFused())
 				{
 					p4Action = JOptionPane.showInputDialog("What will " + ItemCrafter.getUltimateTag() + itemClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + itemClass.getMOMENTUM_SKILL() + "\nFuse");
+					if (p4Action == null)
+					{
+						p4Action = "null";
+					}
+				}
+				else if (itemClass.isUltimate())
+				{
+					p4Action = JOptionPane.showInputDialog("What will " + ItemCrafter.getUltimateTag() + itemClass + " do?\n\nAttack\nSkill\nItems\nDefend\n" + ultimateItemCrafter.getMOMENTUM_SKILL());
 					if (p4Action == null)
 					{
 						p4Action = "null";
@@ -1691,18 +1809,7 @@ public class GoBrolyGoGo {
 				}
 				else if (p4Action.equalsIgnoreCase(itemClass.getMOMENTUM_SKILL()))
 				{
-					if (itemClass.isUltimate() || itemClass.getPlayer4Momentum() >= 100)
-					{
-							playerConfirmation = JOptionPane.showInputDialog(itemClass.getMOMENTUM_SKILL()
-									+ " - Boost progress on all items and produce a senzu"
-									+ "\nAre you sure?\n"
-									+ "Yes  No");
-							if (playerConfirmation == null)
-							{
-								playerConfirmation = "null";
-							}
-					}
-					else if (itemClass.getPlayer4Momentum() >= 100)
+					if (itemClass.getPlayer4Momentum() >= 100 && !itemClass.isUltimate())
 					{
 						playerConfirmation = JOptionPane.showInputDialog(itemClass.getMOMENTUM_SKILL()
 								+ " - Progress one stage on all items and produce a senzu"
@@ -1712,6 +1819,35 @@ public class GoBrolyGoGo {
 						{
 							playerConfirmation = "null";
 						}
+					}
+					else if (itemClass.isUltimate())
+					{
+						JOptionPane.showMessageDialog(null, "Error");
+						playerConfirmation = "no";
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "You need full momentum to use it");
+						playerConfirmation = "no";
+					}
+				}
+				else if (p4Action.equalsIgnoreCase(ultimateItemCrafter.getMOMENTUM_SKILL()))
+				{
+					if (itemClass.isUltimate() || itemClass.getPlayer4Momentum() >= 100)
+					{
+							playerConfirmation = JOptionPane.showInputDialog(ultimateItemCrafter.getMOMENTUM_SKILL()
+									+ " - Boost progress on all items and produce a senzu"
+									+ "\nAre you sure?\n"
+									+ "Yes  No");
+							if (playerConfirmation == null)
+							{
+								playerConfirmation = "null";
+							}
+					}
+					else if (!itemClass.isUltimate())
+					{
+						JOptionPane.showMessageDialog(null, "Error");
+						playerConfirmation = "no";
 					}
 					else
 					{
