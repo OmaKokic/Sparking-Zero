@@ -223,13 +223,14 @@ public class GoBrolyGoGo {
 		UltimateMageClass ultimateMage = new UltimateMageClass();
 		UltimateItemCrafter ultimateItemCrafter = new UltimateItemCrafter();
 		FusedPlayer fusion = new FusedPlayer();
+		PlayerStatus comeBack = new PlayerStatus();
 		do
 		{
 			if (Broly.getBlasterMeteorBarrierHealth() > 0 && Broly.getOmegaBlasterHealth() > 0)
 			{
 				JOptionPane.showMessageDialog(null, boss + "\nBarrier: " + (Broly.getBlasterMeteorBarrierHealth() + Broly.getOmegaBlasterHealth()) + " Hp: " + boss.getBrolyHealth() + "/" + boss.getBROLY_MAX_HEALTH() + "\nKi: " 
 						+ boss.getBrolyChargeNumber() + " ("+ boss.getBrolyKi() + ")\nMomentum: " + boss.getBrolyMomentum());
-				System.out.println(boss + "\nBarrier: " + Broly.getBlasterMeteorBarrierHealth() + " Hp: " + boss.getBrolyHealth() + "/" + boss.getBROLY_MAX_HEALTH() + "\nKi: " 
+				System.out.println(boss + "\nBarrier: " + (Broly.getBlasterMeteorBarrierHealth() + Broly.getOmegaBlasterHealth()) + " Hp: " + boss.getBrolyHealth() + "/" + boss.getBROLY_MAX_HEALTH() + "\nKi: " 
 						+ boss.getBrolyChargeNumber() + " ("+ boss.getBrolyKi() + ")\nMomentum: " + boss.getBrolyMomentum());
 			}
 			else if (Broly.getBlasterMeteorBarrierHealth() > 0)
@@ -393,6 +394,10 @@ public class GoBrolyGoGo {
 				endTurn = "no";
 			}
 		} while (!((endTurn.equalsIgnoreCase("yes"))) &&(!(endTurn.equalsIgnoreCase("y"))));
+		if (comeBack.isOnePlayer() && itemCrafter.getPlayer4Health() < 1)
+		{
+			
+		}
 		if (FusedPlayer.getFusionType() == fusion.getAttackTank() || FusedPlayer.getFusionType() == fusion.getAttackMage() || FusedPlayer.getFusionType() == fusion.getAttackCrafter())
 		{
 		}
@@ -19298,6 +19303,20 @@ public class GoBrolyGoGo {
 		}
 		if (brolyAction == 3)
 		{
+			if (superSaiyan.getBrolyChargeNumber() > 2)
+			{
+				JOptionPane.showMessageDialog(null, superSaiyan +
+						" used " + superSaiyan.getSUPER_SAIYAN_SKILL());
+				System.out.println(superSaiyan +
+						" used " + superSaiyan.getSUPER_SAIYAN_SKILL());
+				superSaiyan.activateOmegaBlaster();
+			}
+			else
+			{
+				brolyAction = superSaiyan.getBrolyActionFailure2();
+			}
+		if (brolyAction == 2)
+		{
 			if (superSaiyan.getBrolyChargeNumber() > 1)
 			{
 				
@@ -19420,23 +19439,9 @@ public class GoBrolyGoGo {
 				}
 				else
 				{
-					brolyAction = superSaiyan.getBrolyActionFailure2();
+					brolyAction = superSaiyan.getBrolyActionFailure3();
 				}
 		}
-		if (brolyAction == 2)
-		{
-			if (superSaiyan.getBrolyChargeNumber() > 0)
-			{
-				JOptionPane.showMessageDialog(null, superSaiyan +
-						" used " + superSaiyan.getSUPER_SAIYAN_SKILL());
-				System.out.println(superSaiyan +
-						" used " + superSaiyan.getSUPER_SAIYAN_SKILL());
-				superSaiyan.activateOmegaBlaster();
-			}
-			else
-			{
-				brolyAction = superSaiyan.getBrolyActionFailure3();
-			}
 		}
 		if (brolyAction == 1)
 		{
@@ -22407,6 +22412,21 @@ public class GoBrolyGoGo {
 		}
 		if (brolyAction == 3)
 		{
+			if (fullPower.getBrolyChargeNumber() >= 5)
+			{
+				JOptionPane.showMessageDialog(null, fullPower +
+						" used " + fullPower.getFULL_POWER_SKILL());
+				System.out.println(fullPower +
+						" used " + fullPower.getFULL_POWER_SKILL());
+				fullPower.activateOmegaBlasterFullPower();
+			}
+			else
+			{
+				brolyAction = fullPower.getBrolyActionFailure2();
+			}
+		}
+		if (brolyAction == 2)
+		{
 			if (fullPower.getBrolyChargeNumber() >= 3)
 			{
 				JOptionPane.showMessageDialog(null, fullPower + " used "
@@ -22546,21 +22566,6 @@ public class GoBrolyGoGo {
 						validChoice = true;
 					}
 				} while (!(validChoice));
-			}
-			else
-			{
-				brolyAction = fullPower.getBrolyActionFailure2();
-			}
-		}
-		if (brolyAction == 2)
-		{
-			if (fullPower.getBrolyChargeNumber() >= 2)
-			{
-				JOptionPane.showMessageDialog(null, fullPower +
-						" used " + fullPower.getFULL_POWER_SKILL());
-				System.out.println(fullPower +
-						" used " + fullPower.getFULL_POWER_SKILL());
-				fullPower.activateOmegaBlasterFullPower();
 			}
 			else
 			{

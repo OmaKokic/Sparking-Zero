@@ -265,8 +265,6 @@ public class UltimateAttackerClass extends AttackerClass{
 		{
 			super.setPlayer1Health(MAX_HEALTH);;
 		}
-		JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + " healed " + heal + " health");
-		System.out.println(super.getUltimateTag() + super.toString() + " healed " + heal + " health");
 	}
 	
 	@Override
@@ -286,6 +284,7 @@ public class UltimateAttackerClass extends AttackerClass{
 				if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer1Ki(0);
+					super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -310,6 +309,7 @@ public class UltimateAttackerClass extends AttackerClass{
 				if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer1Ki(0);
+					super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -334,6 +334,7 @@ public class UltimateAttackerClass extends AttackerClass{
 				if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer1Ki(0);
+					super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -376,6 +377,7 @@ public class UltimateAttackerClass extends AttackerClass{
 			if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer1Ki(0);
+				super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -388,6 +390,7 @@ public class UltimateAttackerClass extends AttackerClass{
 			if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer1Ki(0);
+				super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -400,6 +403,7 @@ public class UltimateAttackerClass extends AttackerClass{
 			if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer1Ki(0);
+				super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -412,6 +416,7 @@ public class UltimateAttackerClass extends AttackerClass{
 			if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer1Ki(0);
+				super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -424,6 +429,7 @@ public class UltimateAttackerClass extends AttackerClass{
 			if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer1Ki(0);
+				super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -436,6 +442,7 @@ public class UltimateAttackerClass extends AttackerClass{
 			if (super.getPlayer1ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer1Ki(0);
+				super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{

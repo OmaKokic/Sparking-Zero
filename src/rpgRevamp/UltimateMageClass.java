@@ -47,8 +47,6 @@ public class UltimateMageClass extends MageClass{
 		{
 			super.setPlayer3Health(MAX_HEALTH);;
 		}
-		JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + " healed " + heal + " health");
-		System.out.println(super.getUltimateTag() + super.toString() + " healed " + heal + " health");
 	}
 	
 	@Override
@@ -68,6 +66,7 @@ public class UltimateMageClass extends MageClass{
 				if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer3Ki(0);
+					super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -92,6 +91,7 @@ public class UltimateMageClass extends MageClass{
 				if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer3Ki(0);
+					super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -116,6 +116,7 @@ public class UltimateMageClass extends MageClass{
 				if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer3Ki(0);
+					super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -160,6 +161,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -172,6 +174,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -184,6 +187,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -196,6 +200,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -208,6 +213,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -220,6 +226,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -258,6 +265,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -270,6 +278,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -282,6 +291,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -294,6 +304,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -306,6 +317,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -318,6 +330,7 @@ public class UltimateMageClass extends MageClass{
 			if (super.getPlayer3ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer3Ki(0);
+				super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{

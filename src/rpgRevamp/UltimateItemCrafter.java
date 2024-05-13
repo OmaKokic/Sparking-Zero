@@ -49,8 +49,6 @@ public class UltimateItemCrafter extends ItemCrafter{
 		{
 			super.setPlayer4Health(MAX_HEALTH);
 		}
-		JOptionPane.showMessageDialog(null, super.getUltimateTag() + super.toString() + " healed " + heal + " health");
-		System.out.println(super.getUltimateTag() + super.toString() + " healed " + heal + " health");
 	}
 	
 	@Override
@@ -70,6 +68,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 				if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer4Ki(0);
+					super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -94,6 +93,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 				if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer4Ki(0);
+					super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -118,6 +118,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 				if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 				{
 					super.setPlayer4Ki(0);
+					super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 				}
 				else 
 				{
@@ -160,6 +161,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -172,6 +174,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -184,6 +187,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -196,6 +200,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -208,6 +213,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -220,6 +226,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -257,6 +264,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -269,6 +277,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -281,6 +290,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -293,6 +303,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -305,6 +316,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
@@ -317,6 +329,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 			if (super.getPlayer4ChargeNumber() == MAX_CHARGE_NUMBER)
 			{
 				super.setPlayer4Ki(0);
+				super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			}
 			else
 			{
