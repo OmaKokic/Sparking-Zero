@@ -39,6 +39,7 @@ public class ItemCrafter {
 	private static boolean craftersIntuition = false;
 	private static int heldHealth = 0;
 	private static int craftingProgress = 0;
+	private static int revivalTimer = 30;
 	
 	/**
 	 * This method sets player 4's name
@@ -1464,4 +1465,23 @@ public class ItemCrafter {
 	public static int getCraftingProgressUltimate() {
 		return craftingProgress * 2;
 	}
+	
+	public void reviveItemCrafter() {
+		revivalTimer--;
+		if (revivalTimer == 0)
+		{
+			revive();
+			revivalTimer = 30;
+		}
+	}
+	
+	public static void resetRevivalTimer() {
+		revivalTimer = 30;
+	}
+	
+	public static int getRevivalTimer() {
+		return revivalTimer;
+	}
+	
+	
 }

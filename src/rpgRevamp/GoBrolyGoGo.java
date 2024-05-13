@@ -329,6 +329,11 @@ public class GoBrolyGoGo {
 						"/" + ultimateItemCrafter.getMAX_HEALTH() + "\nKi: " + itemCrafter.getPlayer4ChargeNumber() + " (" + itemCrafter.getPlayer4Ki() 
 						+ ")\nMomentum: " + itemCrafter.getPlayer4Momentum());
 			}
+			else if (comeBack.isOnePlayer() && itemCrafter.getPlayer4Health() < 1)
+			{
+				JOptionPane.showMessageDialog(null, ItemCrafter.getUltimateTag() + itemCrafter + " will revive in " + ItemCrafter.getRevivalTimer() + " turns");
+				System.out.println(ItemCrafter.getUltimateTag() + itemCrafter + " will revive in " + ItemCrafter.getRevivalTimer() + " turns");
+			}
 			else
 			{
 				JOptionPane.showMessageDialog(null, ItemCrafter.getUltimateTag() + itemCrafter + " Hp: " + itemCrafter.getPlayer4Health() + 
@@ -396,7 +401,11 @@ public class GoBrolyGoGo {
 		} while (!((endTurn.equalsIgnoreCase("yes"))) &&(!(endTurn.equalsIgnoreCase("y"))));
 		if (comeBack.isOnePlayer() && itemCrafter.getPlayer4Health() < 1)
 		{
-			
+			itemCrafter.reviveItemCrafter();
+		}
+		else
+		{
+			ItemCrafter.resetRevivalTimer();
 		}
 		if (FusedPlayer.getFusionType() == fusion.getAttackTank() || FusedPlayer.getFusionType() == fusion.getAttackMage() || FusedPlayer.getFusionType() == fusion.getAttackCrafter())
 		{
