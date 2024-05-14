@@ -399,7 +399,7 @@ public class GoBrolyGoGo {
 				endTurn = "no";
 			}
 		} while (!((endTurn.equalsIgnoreCase("yes"))) &&(!(endTurn.equalsIgnoreCase("y"))));
-		if (comeBack.isOnePlayer() && itemCrafter.getPlayer4Health() < 1)
+		if (comeBack.isOnePlayer() && itemCrafter.getPlayer4Health() < 1 && !FusedPlayer.isFused())
 		{
 			itemCrafter.reviveItemCrafter();
 		}
