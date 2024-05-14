@@ -153,7 +153,7 @@ public class UltimateTankClass extends TankClass{
 		}
 		if (super.getPlayer2Ki() > 699)
 		{
-			super.setPlayer2ChargeNumber(7);
+			super.setPlayer2ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer2Ki(0);
 		}
 		else if (super.getPlayer2Ki() > 599)
@@ -256,7 +256,7 @@ public class UltimateTankClass extends TankClass{
 		super.addKiUltimateHighSpirit(addedKi);
 		if (super.getPlayer2Ki() > 699)
 		{
-			super.setPlayer2ChargeNumber(7);
+			super.setPlayer2ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer2Ki(0);
 		}
 		else if (super.getPlayer2Ki() > 599)

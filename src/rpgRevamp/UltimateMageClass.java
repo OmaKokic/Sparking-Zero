@@ -153,7 +153,7 @@ public class UltimateMageClass extends MageClass{
 		}
 		if (super.getPlayer3Ki() > 699)
 		{
-			super.setPlayer3ChargeNumber(7);
+			super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer3Ki(0);
 		}
 		else if (super.getPlayer3Ki() > 599)
@@ -257,7 +257,7 @@ public class UltimateMageClass extends MageClass{
 		super.addKiUltimateHighSpirit(addedKi);
 		if (super.getPlayer3Ki() > 699)
 		{
-			super.setPlayer3ChargeNumber(7);
+			super.setPlayer3ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer3Ki(0);
 		}
 		else if (super.getPlayer3Ki() > 599)

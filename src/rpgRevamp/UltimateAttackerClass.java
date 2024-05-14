@@ -369,7 +369,7 @@ public class UltimateAttackerClass extends AttackerClass{
 		}
 		if (super.getPlayer1Ki() > 699)
 		{
-			super.setPlayer1ChargeNumber(7);
+			super.setPlayer1ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer1Ki(0);
 		}
 		else if (super.getPlayer1Ki() > 599)

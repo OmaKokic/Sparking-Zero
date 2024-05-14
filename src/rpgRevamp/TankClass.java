@@ -780,6 +780,7 @@ public class TankClass {
 			hyperChargeDuration = 0;
 			staticMomentumDuration = 0;
 			player2Health = 0;
+			damageTaken = 0;
 		}
 		TankClass.damageTaken += damageTaken;
 		return damageTaken;

@@ -153,7 +153,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		if (super.getPlayer4Ki() > 699)
 		{
-			super.setPlayer4ChargeNumber(7);
+			super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer4Ki(0);
 		}
 		else if (super.getPlayer4Ki() > 599)
@@ -256,7 +256,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		super.addKiUltimateHighSpirit(addedKi);
 		if (super.getPlayer4Ki() > 699)
 		{
-			super.setPlayer4ChargeNumber(7);
+			super.setPlayer4ChargeNumber(MAX_CHARGE_NUMBER);
 			super.setPlayer4Ki(0);
 		}
 		else if (super.getPlayer4Ki() > 599)
