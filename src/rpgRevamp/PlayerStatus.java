@@ -51,7 +51,14 @@ public class PlayerStatus {
 			{
 				if (player3.getPlayer3Health() < 1)
 				{
-					return true;
+					if (player4.getPlayer4Health() < 1)
+					{
+						return false;
+					}
+					else
+					{
+						return true;
+					}
 				}
 				else if (player4.getPlayer4Health() < 1)
 				{

@@ -117,7 +117,7 @@ public class FusedPlayer {
 	}
 	
 	public static void setMinimumAttack(int minAttack1, int minAttack2) {
-		minimumAttack = (minAttack1 + minAttack2) * potaraBuff;
+		minimumAttack = (minAttack1 + minAttack2) * 7 * potaraBuff;
 	}
 	
 	public static void setFusionType(int fusionType) {

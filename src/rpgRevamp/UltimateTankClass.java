@@ -10,7 +10,7 @@ public class UltimateTankClass extends TankClass{
 	private final String SKILL2 = "Excess Genki Transfer";
 	private final int MAX_HEALTH = 20000;
 	private int playerDamage;
-	private final int PLAYERMINATTACK = 1250;
+	private final int PLAYERMINATTACK = 8750;
 	private final String MOMENTUM_SKILL = "Ultimate Genki Shield";
 	private static int ultimateGenkiShieldDuration = 0;
 	private final int ULTIMATE_GENKI_SHIELD_HEAL = 12000;

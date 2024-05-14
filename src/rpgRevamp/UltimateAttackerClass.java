@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
 public class UltimateAttackerClass extends AttackerClass{
 	private final String SKILL1 = "Limit Breaking Strike";
 	private final String SKILL2 = "Max Spirit";
-	private final int PLAYERMINATTACK = 5000;
-	private final int LIMIT_BREAKING_STRIKE_MIN_DAMAGE = 7500;
+	private final int PLAYERMINATTACK = 12500;
+	private final int LIMIT_BREAKING_STRIKE_MIN_DAMAGE = 25000;
 	private final int MAX_HEALTH = 10000;
 	private final String MOMENTUM_SKILL = "Max Spirit Strike";
 	private final int MAX_SPIRIT_STRIKE_KI_GAIN = 200;
