@@ -19324,11 +19324,11 @@ public class GoBrolyGoGo {
 			{
 				brolyAction = superSaiyan.getBrolyActionFailure2();
 			}
+		}
 		if (brolyAction == 2)
 		{
 			if (superSaiyan.getBrolyChargeNumber() > 1)
 			{
-				
 				JOptionPane.showMessageDialog(null, superSaiyan + " used "
 						+ superSaiyan.getSUPER_SAIYAN_SUPER());
 				System.out.println(superSaiyan + " used "
@@ -19445,12 +19445,11 @@ public class GoBrolyGoGo {
 						}
 					}
 				} while (!(validChoice));
-				}
-				else
-				{
-					brolyAction = superSaiyan.getBrolyActionFailure3();
-				}
-		}
+			}
+			else
+			{
+				brolyAction = superSaiyan.getBrolyActionFailure3();
+			}
 		}
 		if (brolyAction == 1)
 		{
