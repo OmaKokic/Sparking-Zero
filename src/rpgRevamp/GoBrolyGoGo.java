@@ -1621,7 +1621,7 @@ public class GoBrolyGoGo {
 		if (mageS.isUltimate())
 		{
 			mageSkill = JOptionPane.showInputDialog("Skills\n" + ultimateMageS.getSkill1() + " - Build up Ki if Broly has more. If Broly has less, grant an"
-					+ " ally defense up - 100 Ki\n" + mageS.getSkill2() + " - Build a"
+					+ " ally defense up - 100 Ki\n" + ultimateMageS.getSkill2() + " - Build a"
 					+ " ally's momentum based on two times Ki gained (" + mageS.getKiGained() / 20 + ") - 500 Ki");
 			if (mageSkill == null)
 			{
@@ -22420,7 +22420,7 @@ public class GoBrolyGoGo {
 		}
 		if (brolyAction == 3)
 		{
-			if (fullPower.getBrolyChargeNumber() >= 5)
+			if (fullPower.getBrolyChargeNumber() >= 4)
 			{
 				JOptionPane.showMessageDialog(null, fullPower +
 						" used " + fullPower.getFULL_POWER_SKILL());

@@ -75,20 +75,20 @@ public class FusedPlayer {
 	private static final String TANK_CRAFTER_MOMENTUM_SKILL_DESCRIPTION = "Block the next attack, progress one stage on all items, and craft a senzu";
 	private static final String MAGE_CRAFTER_MOMENTUM_SKILL = "Prep Time";
 	private static final String MAGE_CRAFTER_MOMENTUM_SKILL_DESCRIPTION = "Give all allies attack up, progress one stage on all items, and craft a senzu";
-	private final int ENERGY_STEAL_MIN_ATTACK = 5000;
+	private final int ENERGY_STEAL_MIN_ATTACK = 35000;
 	private static int largeHealProgress = 0;
 	private static int attackUpProgress = 0;
 	private static int defenseUpProgress = 0;
 	private static int hyperChargeProgress = 0;
 	private static int staticMomentumProgress = 0;
 	private static boolean momentumSkillActive = false;
-	private final int CRAFTERS_STRENGTH_MIN_DAMAGE = 4444;
+	private final int CRAFTERS_STRENGTH_MIN_DAMAGE = 30000;
 	private static int damageTaken;
 	private static int damageDealt;
 	private static int kiGained;
 	private final int HIGH_SPIRIT_GENKI_SHIELD_HEAL = 6000;
 	private final int HIGH_SPIRIT_GENKI_SHIELD_KI = 150;
-	private final int CORDINATED_ATTACK_MIN_DAMAGE = 10714;
+	private final int CORDINATED_ATTACK_MIN_DAMAGE = 52500;
 	private final int HIGH_SPEED_RUSH_MIN_DAMAGE = 9522;
 	private final int MASTERY_OF_OFFENSE_AND_DEFENSE_HEAL = 4000;
 	private static boolean protectionSkill;
@@ -1274,11 +1274,11 @@ public class FusedPlayer {
 	public int getEnergyStealDamage() {
 		if (attackUpDuration > 0)
 		{
-			return (rng.nextInt(ENERGY_STEAL_MIN_ATTACK) + ENERGY_STEAL_MIN_ATTACK) * ATTACK_UP * potaraBuff; 
+			return (rng.nextInt(17500) + ENERGY_STEAL_MIN_ATTACK) * ATTACK_UP * potaraBuff; 
 		}
 		else
 		{
-			return rng.nextInt(ENERGY_STEAL_MIN_ATTACK) + ENERGY_STEAL_MIN_ATTACK * potaraBuff;
+			return rng.nextInt(17500) + ENERGY_STEAL_MIN_ATTACK * potaraBuff;
 		}
 	}
 	
@@ -1782,11 +1782,11 @@ public class FusedPlayer {
 	public int getCraftersStrengthDamage() {
 		if (attackUpDuration > 0)
 		{
-			return (rng.nextInt(CRAFTERS_STRENGTH_MIN_DAMAGE) + CRAFTERS_STRENGTH_MIN_DAMAGE) * ATTACK_UP * potaraBuff;
+			return (rng.nextInt(5000) + CRAFTERS_STRENGTH_MIN_DAMAGE) * ATTACK_UP * potaraBuff;
 		}
 		else
 		{
-			return rng.nextInt(CRAFTERS_STRENGTH_MIN_DAMAGE) + CRAFTERS_STRENGTH_MIN_DAMAGE * potaraBuff;
+			return rng.nextInt(5000) + CRAFTERS_STRENGTH_MIN_DAMAGE * potaraBuff;
 		}
 	}
 
@@ -1884,11 +1884,11 @@ public class FusedPlayer {
 	public int getCordinatedAttack() {
 		if (attackUpDuration > 0)
 		{
-			return (rng.nextInt(CORDINATED_ATTACK_MIN_DAMAGE) + CORDINATED_ATTACK_MIN_DAMAGE) * ATTACK_UP * potaraBuff;
+			return (rng.nextInt(17500) + CORDINATED_ATTACK_MIN_DAMAGE) * ATTACK_UP * potaraBuff;
 		}
 		else
 		{
-			return rng.nextInt(CORDINATED_ATTACK_MIN_DAMAGE) + CORDINATED_ATTACK_MIN_DAMAGE * potaraBuff;
+			return rng.nextInt(17500) + CORDINATED_ATTACK_MIN_DAMAGE * potaraBuff;
 		}
 	}
 	

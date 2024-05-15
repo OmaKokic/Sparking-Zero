@@ -819,7 +819,7 @@ public class Broly {
 	}
 	
 	public void activateOmegaBlasterFullPower() {
-		bossChargeNumber -= 5;
+		bossChargeNumber -= 4;
 		omegaBlasterHealth = OMEGA_BLASTER_BARRIER_MAX_FULL_POWER;
 	}
 	

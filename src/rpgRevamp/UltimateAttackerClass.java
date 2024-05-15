@@ -12,7 +12,7 @@ public class UltimateAttackerClass extends AttackerClass{
 	private final int MAX_HEALTH = 10000;
 	private final String MOMENTUM_SKILL = "Max Spirit Strike";
 	private final int MAX_SPIRIT_STRIKE_KI_GAIN = 200;
-	private final int MAX_SPIRIT_STRIKE_MIN_DAMAGE = 10000;
+	private final int MAX_SPIRIT_STRIKE_MIN_DAMAGE = 37500;
 	private final int MAX_CHARGE_NUMBER = 5;
 	private int playerDamage;
 	private Random rng = new Random();
@@ -175,6 +175,7 @@ public class UltimateAttackerClass extends AttackerClass{
 							playerConfirmation = "no";
 						}
 			}
+			} 
 			else
 			{
 			playerSupported = JOptionPane.showInputDialog("Who do you want to give Ki to?\n" + TankClass.getUltimateTag() + tankHighSpirit + "\n" + 
@@ -235,7 +236,6 @@ public class UltimateAttackerClass extends AttackerClass{
 			{
 				JOptionPane.showMessageDialog(null, "Error");
 				playerConfirmation = "no";
-			}
 			}
 			}
 		} while (!((playerConfirmation.equalsIgnoreCase("yes"))) && (!(playerConfirmation.equalsIgnoreCase("y"))));
@@ -468,7 +468,7 @@ public class UltimateAttackerClass extends AttackerClass{
 	}
 	
 	public int getMaxSpiritStrikeDamage() {
-		playerDamage = rng.nextInt(2500) + MAX_SPIRIT_STRIKE_MIN_DAMAGE;
+		playerDamage = rng.nextInt(7500) + MAX_SPIRIT_STRIKE_MIN_DAMAGE;
 		return playerDamage;
 	}
 	

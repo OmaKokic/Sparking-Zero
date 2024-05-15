@@ -597,7 +597,7 @@ public class AttackerClass {
 	}
 	
 	public void addMomentum(int addedMomentum) {
-		player1Momentum += addedMomentum / 500;
+		player1Momentum += addedMomentum / 300;
 		if (player1Momentum > 100)
 		{
 			player1Momentum = 100;
