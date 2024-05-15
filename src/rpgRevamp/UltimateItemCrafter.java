@@ -8,7 +8,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 
 	private final String SKILL1 = "Exceptional Crafting";
 	private final String SKILL2 = "Specialized Healing";
-	private final int PLAYERMINATTACK = 10000;
+	private final int PLAYERMINATTACK = 8330;
 	private final int MAX_HEALTH = 16000;
 	private final String MOMENTUM_SKILL = "Knowledge of the Universe";
 	private final int MAX_CHARGE_NUMBER = 5;
@@ -32,12 +32,12 @@ public class UltimateItemCrafter extends ItemCrafter{
 	public int getPlayerAttack() {
 		if (super.getAttackUpDuration() > 0)
 		{
-			playerDamage = rng.nextInt(5000) + PLAYERMINATTACK;
+			playerDamage = rng.nextInt(PLAYERMINATTACK) + PLAYERMINATTACK;
 			playerDamage *= super.getATTACK_UP();
 		}
 		else
 		{
-			playerDamage = rng.nextInt(5000) + PLAYERMINATTACK;
+			playerDamage = rng.nextInt(PLAYERMINATTACK) + PLAYERMINATTACK;
 		}
 		return playerDamage;
 	}

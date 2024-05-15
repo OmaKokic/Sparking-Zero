@@ -10,7 +10,7 @@ public class UltimateTankClass extends TankClass{
 	private final String SKILL2 = "Excess Genki Transfer";
 	private final int MAX_HEALTH = 20000;
 	private int playerDamage;
-	private final int PLAYERMINATTACK = 8750;
+	private final int PLAYERMINATTACK = 5625;
 	private final String MOMENTUM_SKILL = "Ultimate Genki Shield";
 	private static int ultimateGenkiShieldDuration = 0;
 	private final int ULTIMATE_GENKI_SHIELD_HEAL = 12000;
@@ -32,12 +32,12 @@ public class UltimateTankClass extends TankClass{
 	public int getPlayerAttack() {
 		if (super.getAttackUpDuration() > 0)
 		{
-			playerDamage = rng.nextInt(1250) + PLAYERMINATTACK;
+			playerDamage = rng.nextInt(PLAYERMINATTACK) + PLAYERMINATTACK;
 			playerDamage *= super.getATTACK_UP();
 		}
 		else
 		{
-			playerDamage = rng.nextInt(1250) + PLAYERMINATTACK;
+			playerDamage = rng.nextInt(PLAYERMINATTACK) + PLAYERMINATTACK;
 		}
 		return playerDamage;
 	}

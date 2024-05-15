@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 public class Broly {
 	public Broly(int selectedDifficulty) {
 		challengeModeAttackUp = selectedDifficulty;
-		challengeModeDefenseUp = selectedDifficulty;
 		if (selectedDifficulty > 1)
 		{
 			difficultyTag = "God Of Destruction ";
@@ -45,7 +44,6 @@ public class Broly {
 
 	
 	private static int challengeModeAttackUp = 1;
-	private static int challengeModeDefenseUp = 1;
 	private static String difficultyTag = "";
 	private final String PHASE_1_BOSS_NAME = "Broly (Rage)";//The is the name of phrase 1
 	private static int brolyHealth;
@@ -157,7 +155,7 @@ public class Broly {
 	public int reduceBrolyHealth(int playerAttack) {
 		if (blasterMeteorBarrierHealth > 0)
 		{
-			blasterMeteorBarrierHealth -= playerAttack / 5 / challengeModeDefenseUp;
+			blasterMeteorBarrierHealth -= playerAttack / 5;
 			if (blasterMeteorBarrierHealth <= 0)
 			{
 				JOptionPane.showMessageDialog(null, "Broly's barrier was destroyed");
@@ -173,7 +171,7 @@ public class Broly {
 		}
 		else if (omegaBlasterHealth > 0)
 		{
-			omegaBlasterHealth -= playerAttack / 5 / challengeModeDefenseUp;
+			omegaBlasterHealth -= playerAttack / 5;
 			if (omegaBlasterHealth <= 0)
 			{
 				JOptionPane.showMessageDialog(null, "Broly's barrier was destroyed");
@@ -189,7 +187,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth90Percent)
 		{
-			brolyHealth -= playerAttack / challengeModeDefenseUp;
+			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
 			damageTook = playerAttack;
@@ -197,7 +195,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth80Percent)
 		{
-			playerAttack /= 2 / challengeModeDefenseUp;
+			playerAttack /= 2;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -206,7 +204,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth70Percent)
 		{
-			playerAttack /= 3 / challengeModeDefenseUp;
+			playerAttack /= 3;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -215,7 +213,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth60Percent)
 		{
-			playerAttack /= 4 / challengeModeDefenseUp;
+			playerAttack /= 4;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -224,7 +222,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth50Percent)
 		{
-			playerAttack /= 5 / challengeModeDefenseUp;
+			playerAttack /= 5;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -233,7 +231,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth40Percent)
 		{
-			playerAttack /= 6 / challengeModeDefenseUp;
+			playerAttack /= 6;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -242,7 +240,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth30Percent)
 		{
-			playerAttack /= 7 / challengeModeDefenseUp;
+			playerAttack /= 7;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -251,7 +249,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth20Percent)
 		{
-			playerAttack /= 8 / challengeModeDefenseUp;
+			playerAttack /= 8;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -260,7 +258,7 @@ public class Broly {
 		}
 		else if (brolyHealth > brolyHealth10Percent)
 		{
-			playerAttack /= 9 / challengeModeDefenseUp;
+			playerAttack /= 9;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -269,7 +267,7 @@ public class Broly {
 		}
 		else
 		{
-			playerAttack /= 10 / challengeModeDefenseUp;
+			playerAttack /= 10;
 			brolyHealth -= playerAttack;
 			JOptionPane.showMessageDialog(null, "Broly took " + playerAttack + " damage");
 			System.out.println("Broly took " + playerAttack + " damage");
@@ -1225,7 +1223,6 @@ public class Broly {
 	
 	public void difficultySelect(int selectedDifficulty) {
 		challengeModeAttackUp = selectedDifficulty;
-		challengeModeDefenseUp = selectedDifficulty;
 		if (selectedDifficulty > 1)
 		{
 			difficultyTag = "God Of Destruction ";

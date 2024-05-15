@@ -32,12 +32,12 @@ public class UltimateAttackerClass extends AttackerClass{
 	public int getPlayerAttack() {
 		if (super.getAttackUpDuration() > 0)
 		{
-			playerDamage = rng.nextInt(5000) + PLAYERMINATTACK;
+			playerDamage = rng.nextInt(PLAYERMINATTACK) + PLAYERMINATTACK;
 			playerDamage *= super.getATTACK_UP();
 		}
 		else
 		{
-			playerDamage = rng.nextInt(5000) + PLAYERMINATTACK;
+			playerDamage = rng.nextInt(PLAYERMINATTACK) + PLAYERMINATTACK;
 		}
 		return playerDamage;
 	}
