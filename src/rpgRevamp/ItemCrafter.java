@@ -1471,12 +1471,12 @@ public class ItemCrafter {
 		if (revivalTimer == 0)
 		{
 			revive();
-			revivalTimer = 30;
+			revivalTimer = 10;
 		}
 	}
 	
 	public static void resetRevivalTimer() {
-		revivalTimer = 30;
+		revivalTimer = 10;
 	}
 	
 	public static int getRevivalTimer() {
