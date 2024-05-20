@@ -351,7 +351,7 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addLargeHealProgress(increasedProgress);
-		super.addCraftingProgress(increasedProgress);
+		super.addCraftingProgress(increasedProgress * 10);
 		if (super.getLargeHealProgress() >= 200)
 		{
 			craft.increaseLargeHealItemAmount();
@@ -385,8 +385,8 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addAttackUpProgress(increasedProgress);
-		super.addCraftingProgress(increasedProgress);
-		if (super.getLargeHealProgress() >= 200)
+		super.addCraftingProgress(increasedProgress * 10);
+		if (super.getAttackUpProgress() >= 200)
 		{
 			craft.increaseAttackUpAmount();
 			craft.increaseAttackUpAmount();
@@ -418,8 +418,8 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addDefenseUpProgress(increasedProgress);
-		super.addCraftingProgress(increasedProgress);
-		if (super.getLargeHealProgress() >= 200)
+		super.addCraftingProgress(increasedProgress * 10);
+		if (super.getDefenseUpProgress() >= 200)
 		{
 			craft.increaseDefenseUpAmount();
 			craft.increaseDefenseUpAmount();
@@ -451,8 +451,8 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addHyperChargeProgress(increasedProgress);
-		super.addCraftingProgress(increasedProgress);
-		if (super.getLargeHealProgress() >= 200)
+		super.addCraftingProgress(increasedProgress * 10);
+		if (super.getHyperChargeProgress() >= 200)
 		{
 			craft.increaseHyperChargeAmount();
 			craft.increaseHyperChargeAmount();
@@ -484,8 +484,8 @@ public class UltimateItemCrafter extends ItemCrafter{
 		}
 		increasedProgress = rng.nextInt(200) + 1;
 		super.addStaticMomentumProgress(increasedProgress);
-		super.addCraftingProgress(increasedProgress);
-		if (super.getLargeHealProgress() >= 200)
+		super.addCraftingProgress(increasedProgress * 10);
+		if (super.getStaticMomentumProgress() >= 200)
 		{
 			craft.increaseStaticMomentumAmount();
 			craft.increaseStaticMomentumAmount();

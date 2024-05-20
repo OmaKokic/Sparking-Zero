@@ -15793,7 +15793,7 @@ public class GoBrolyGoGo {
 			}
 			else if (mageTurn.equalsIgnoreCase(player2.toString()))
 			{
-				player3.revive();
+				player2.revive();
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			else if (mageTurn.equalsIgnoreCase(player4.toString()))
@@ -17797,7 +17797,7 @@ public class GoBrolyGoGo {
 			}
 			else if (itemCrafterTurn.equalsIgnoreCase(player2.toString()))
 			{
-				player3.revive();
+				player2.revive();
 				usedItem.decreaseSenzuHealItemAmount();
 			}
 			else if (itemCrafterTurn.equalsIgnoreCase(player3.toString()))
