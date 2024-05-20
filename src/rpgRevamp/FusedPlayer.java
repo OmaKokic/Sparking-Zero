@@ -89,7 +89,7 @@ public class FusedPlayer {
 	private final int HIGH_SPIRIT_GENKI_SHIELD_HEAL = 6000;
 	private final int HIGH_SPIRIT_GENKI_SHIELD_KI = 150;
 	private final int CORDINATED_ATTACK_MIN_DAMAGE = 52500;
-	private final int HIGH_SPEED_RUSH_MIN_DAMAGE = 9522;
+	private final int HIGH_SPEED_RUSH_MIN_DAMAGE = 46662;
 	private final int MASTERY_OF_OFFENSE_AND_DEFENSE_HEAL = 4000;
 	private static boolean protectionSkill;
 	private static boolean potaraFusion = false;
@@ -1895,11 +1895,11 @@ public class FusedPlayer {
 	public int getHighSpeedRushAttack() {
 		if (attackUpDuration > 0)
 		{
-			return (rng.nextInt(HIGH_SPEED_RUSH_MIN_DAMAGE) + HIGH_SPEED_RUSH_MIN_DAMAGE) * ATTACK_UP * potaraBuff;
+			return (rng.nextInt(23331) + HIGH_SPEED_RUSH_MIN_DAMAGE) * ATTACK_UP * potaraBuff;
 		}
 		else
 		{
-			return rng.nextInt(HIGH_SPEED_RUSH_MIN_DAMAGE) + HIGH_SPEED_RUSH_MIN_DAMAGE * potaraBuff;
+			return rng.nextInt(23331) + HIGH_SPEED_RUSH_MIN_DAMAGE * potaraBuff;
 		}
 	}
 
